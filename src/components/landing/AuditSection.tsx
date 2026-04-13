@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Globe, Share2, Search, CalendarCheck, MessageCircle, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
-const items = [
-  { icon: Globe, text: "Revisión de sitio web" },
-  { icon: Share2, text: "Presencia en redes sociales" },
-  { icon: Search, text: "Visibilidad en Google" },
-  { icon: CalendarCheck, text: "Sistema de reservas" },
-  { icon: MessageCircle, text: "Comunicación con clientes" },
+const checklist = [
+  "Dónde estás perdiendo clientes ahora mismo",
+  "Qué está fallando en tu atención y respuesta",
+  "Cómo mejorar tu captación sin trabajar más",
+  "Qué puedes automatizar desde ya",
+  "Oportunidades concretas de crecimiento",
 ];
 
 const AuditSection = () => {
@@ -26,24 +26,28 @@ const AuditSection = () => {
             <CheckCircle className="h-4 w-4" /> 100% Gratis — Sin compromiso
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Auditoría gratuita de presencia<br />digital y captación de clientes
+            Descubre por qué estás perdiendo clientes (aunque no lo veas)
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            Descubre exactamente dónde tu negocio está perdiendo leads e ingresos. Analizamos toda tu presencia digital y te damos un plan de acción claro.
+          <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-lg leading-relaxed">
+            La mayoría de negocios ya están perdiendo oportunidades cada día sin darse cuenta.
+            En esta auditoría analizamos tu presencia digital y tu sistema de atención para detectar exactamente dónde se están escapando esos clientes.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 text-left max-w-md mx-auto">
-            {items.map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2 text-sm text-foreground">
-                <Icon className="h-4 w-4 text-accent shrink-0" />
-                {text}
+          <div className="flex flex-col gap-3 mb-8 text-left max-w-md mx-auto">
+            {checklist.map((item) => (
+              <div key={item} className="flex items-start gap-3 text-sm text-foreground">
+                <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                {item}
               </div>
             ))}
           </div>
 
           <Button variant="hero" size="lg" className="px-10 py-6" onClick={scrollToAudit}>
-            Solicita tu auditoría gratis
+            Solicita tu auditoría gratuita
           </Button>
+          <p className="text-xs text-muted-foreground mt-3">
+            Sin compromiso. Te llevas un diagnóstico claro y accionable.
+          </p>
         </motion.div>
       </div>
     </section>
