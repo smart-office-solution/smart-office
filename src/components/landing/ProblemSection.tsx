@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Clock, MessageSquareX, CalendarX, UserX } from "lucide-react";
 
 const problems = [
-  { icon: Clock, title: "Slow replies cost you clients", desc: "By the time you respond, they've already booked with someone else. Speed wins." },
-  { icon: MessageSquareX, title: "Messages everywhere, control nowhere", desc: "WhatsApp, Instagram, email, website — keeping up is exhausting and things slip through the cracks." },
-  { icon: CalendarX, title: "No time to manage bookings", desc: "Between doing the actual work and handling admin, scheduling becomes chaos." },
-  { icon: UserX, title: "Your business can't run without you", desc: "If you stop answering, everything stops. That's not a business — it's a trap." },
+  { icon: Clock, title: "Las respuestas lentas te cuestan clientes", desc: "Para cuando respondes, ya reservaron con otro. La velocidad gana." },
+  { icon: MessageSquareX, title: "Mensajes por todos lados, control en ninguno", desc: "WhatsApp, Instagram, email, web — mantenerte al día es agotador y se te escapan cosas." },
+  { icon: CalendarX, title: "No tienes tiempo para gestionar citas", desc: "Entre hacer el trabajo y la administración, agendar se vuelve un caos." },
+  { icon: UserX, title: "Tu negocio no funciona sin ti", desc: "Si dejas de responder, todo se detiene. Eso no es un negocio — es una trampa." },
 ];
 
 const ProblemSection = () => (
@@ -17,12 +17,12 @@ const ProblemSection = () => (
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Sound familiar?</p>
+        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">¿Te suena familiar?</p>
         <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-          You're working harder than ever — and still losing clients
+          Trabajas más que nunca — y sigues perdiendo clientes
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-          These are the silent revenue killers that most small businesses don't even realize they have.
+          Estos son los asesinos silenciosos de ingresos que la mayoría de los pequeños negocios ni siquiera saben que tienen.
         </p>
       </motion.div>
 

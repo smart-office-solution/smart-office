@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { Globe, MessageSquare, UserCheck, CalendarPlus, Clock4, Share2 } from "lucide-react";
 
 const features = [
-  { icon: Globe, title: "Multi-channel replies", desc: "Website, WhatsApp, Instagram, Facebook — all handled in one place." },
-  { icon: UserCheck, title: "Lead qualification", desc: "Automatically filters serious prospects from casual inquiries." },
-  { icon: CalendarPlus, title: "Appointment booking", desc: "Clients book directly from the conversation. No phone tag." },
-  { icon: Clock4, title: "24/7 availability", desc: "Works nights, weekends, and holidays. Never misses an opportunity." },
-  { icon: MessageSquare, title: "Smart conversations", desc: "Natural, personalized responses that feel human — not robotic." },
-  { icon: Share2, title: "Seamless integrations", desc: "Connects with your existing tools, calendar, and CRM." },
+  { icon: Globe, title: "Respuestas multicanal", desc: "Web, WhatsApp, Instagram, Facebook — todo gestionado en un solo lugar." },
+  { icon: UserCheck, title: "Calificación de leads", desc: "Filtra automáticamente prospectos serios de consultas casuales." },
+  { icon: CalendarPlus, title: "Agendamiento de citas", desc: "Los clientes reservan directamente desde la conversación. Sin llamadas de ida y vuelta." },
+  { icon: Clock4, title: "Disponibilidad 24/7", desc: "Funciona de noche, fines de semana y festivos. Nunca pierde una oportunidad." },
+  { icon: MessageSquare, title: "Conversaciones inteligentes", desc: "Respuestas naturales y personalizadas que se sienten humanas — no robóticas." },
+  { icon: Share2, title: "Integraciones perfectas", desc: "Se conecta con tus herramientas, calendario y CRM existentes." },
 ];
 
 const FeaturesSection = () => (
@@ -19,9 +19,9 @@ const FeaturesSection = () => (
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">AI Receptionist</p>
+        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Recepcionista IA</p>
         <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-          Everything you need to never miss a client again
+          Todo lo que necesitas para no perder nunca más un cliente
         </h2>
       </motion.div>
 

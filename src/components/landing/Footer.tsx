@@ -8,7 +8,7 @@ const Footer = () => (
         Smart Office
       </div>
       <p className="text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Smart Office. All rights reserved.
+        © {new Date().getFullYear()} Smart Office. Todos los derechos reservados.
       </p>
     </div>
   </footer>

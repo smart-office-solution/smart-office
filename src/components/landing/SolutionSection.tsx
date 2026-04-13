@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { MessageCircle, Clock, CalendarCheck, Sparkles } from "lucide-react";
 
 const solutions = [
-  { icon: MessageCircle, title: "Automates customer communication", desc: "Every message gets a professional, instant reply — no matter the channel." },
-  { icon: Clock, title: "Responds instantly, 24/7", desc: "Your AI receptionist never sleeps, never takes a break, and never misses a lead." },
-  { icon: CalendarCheck, title: "Organizes & manages appointments", desc: "Bookings are handled automatically. No double-bookings, no back-and-forth." },
-  { icon: Sparkles, title: "Improves customer experience", desc: "Clients feel heard and valued from the very first interaction." },
+  { icon: MessageCircle, title: "Automatiza la comunicación con clientes", desc: "Cada mensaje recibe una respuesta profesional e instantánea — sin importar el canal." },
+  { icon: Clock, title: "Responde al instante, 24/7", desc: "Tu recepcionista IA nunca duerme, nunca descansa y nunca pierde un lead." },
+  { icon: CalendarCheck, title: "Organiza y gestiona citas", desc: "Las reservas se manejan automáticamente. Sin duplicados, sin idas y vueltas." },
+  { icon: Sparkles, title: "Mejora la experiencia del cliente", desc: "Los clientes se sienten escuchados y valorados desde la primera interacción." },
 ];
 
 const SolutionSection = () => (
@@ -17,12 +17,12 @@ const SolutionSection = () => (
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">The solution</p>
+        <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">La solución</p>
         <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-          Meet Smart Office — your AI-powered business partner
+          Conoce Smart Office — tu socio de negocio con IA
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-          Stop chasing messages and start growing your business. Smart Office handles the communication so you can focus on what you do best.
+          Deja de perseguir mensajes y empieza a hacer crecer tu negocio. Smart Office se encarga de la comunicación para que tú te enfoques en lo que mejor haces.
         </p>
       </motion.div>
 
