@@ -120,26 +120,6 @@ const AuditForm = () => {
     navigate("/gracias");
   };
 
-  if (submitted) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-12"
-      >
-        <div className="h-16 w-16 rounded-full bg-accent/15 flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="h-8 w-8 text-accent" />
-        </div>
-        <h3 className="text-2xl font-display font-bold text-foreground mb-3">
-          ¡Solicitud recibida!
-        </h3>
-        <p className="text-muted-foreground max-w-md mx-auto">
-          Hemos recibido tu información. Te responderemos con un diagnóstico claro y accionable en las próximas 24–48 horas.
-        </p>
-      </motion.div>
-    );
-  }
-
   return (
     <div>
       {/* Progress */}
