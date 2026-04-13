@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { TrendingUp, Heart, FolderCheck, Award } from "lucide-react";
 
 const benefits = [
-  { icon: TrendingUp, title: "More clients, without working more", desc: "Automation captures and converts leads even while you're off the clock." },
-  { icon: Heart, title: "More time, less stress", desc: "Reclaim your evenings and weekends. Let the AI handle the noise." },
-  { icon: FolderCheck, title: "An organized business", desc: "Everything in one place — messages, bookings, client data. Finally." },
-  { icon: Award, title: "Professional customer experience", desc: "Every client gets VIP treatment from the very first touchpoint." },
+  { icon: TrendingUp, title: "Más clientes, sin trabajar más", desc: "La automatización captura y convierte leads incluso mientras descansas." },
+  { icon: Heart, title: "Más tiempo, menos estrés", desc: "Recupera tus tardes y fines de semana. Deja que la IA se encargue del ruido." },
+  { icon: FolderCheck, title: "Un negocio organizado", desc: "Todo en un solo lugar — mensajes, reservas, datos de clientes. Por fin." },
+  { icon: Award, title: "Experiencia profesional para el cliente", desc: "Cada cliente recibe un trato VIP desde el primer contacto." },
 ];
 
 const BenefitsSection = () => (
@@ -17,9 +17,9 @@ const BenefitsSection = () => (
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">The transformation</p>
+        <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">La transformación</p>
         <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-          What changes when Smart Office works for you
+          Lo que cambia cuando Smart Office trabaja para ti
         </h2>
       </motion.div>
 

@@ -20,18 +20,18 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-8">
           {[
-            ["Problem", "problem"],
-            ["Solution", "solution"],
-            ["Features", "features"],
-            ["Benefits", "benefits"],
-            ["Audit", "audit"],
+            ["Problema", "problem"],
+            ["Solución", "solution"],
+            ["Funciones", "features"],
+            ["Beneficios", "benefits"],
+            ["Auditoría", "audit"],
           ].map(([label, id]) => (
             <button key={id} onClick={() => scrollTo(id)} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               {label}
             </button>
           ))}
           <Button variant="hero" size="lg" onClick={() => scrollTo("audit")}>
-            Request your free audit
+            Solicita tu auditoría gratis
           </Button>
         </div>
 
@@ -43,18 +43,18 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-card border-b border-border px-4 pb-4 flex flex-col gap-3">
           {[
-            ["Problem", "problem"],
-            ["Solution", "solution"],
-            ["Features", "features"],
-            ["Benefits", "benefits"],
-            ["Audit", "audit"],
+            ["Problema", "problem"],
+            ["Solución", "solution"],
+            ["Funciones", "features"],
+            ["Beneficios", "benefits"],
+            ["Auditoría", "audit"],
           ].map(([label, id]) => (
             <button key={id} onClick={() => scrollTo(id)} className="text-left text-sm text-muted-foreground hover:text-foreground py-1">
               {label}
             </button>
           ))}
           <Button variant="hero" onClick={() => scrollTo("audit")}>
-            Request your free audit
+            Solicita tu auditoría gratis
           </Button>
         </div>
       )}

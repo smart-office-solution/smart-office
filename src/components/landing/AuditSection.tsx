@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Globe, Share2, Search, CalendarCheck, MessageCircle, CheckCircle } from "lucide-react";
 
 const items = [
-  { icon: Globe, text: "Website review" },
-  { icon: Share2, text: "Social media presence" },
-  { icon: Search, text: "Google visibility" },
-  { icon: CalendarCheck, text: "Booking system" },
-  { icon: MessageCircle, text: "Customer communication" },
+  { icon: Globe, text: "Revisión de sitio web" },
+  { icon: Share2, text: "Presencia en redes sociales" },
+  { icon: Search, text: "Visibilidad en Google" },
+  { icon: CalendarCheck, text: "Sistema de reservas" },
+  { icon: MessageCircle, text: "Comunicación con clientes" },
 ];
 
 const AuditSection = () => {
@@ -23,13 +23,13 @@ const AuditSection = () => {
           className="max-w-3xl mx-auto bg-card rounded-2xl p-8 md:p-12 shadow-card-hover border border-border text-center"
         >
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-            <CheckCircle className="h-4 w-4" /> 100% Free — No strings attached
+            <CheckCircle className="h-4 w-4" /> 100% Gratis — Sin compromiso
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Free Digital Presence &<br />Customer Acquisition Audit
+            Auditoría gratuita de presencia<br />digital y captación de clientes
           </h2>
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            Discover exactly where your business is leaking leads and revenue. We'll analyze your entire digital presence and give you a clear action plan.
+            Descubre exactamente dónde tu negocio está perdiendo leads e ingresos. Analizamos toda tu presencia digital y te damos un plan de acción claro.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 text-left max-w-md mx-auto">
@@ -42,7 +42,7 @@ const AuditSection = () => {
           </div>
 
           <Button variant="hero" size="lg" className="px-10 py-6" onClick={scrollToAudit}>
-            Request your free audit
+            Solicita tu auditoría gratis
           </Button>
         </motion.div>
       </div>

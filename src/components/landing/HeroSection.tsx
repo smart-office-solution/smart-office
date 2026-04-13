@@ -4,9 +4,9 @@ import { ShieldCheck, BarChart3, Lightbulb } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.jpg";
 
 const trustItems = [
-  { icon: ShieldCheck, text: "No commitment" },
-  { icon: BarChart3, text: "Personalized analysis" },
-  { icon: Lightbulb, text: "Actionable insights" },
+  { icon: ShieldCheck, text: "Sin compromiso" },
+  { icon: BarChart3, text: "Análisis personalizado" },
+  { icon: Lightbulb, text: "Consejos accionables" },
 ];
 
 const HeroSection = () => {
@@ -23,19 +23,19 @@ const HeroSection = () => {
             transition={{ duration: 0.7 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground mb-6">
-              Each unanswered message is a{" "}
-              <span className="text-gradient">lost client</span>
+              Cada mensaje sin responder es un{" "}
+              <span className="text-gradient">cliente perdido</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
-              Handle every inquiry instantly and turn conversations into booked appointments — without extra effort.
+              Responde a cada consulta al instante y convierte conversaciones en citas agendadas — sin esfuerzo extra.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Button variant="hero" size="lg" className="px-8 py-6" onClick={scrollToAudit}>
-                Request your free audit
+                Solicita tu auditoría gratis
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mb-8">
-              Find out where your business is losing clients without realizing it.
+              Descubre dónde tu negocio está perdiendo clientes sin darse cuenta.
             </p>
             <div className="flex flex-wrap gap-6">
               {trustItems.map(({ icon: Icon, text }) => (
@@ -55,7 +55,7 @@ const HeroSection = () => {
           >
             <img
               src={heroImage}
-              alt="Smart Office AI automation dashboard showing chat and calendar"
+              alt="Panel de automatización Smart Office con chat y calendario"
               width={1024}
               height={768}
               className="rounded-2xl shadow-card-hover animate-float"
