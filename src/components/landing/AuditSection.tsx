@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, ArrowRight, ArrowLeft, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 
 const TOTAL_STEPS = 3;
 
@@ -94,8 +94,7 @@ const FieldLabel = ({ children }: { children: React.ReactNode }) => (
 const AuditForm = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(initialFormData);
-  const [submitted, setSubmitted] = useState(false);
-  const { toast } = useToast();
+  const navigate = useNavigate();
 
   const update = (field: keyof FormData, value: string | string[]) =>
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -118,11 +117,7 @@ const AuditForm = () => {
 
   const handleSubmit = () => {
     console.log("Audit form submitted:", formData);
-    setSubmitted(true);
-    toast({
-      title: "¡Solicitud enviada!",
-      description: "Te responderemos con un diagnóstico claro y accionable.",
-    });
+    navigate("/gracias");
   };
 
   if (submitted) {
