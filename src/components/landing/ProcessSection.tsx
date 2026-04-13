@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Send, BarChart3, FileCheck } from "lucide-react";
 
 const steps = [
-  { icon: Send, num: "1", title: "Solicita tu auditoría", desc: "Completa un formulario rápido y cuéntanos sobre tu negocio." },
-  { icon: BarChart3, num: "2", title: "Analizamos todo", desc: "Nuestro equipo revisa tu sitio web, redes sociales, presencia en Google y flujo de comunicación." },
-  { icon: FileCheck, num: "3", title: "Recibe tu plan de mejora", desc: "Recibes un informe claro y accionable con pasos específicos para crecer." },
+  { icon: Send, num: "1", title: "Solicita tu auditoría", desc: "Cuéntanos brevemente sobre tu negocio y cómo gestionas tus clientes." },
+  { icon: BarChart3, num: "2", title: "Analizamos tu situación real", desc: "Detectamos dónde estás perdiendo oportunidades y qué está frenando tu crecimiento." },
+  { icon: FileCheck, num: "3", title: "Recibes un plan claro para mejorar", desc: "Te mostramos exactamente qué cambiar y cómo automatizar tu atención." },
 ];
 
 const ProcessSection = () => (
@@ -16,9 +16,9 @@ const ProcessSection = () => (
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Cómo funciona</p>
+        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">CÓMO FUNCIONA</p>
         <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-          Tres pasos simples hacia un negocio más inteligente
+          En solo 3 pasos empiezas a recuperar clientes
         </h2>
       </motion.div>
 
