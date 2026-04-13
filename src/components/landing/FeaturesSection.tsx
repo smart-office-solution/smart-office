@@ -1,13 +1,37 @@
 import { motion } from "framer-motion";
-import { Globe, MessageSquare, UserCheck, CalendarPlus, Clock4, Share2 } from "lucide-react";
+import { Globe, Filter, CalendarPlus, Clock4, MessageSquare, Share2 } from "lucide-react";
 
 const features = [
-  { icon: Globe, title: "Respuestas multicanal", desc: "Web, WhatsApp, Instagram, Facebook — todo gestionado en un solo lugar." },
-  { icon: UserCheck, title: "Calificación de leads", desc: "Filtra automáticamente prospectos serios de consultas casuales." },
-  { icon: CalendarPlus, title: "Agendamiento de citas", desc: "Los clientes reservan directamente desde la conversación. Sin llamadas de ida y vuelta." },
-  { icon: Clock4, title: "Disponibilidad 24/7", desc: "Funciona de noche, fines de semana y festivos. Nunca pierde una oportunidad." },
-  { icon: MessageSquare, title: "Conversaciones inteligentes", desc: "Respuestas naturales y personalizadas que se sienten humanas — no robóticas." },
-  { icon: Share2, title: "Integraciones perfectas", desc: "Se conecta con tus herramientas, calendario y CRM existentes." },
+  {
+    icon: Globe,
+    title: "Respuestas en todos tus canales, sin esfuerzo",
+    desc: "Web, WhatsApp, Instagram, Facebook…\n\nTodos los mensajes se gestionan en un solo sistema, sin que tú o tu equipo tengáis que estar pendientes.",
+  },
+  {
+    icon: Filter,
+    title: "Filtra clientes y prioriza los que realmente importan",
+    desc: "El sistema identifica automáticamente oportunidades reales y evita que pierdas tiempo en consultas que no convierten.",
+  },
+  {
+    icon: CalendarPlus,
+    title: "Citas que se agendan solas",
+    desc: "Tus clientes reservan directamente desde la conversación.\n\nSin llamadas, sin idas y vueltas, sin interrupciones para tu equipo.",
+  },
+  {
+    icon: Clock4,
+    title: "Tu negocio activo 24/7, sin interrupciones",
+    desc: "Aunque tú o tu equipo no estéis disponibles, el sistema sigue atendiendo, respondiendo y generando oportunidades.",
+  },
+  {
+    icon: MessageSquare,
+    title: "Conversaciones naturales que generan confianza",
+    desc: "Respuestas personalizadas que se sienten humanas, cercanas y profesionales.\n\nTu cliente no siente que habla con un robot.",
+  },
+  {
+    icon: Share2,
+    title: "Se integra con tu forma de trabajar",
+    desc: "Conecta con tu calendario, CRM y herramientas actuales.\n\nSin cambios complicados, sin fricción para tu equipo.",
+  },
 ];
 
 const FeaturesSection = () => (
@@ -19,9 +43,11 @@ const FeaturesSection = () => (
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Recepcionista IA</p>
+        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
+          Recepcionista <span className="text-accent font-bold">24/7</span>
+        </p>
         <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-          Todo lo que necesitas para no perder nunca más un cliente
+          Todo lo que necesitas para no perder oportunidades ni depender de estar disponible
         </h2>
       </motion.div>
 
@@ -38,8 +64,12 @@ const FeaturesSection = () => (
             <div className="h-11 w-11 rounded-lg bg-hero-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
               <Icon className="h-5 w-5 text-primary-foreground" />
             </div>
-            <h3 className="font-display font-semibold text-foreground mb-1">{title}</h3>
-            <p className="text-sm text-muted-foreground">{desc}</p>
+            <h3 className="font-display font-semibold text-foreground mb-3">{title}</h3>
+            {desc.split("\n\n").map((paragraph, idx) => (
+              <p key={idx} className="text-sm text-muted-foreground mb-2 last:mb-0">
+                {paragraph}
+              </p>
+            ))}
           </motion.div>
         ))}
       </div>
