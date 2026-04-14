@@ -1,6 +1,76 @@
 import { motion } from "framer-motion";
-import { CheckCircle, ArrowRight, Zap } from "lucide-react";
+import { Check, ArrowRight, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const plans = [
+  {
+    name: "Starter",
+    price: "Desde 297€",
+    period: "/mes",
+    desc: "Para clínicas que quieren empezar a automatizar sus respuestas.",
+    features: [
+      "Asistente WhatsApp 24/7",
+      "Hasta 500 conversaciones/mes",
+      "Agendado automático básico",
+      "Recordatorios de cita",
+      "Dashboard de métricas",
+      "Soporte por email",
+    ],
+    missing: ["Seguimiento avanzado", "Integración CRM", "Gestor de campañas"],
+    cta: "Empezar ahora",
+    popular: false,
+    gradient: "from-white to-violet-50/30",
+    border: "border-violet-200/60",
+    buttonVariant: "outline" as const,
+    buttonClass: "border-violet-300 text-violet-700 hover:bg-violet-50",
+  },
+  {
+    name: "Pro",
+    price: "Desde 497€",
+    period: "/mes",
+    desc: "Para clínicas que quieren automatizar todo el ciclo del paciente.",
+    features: [
+      "Asistente WhatsApp + Instagram 24/7",
+      "Conversaciones ilimitadas",
+      "Agendado automático avanzado",
+      "Recordatorios inteligentes",
+      "Seguimiento y recuperación",
+      "Integración CRM",
+      "Dashboard avanzado + reportes",
+      "Soporte prioritario",
+    ],
+    missing: ["Gestor de campañas"],
+    cta: "Solicitar auditoría",
+    popular: true,
+    gradient: "from-violet-600 to-violet-800",
+    border: "border-violet-500",
+    buttonVariant: "default" as const,
+    buttonClass: "bg-amber-400 hover:bg-amber-300 text-amber-950 font-bold shadow-lg shadow-amber-400/30",
+  },
+  {
+    name: "Enterprise",
+    price: "A medida",
+    period: "",
+    desc: "Para grupos de clínicas o proyectos que requieren soluciones a medida.",
+    features: [
+      "Todo lo de Pro",
+      "Múltiples sedes/clínicas",
+      "Gestor de campañas de marketing",
+      "Integraciones personalizadas",
+      "IA entrenada con tu protocolo",
+      "Account manager dedicado",
+      "SLA garantizado",
+      "Facturación personalizada",
+    ],
+    missing: [],
+    cta: "Contactar",
+    popular: false,
+    gradient: "from-white to-blue-50/30",
+    border: "border-blue-200/60",
+    buttonVariant: "outline" as const,
+    buttonClass: "border-blue-300 text-blue-700 hover:bg-blue-50",
+  },
+];
 
 const PricingSection = () => {
   const scrollToAudit = () => {
@@ -8,126 +78,109 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-section-gradient">
-      <div className="container mx-auto px-4">
+    <section id="pricing" className="py-20 md:py-28 bg-dark-section relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-600/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/8 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3 px-3 py-1 bg-primary/10 rounded-full">
-            Precios
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-sm font-semibold uppercase tracking-wider mb-6">
+            <Sparkles className="w-3.5 h-3.5" />
+            Planes y precios
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Inversión clara, sin sorpresas
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+            Elige el plan que{" "}
+            <span className="text-amber-400">se adapta a ti</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Sin contratos de permanencia. Sin costes ocultos. Todo incluido desde el primer día.
+          <p className="text-white/60 text-lg max-w-2xl mx-auto">
+            Todos los planes incluyen configuración completa, formación y soporte. Sin permanencia.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-          {/* Instalación */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-card rounded-2xl shadow-card p-8 border border-border"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-primary/10 rounded-xl p-3">
-                <Zap className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg">Instalación</h3>
-                <p className="text-muted-foreground text-sm">Pago único</p>
-              </div>
-            </div>
-            <div className="mb-6">
-              <span className="text-4xl font-bold">997€</span>
-              <span className="text-muted-foreground ml-2">pago único</span>
-              <p className="text-sm text-muted-foreground mt-1">+ IVA si aplica</p>
-            </div>
-            <ul className="space-y-3 text-sm">
-              {[
-                "Configuración completa del sistema IA",
-                "Integración con WhatsApp, Instagram y web",
-                "Conexión con tu calendario y CRM",
-                "Personalización con el tono de tu clínica",
-                "Pruebas y ajustes durante 14 días",
-                "Formación básica para tu equipo",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {plans.map((plan, i) => (
+            <motion.div
+              key={plan.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`relative rounded-3xl overflow-hidden ${plan.popular ? "scale-105 shadow-2xl shadow-violet-500/20" : ""}`}
+            >
+              {plan.popular && (
+                <div className="absolute top-0 inset-x-0 flex justify-center">
+                  <div className="bg-amber-400 text-amber-950 text-xs font-bold px-6 py-1.5 rounded-b-xl flex items-center gap-1.5">
+                    <Star className="w-3 h-3" />
+                    Más elegido
+                  </div>
+                </div>
+              )}
 
-          {/* Mantenimiento */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="bg-primary rounded-2xl shadow-card p-8 border border-primary text-primary-foreground relative overflow-hidden"
-          >
-            <div className="absolute top-4 right-4">
-              <span className="bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full">
-                Recomendado
-              </span>
-            </div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-white/20 rounded-xl p-3">
-                <Zap className="h-6 w-6 text-white" />
+              <div className={`bg-gradient-to-b ${plan.gradient} border ${plan.border} rounded-3xl p-7 h-full flex flex-col ${plan.popular ? "pt-10" : ""}`}>
+                <div className="mb-6">
+                  <h3 className={`font-display font-bold text-xl mb-1 ${plan.popular ? "text-white" : "text-foreground"}`}>
+                    {plan.name}
+                  </h3>
+                  <p className={`text-sm mb-4 ${plan.popular ? "text-white/60" : "text-muted-foreground"}`}>{plan.desc}</p>
+                  <div className="flex items-baseline gap-1">
+                    <span className={`text-3xl font-display font-black ${plan.popular ? "text-white" : "text-foreground"}`}>
+                      {plan.price}
+                    </span>
+                    {plan.period && (
+                      <span className={`text-sm ${plan.popular ? "text-white/60" : "text-muted-foreground"}`}>
+                        {plan.period}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex-1 space-y-2.5 mb-8">
+                  {plan.features.map((f) => (
+                    <div key={f} className="flex items-start gap-2.5">
+                      <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.popular ? "bg-amber-400/20" : "bg-violet-100"}`}>
+                        <Check className={`w-2.5 h-2.5 ${plan.popular ? "text-amber-400" : "text-violet-600"}`} />
+                      </div>
+                      <span className={`text-sm ${plan.popular ? "text-white/80" : "text-foreground/80"}`}>{f}</span>
+                    </div>
+                  ))}
+                  {plan.missing.map((f) => (
+                    <div key={f} className="flex items-start gap-2.5 opacity-30">
+                      <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-gray-200">
+                        <div className="w-2 h-0.5 bg-gray-400 rounded" />
+                      </div>
+                      <span className={`text-sm ${plan.popular ? "text-white/40" : "text-muted-foreground"}`}>{f}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button
+                  onClick={scrollToAudit}
+                  className={`w-full gap-2 rounded-xl h-11 ${plan.buttonClass}`}
+                  variant={plan.buttonVariant}
+                >
+                  {plan.cta}
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
               </div>
-              <div>
-                <h3 className="font-bold text-lg text-white">Mantenimiento</h3>
-                <p className="text-white/70 text-sm">Mensual, sin permanencia</p>
-              </div>
-            </div>
-            <div className="mb-6">
-              <span className="text-4xl font-bold text-white">247€</span>
-              <span className="text-white/70 ml-2">/mes</span>
-              <p className="text-sm text-white/60 mt-1">+ IVA si aplica · Cancela cuando quieras</p>
-            </div>
-            <ul className="space-y-3 text-sm">
-              {[
-                "Monitorización y ajustes continuos",
-                "Actualizaciones del sistema incluidas",
-                "Nuevas integraciones sin coste extra",
-                "Soporte por email en menos de 24h",
-                "Soporte urgente por WhatsApp",
-                "Informes mensuales de rendimiento",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-white/80 shrink-0 mt-0.5" />
-                  <span className="text-white/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center"
+          className="text-center text-white/30 text-sm mt-8"
         >
-          <p className="text-muted-foreground text-sm mb-4">
-            ¿No sabes si es lo que necesitas? Empieza con la auditoría gratuita y lo descubrimos juntas.
-          </p>
-          <Button onClick={scrollToAudit} size="lg" className="gap-2 px-8">
-            Solicita tu auditoría gratuita
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-        </motion.div>
+          ¿No sabes qué plan elegir? Solicita tu auditoría gratuita y te asesoramos sin compromiso.
+        </motion.p>
       </div>
     </section>
   );
