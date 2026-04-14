@@ -23,19 +23,19 @@ const HeroSection = () => {
             transition={{ duration: 0.7 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground mb-6">
-              Cada mensaje sin responder es un{" "}
-              <span className="text-gradient">cliente perdido</span>
+              Haz que tu clínica deje de perder{" "}
+              <span className="text-gradient">citas, tiempo y pacientes</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
-              Responde a cada consulta al instante y convierte conversaciones en citas agendadas — sin esfuerzo extra.
+              Un sistema que capta, atiende, agenda y recupera pacientes automáticamente, 24/7
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Button variant="hero" size="lg" className="px-8 py-6" onClick={scrollToAudit}>
-                Solicita tu auditoría gratis
+                Solicita tu auditoría gratuita
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mb-8">
-              Descubre dónde tu negocio está perdiendo clientes sin darse cuenta.
+              Descubre dónde estás perdiendo pacientes sin darte cuenta
             </p>
             <div className="flex flex-wrap gap-6">
               {trustItems.map(({ icon: Icon, text }) => (
@@ -55,7 +55,7 @@ const HeroSection = () => {
           >
             <img
               src={heroImage}
-              alt="Panel de automatización Smart Office con chat y calendario"
+              alt="Panel de automatización Smart Office con chat y calendario para clínicas"
               width={1024}
               height={768}
               className="rounded-2xl shadow-card-hover animate-float"
