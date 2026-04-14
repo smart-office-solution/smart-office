@@ -12,7 +12,7 @@ const pillars = [
     title: "Captación automática",
     subtitle: "Nunca pierdas un lead por no responder",
     description:
-      "Cada mensaje que llega — por WhatsApp, Instagram, web o email — recibe respuesta inmediata, 24/7. El asistente califica el lead, responde dudas y agenda citas sin intervención humana.",
+      "Cada mensaje que llega — por WhatsApp, Instagram o web — recibe respuesta inmediata, 24/7. El asistente responde dudas y agenda citas sin intervención humana.",
     stats: "< 2 min de tiempo de respuesta",
   },
   {
@@ -36,7 +36,7 @@ const pillars = [
     title: "Seguimiento continuo",
     subtitle: "Convierte pacientes puntuales en clientes fieles",
     description:
-      "El sistema realiza seguimiento post-consulta, envía recordatorios de revisiones y mantiene el contacto con cada paciente de forma personalizada y consistente.",
+      "El sistema envía petición de reseñas, envía recordatorios de siguientes citas y mantiene el contacto con cada paciente de forma personalizada y consistente.",
     stats: "+65% de pacientes recurrentes",
   },
 ];
