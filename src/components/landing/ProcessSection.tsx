@@ -1,43 +1,109 @@
 import { motion } from "framer-motion";
-import { Send, BarChart3, FileCheck } from "lucide-react";
+import { Search, Settings, Rocket, HeartHandshake } from "lucide-react";
 
 const steps = [
-  { icon: Send, num: "1", title: "Solicita tu auditoría", desc: "Cuéntanos brevemente sobre tu negocio y cómo gestionas tus clientes." },
-  { icon: BarChart3, num: "2", title: "Analizamos tu situación real", desc: "Detectamos dónde estás perdiendo oportunidades y qué está frenando tu crecimiento." },
-  { icon: FileCheck, num: "3", title: "Recibes un plan claro para mejorar", desc: "Te mostramos exactamente qué cambiar y cómo automatizar tu atención." },
+  {
+    icon: Search,
+    step: "01",
+    title: "Auditoría gratuita",
+    desc: "Analizamos tu situación actual: canales, volumen de mensajes, puntos de fuga de clientes y oportunidades de mejora.",
+    color: "violet",
+    iconBg: "bg-violet-500/15",
+    iconColor: "text-violet-500",
+    stepColor: "text-violet-500/30",
+    connector: "bg-gradient-to-b from-violet-500/40 to-amber-500/40",
+  },
+  {
+    icon: Settings,
+    step: "02",
+    title: "Configuración a medida",
+    desc: "Diseñamos e implementamos tu asistente con tu identidad, tus servicios y tu forma de comunicarte. En 7 días.",
+    color: "amber",
+    iconBg: "bg-amber-500/15",
+    iconColor: "text-amber-500",
+    stepColor: "text-amber-500/30",
+    connector: "bg-gradient-to-b from-amber-500/40 to-blue-500/40",
+  },
+  {
+    icon: Rocket,
+    step: "03",
+    title: "Activación y prueba",
+    desc: "El sistema empieza a responder, captar y agendar. Tú ves los resultados en tiempo real desde el primer día.",
+    color: "blue",
+    iconBg: "bg-blue-500/15",
+    iconColor: "text-blue-500",
+    stepColor: "text-blue-500/30",
+    connector: "bg-gradient-to-b from-blue-500/40 to-violet-500/40",
+  },
+  {
+    icon: HeartHandshake,
+    step: "04",
+    title: "Optimización continua",
+    desc: "Analizamos el rendimiento cada mes y ajustamos para que el sistema mejore constantemente.",
+    color: "violet",
+    iconBg: "bg-violet-500/15",
+    iconColor: "text-violet-500",
+    stepColor: "text-violet-500/30",
+    connector: null,
+  },
 ];
 
 const ProcessSection = () => (
-  <section className="py-20 md:py-28 bg-section-gradient">
-    <div className="container mx-auto px-4">
+  <section id="process" className="py-20 md:py-28 bg-dark-section relative overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="absolute top-20 left-0 w-72 h-72 bg-violet-600/8 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-0 w-80 h-80 bg-amber-500/8 rounded-full blur-3xl" />
+    </div>
+
+    <div className="container mx-auto px-4 relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">CÓMO FUNCIONA</p>
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-          En solo 3 pasos empiezas a recuperar clientes
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-300 text-sm font-semibold uppercase tracking-wider mb-6">
+          El proceso
+        </span>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+          De cero a funcionando{" "}
+          <span className="text-amber-400">en 7 días</span>
         </h2>
+        <p className="text-white/60 text-lg max-w-2xl mx-auto">
+          Un proceso simple, sin complicaciones técnicas y con todo el soporte de nuestro equipo.
+        </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        {steps.map(({ icon: Icon, num, title, desc }, i) => (
+      <div className="max-w-3xl mx-auto">
+        {steps.map(({ icon: Icon, step, title, desc, iconBg, iconColor, stepColor, connector }, i) => (
           <motion.div
-            key={num}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            key={step}
+            initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.15 }}
-            className="text-center"
+            transition={{ delay: i * 0.12 }}
+            className="relative"
           >
-            <div className="h-16 w-16 rounded-2xl bg-hero-gradient flex items-center justify-center mx-auto mb-5 shadow-lg">
-              <Icon className="h-7 w-7 text-primary-foreground" />
+            <div className="flex gap-6 pb-2">
+              {/* Left: icon + connector */}
+              <div className="flex flex-col items-center">
+                <div className={`${iconBg} rounded-2xl p-4 border border-white/10 shadow-lg relative z-10`}>
+                  <Icon className={`h-6 w-6 ${iconColor}`} />
+                </div>
+                {connector && (
+                  <div className={`w-0.5 flex-1 ${connector} mt-2 mb-2 min-h-[40px]`} />
+                )}
+              </div>
+              
+              {/* Right: content */}
+              <div className="flex-1 pb-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className={`text-4xl font-display font-black ${stepColor} leading-none`}>{step}</span>
+                  <h3 className="text-xl font-display font-bold text-white">{title}</h3>
+                </div>
+                <p className="text-white/55 leading-relaxed">{desc}</p>
+              </div>
             </div>
-            <div className="text-xs font-bold text-primary mb-2">PASO {num}</div>
-            <h3 className="font-display font-semibold text-foreground mb-2">{title}</h3>
-            <p className="text-sm text-muted-foreground">{desc}</p>
           </motion.div>
         ))}
       </div>
