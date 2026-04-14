@@ -9,28 +9,28 @@ import { CheckCircle, ArrowRight, ArrowLeft, Send } from "lucide-react";
 const TOTAL_STEPS = 3;
 
 interface FormData {
-  nombre: string;
+  contacto: string;
   email: string;
   telefono: string;
-  negocio: string;
+  webRedes: string;
   equipo: string;
   oportunidades: string[];
   oportunidadesOtro: string;
-  consultas: string;
+  tareas: string;
   urgencia: string;
   dispuesto: string;
   gestion: string;
 }
 
 const initialFormData: FormData = {
-  nombre: "",
+  contacto: "",
   email: "",
   telefono: "",
-  negocio: "",
+  webRedes: "",
   equipo: "",
   oportunidades: [],
   oportunidadesOtro: "",
-  consultas: "",
+  tareas: "",
   urgencia: "",
   dispuesto: "",
   gestion: "",
@@ -109,8 +109,8 @@ const AuditForm = () => {
   };
 
   const canNext = () => {
-    if (step === 1) return formData.nombre.trim() && formData.email.trim() && formData.negocio.trim();
-    if (step === 2) return formData.equipo && formData.oportunidades.length > 0 && formData.consultas;
+    if (step === 1) return formData.contacto.trim() && formData.email.trim();
+    if (step === 2) return formData.equipo.trim() && formData.oportunidades.length > 0;
     if (step === 3) return formData.urgencia && formData.dispuesto;
     return false;
   };
@@ -148,11 +148,11 @@ const AuditForm = () => {
             className="space-y-5"
           >
             <div>
-              <FieldLabel>Nombre</FieldLabel>
+              <FieldLabel>Persona de contacto</FieldLabel>
               <Input
                 placeholder="Tu nombre"
-                value={formData.nombre}
-                onChange={(e) => update("nombre", e.target.value)}
+                value={formData.contacto}
+                onChange={(e) => update("contacto", e.target.value)}
                 className="bg-background"
               />
             </div>
@@ -177,13 +177,16 @@ const AuditForm = () => {
               />
             </div>
             <div>
-              <FieldLabel>¿A qué se dedica tu negocio?</FieldLabel>
+              <FieldLabel>Web y redes sociales</FieldLabel>
               <Input
-                placeholder="Ej: Clínica dental, consultoría, peluquería..."
-                value={formData.negocio}
-                onChange={(e) => update("negocio", e.target.value)}
+                placeholder="Ej: www.tuclínica.com | Instagram: @tuclinica"
+                value={formData.webRedes}
+                onChange={(e) => update("webRedes", e.target.value)}
                 className="bg-background"
               />
+              <p className="text-xs text-muted-foreground mt-1.5">
+                Así podremos analizar tu presencia digital y detectar oportunidades reales de mejora.
+              </p>
             </div>
           </motion.div>
         )}
@@ -197,17 +200,13 @@ const AuditForm = () => {
             className="space-y-6"
           >
             <div>
-              <FieldLabel>¿Trabajas solo o tienes equipo?</FieldLabel>
-              <div className="space-y-2">
-                {["Trabajo solo/a", "Tengo un pequeño equipo", "Tengo un equipo consolidado"].map((opt) => (
-                  <RadioOption
-                    key={opt}
-                    label={opt}
-                    selected={formData.equipo === opt}
-                    onClick={() => update("equipo", opt)}
-                  />
-                ))}
-              </div>
+              <FieldLabel>¿Cuántas personas forman parte de tu equipo actualmente?</FieldLabel>
+              <Input
+                placeholder="Ej: 2, 5, 10…"
+                value={formData.equipo}
+                onChange={(e) => update("equipo", e.target.value)}
+                className="bg-background"
+              />
             </div>
             <div>
               <FieldLabel>¿Dónde sientes que estás perdiendo más oportunidades?</FieldLabel>
@@ -215,7 +214,7 @@ const AuditForm = () => {
                 {[
                   "No respondo lo suficientemente rápido",
                   "Se me acumulan mensajes",
-                  "Pierdo clientes antes de cerrar",
+                  "Pierdo pacientes antes de cerrar",
                   "No tengo un sistema claro",
                 ].map((opt) => (
                   <CheckboxOption
@@ -241,17 +240,17 @@ const AuditForm = () => {
               </div>
             </div>
             <div>
-              <FieldLabel>¿Cuántas consultas recibes aproximadamente?</FieldLabel>
-              <div className="space-y-2">
-                {["Menos de 5", "5–15", "15–30", "Más de 30"].map((opt) => (
-                  <RadioOption
-                    key={opt}
-                    label={opt}
-                    selected={formData.consultas === opt}
-                    onClick={() => update("consultas", opt)}
-                  />
-                ))}
-              </div>
+              <FieldLabel>Si pudieras automatizar o delegar 3 tareas en tu negocio, ¿cuáles serían?</FieldLabel>
+              <Textarea
+                placeholder="Ej: gestión de citas, recordatorios a pacientes, respuestas a mensajes, publicaciones en redes, gestión administrativa…"
+                value={formData.tareas}
+                onChange={(e) => update("tareas", e.target.value)}
+                rows={3}
+                className="bg-background resize-none"
+              />
+              <p className="text-xs text-muted-foreground mt-1.5">
+                Esto nos ayuda a detectar dónde puedes liberar más tiempo y mejorar tu sistema.
+              </p>
             </div>
           </motion.div>
         )}
@@ -268,7 +267,7 @@ const AuditForm = () => {
               <FieldLabel>¿Qué tan importante es para ti mejorar esto ahora?</FieldLabel>
               <div className="space-y-2">
                 {[
-                  "Urgente (estoy perdiendo clientes)",
+                  "Urgente (estoy perdiendo pacientes)",
                   "Importante (quiero mejorar)",
                   "Solo estoy explorando",
                 ].map((opt) => (
@@ -295,9 +294,9 @@ const AuditForm = () => {
               </div>
             </div>
             <div>
-              <FieldLabel>Cuéntanos brevemente cómo gestionas actualmente tus clientes</FieldLabel>
+              <FieldLabel>Cuéntanos brevemente cómo gestionas actualmente la agendación de citas y el seguimiento a pacientes</FieldLabel>
               <Textarea
-                placeholder="Ej: Respondo por WhatsApp manualmente, uso una agenda en papel..."
+                placeholder="Ej: gestionamos citas por WhatsApp, usamos agenda manual, confirmamos citas manualmente…"
                 value={formData.gestion}
                 onChange={(e) => update("gestion", e.target.value)}
                 rows={4}
@@ -348,7 +347,7 @@ const AuditForm = () => {
 
       {step === TOTAL_STEPS && (
         <p className="text-xs text-muted-foreground text-center mt-4">
-          Te responderemos con un diagnóstico claro y accionable.
+          Te responderemos con un diagnóstico claro, personalizado y accionable.
         </p>
       )}
     </div>
@@ -407,7 +406,7 @@ const AuditSection = () => (
             Solicita tu auditoría gratuita
           </h3>
           <p className="text-sm text-muted-foreground mb-6">
-            Responde estas preguntas y te enviaremos un análisis personalizado de tu negocio.
+            Responde estas preguntas y te enviaremos un análisis personalizado de tu clínica.
           </p>
           <AuditForm />
         </motion.div>
