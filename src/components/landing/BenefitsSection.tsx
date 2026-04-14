@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Clock, Users, Zap, Star, BarChart3 } from "lucide-react";
+import { TrendingUp, Clock, Zap, Star } from "lucide-react";
 
 const benefits = [
   {
@@ -25,17 +25,6 @@ const benefits = [
     iconColor: "text-amber-400",
   },
   {
-    icon: Users,
-    metric: "+35%",
-    label: "pacientes recuperados",
-    desc: "El seguimiento automático reactiva a los que no completaron su tratamiento.",
-    color: "blue",
-    gradient: "from-blue-500/20 to-blue-600/5",
-    border: "border-blue-500/25",
-    iconBg: "bg-blue-500/15",
-    iconColor: "text-blue-400",
-  },
-  {
     icon: Zap,
     metric: "< 2min",
     label: "tiempo de respuesta",
@@ -57,17 +46,6 @@ const benefits = [
     iconBg: "bg-amber-500/15",
     iconColor: "text-amber-400",
   },
-  {
-    icon: BarChart3,
-    metric: "ROI",
-    label: "desde el primer mes",
-    desc: "El sistema se paga solo desde las primeras semanas gracias a los pacientes recuperados.",
-    color: "blue",
-    gradient: "from-blue-500/20 to-blue-600/5",
-    border: "border-blue-500/25",
-    iconBg: "bg-blue-500/15",
-    iconColor: "text-blue-400",
-  },
 ];
 
 const BenefitsSection = () => (
@@ -82,46 +60,46 @@ const BenefitsSection = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         className="text-center mb-14"
       >
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold uppercase tracking-wider mb-6">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 text-violet-700 text-sm font-semibold mb-6 border border-violet-200">
           Resultados reales
-        </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-          Lo que cambia cuando tu clínica{" "}
+        </div>
+        <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
+          Lo que consiguen{" "}
           <span className="bg-gradient-to-r from-violet-600 to-amber-500 bg-clip-text text-transparent">
-            no duerme
+            nuestros clientes
           </span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Resultados medibles desde las primeras semanas de implementación.
+          Métricas reales de clínicas que ya trabajan con Smart Office AI.
         </p>
       </motion.div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {benefits.map(({ icon: Icon, metric, label, desc, gradient, border, iconBg, iconColor }, i) => (
-          <motion.div
-            key={label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-            className={`bg-gradient-to-br ${gradient} border ${border} rounded-2xl p-6 hover:shadow-lg hover:shadow-violet-500/10 transition-all duration-300 group`}
-          >
-            <div className="flex items-start gap-4">
-              <div className={`${iconBg} rounded-xl p-3 shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                <Icon className={`h-5 w-5 ${iconColor}`} />
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {benefits.map((b, i) => {
+          const Icon = b.icon;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className={`relative bg-gradient-to-br ${b.gradient} rounded-2xl p-6 border ${b.border} hover:shadow-lg transition-all duration-300`}
+            >
+              <div className={`w-12 h-12 rounded-xl ${b.iconBg} flex items-center justify-center mb-4`}>
+                <Icon className={`w-6 h-6 ${b.iconColor}`} />
               </div>
-              <div>
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className={`text-2xl font-display font-bold ${iconColor}`}>{metric}</span>
-                  <span className="text-sm font-medium text-foreground/70">{label}</span>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+              <div className={`text-4xl font-display font-black mb-1 ${b.iconColor}`}>
+                {b.metric}
               </div>
-            </div>
-          </motion.div>
-        ))}
+              <div className="text-foreground font-semibold text-sm mb-2">{b.label}</div>
+              <p className="text-muted-foreground text-xs leading-relaxed">{b.desc}</p>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   </section>
