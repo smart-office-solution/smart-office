@@ -1,121 +1,111 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: "¿Tengo que cambiar todas mis herramientas actuales?",
-    answer:
-      "No. Smart Office se integra con lo que ya usas: tu calendario de Google, tu CRM, WhatsApp Business, Instagram y cualquier herramienta de gestión de citas. No tienes que aprender nada nuevo ni cambiar tus procesos. El sistema se adapta a ti, no al revés.",
+    q: "¿Cuánto tiempo lleva poner en marcha el sistema?",
+    a: "En 7 días hábiles tu asistente está activo. Nosotros nos encargamos de toda la configuración técnica: integración con WhatsApp, personalización de respuestas, conexión con tu agenda y pruebas de calidad. Tú no tienes que hacer nada técnico.",
   },
   {
-    question: "¿Cuánto tiempo tarda en estar funcionando?",
-    answer:
-      "La implementación completa tarda entre 7 y 14 días. En la primera semana configuramos el sistema, lo conectamos con tus canales y lo personalizamos con el tono y la información de tu clínica. En la segunda semana hacemos pruebas y ajustes. A partir del día 15, el sistema trabaja de forma autónoma.",
+    q: "¿Necesito tener conocimientos técnicos?",
+    a: "En absoluto. El sistema está diseñado para que tú te limites a gestionar tu clínica. Nosotros configuramos todo, te formamos en 30 minutos y te damos soporte continuo. Si tienes dudas, escribes y te respondemos.",
   },
   {
-    question: "¿Los pacientes sabrán que están hablando con una IA?",
-    answer:
-      "El sistema está diseñado para responder de forma natural, cercana y profesional — exactamente como lo haría un miembro de tu equipo. Sin embargo, siempre es transparente cuando el paciente pregunta directamente. Y si en algún momento la conversación lo requiere, puede derivar al equipo humano sin que el paciente note la transición.",
+    q: "¿Qué pasa si el paciente hace una pregunta que el asistente no sabe responder?",
+    a: "El sistema está entrenado para saber cuándo escalar una conversación a un humano. En esos casos, te notifica y puedes tomar el control de la conversación en cualquier momento. Lo mejor de dos mundos: automatización + toque humano cuando se necesita.",
   },
   {
-    question: "¿Qué pasa si tengo una pregunta o necesito ayuda después de la instalación?",
-    answer:
-      "Incluimos soporte continuo en todos los planes. El mantenimiento mensual cubre ajustes, actualizaciones del sistema, nuevas integraciones y soporte por email con respuesta en menos de 24h. Para consultas urgentes, también ofrecemos soporte por WhatsApp.",
+    q: "¿Se puede integrar con mi software de gestión actual?",
+    a: "Sí. Trabajamos con los sistemas de gestión más habituales del sector dental y médico. Durante la auditoría gratuita analizamos tu caso concreto y te confirmamos la compatibilidad antes de empezar.",
   },
   {
-    question: "¿Puedo cancelar el servicio cuando quiera?",
-    answer:
-      "Sí. No hay permanencia mínima. Puedes cancelar el mantenimiento mensual con 30 días de antelación. La instalación inicial es un pago único que no se devuelve, pero el sistema quedará configurado y funcionando en tus herramientas aunque decidas no continuar con el mantenimiento.",
+    q: "¿Cuánto cuesta?",
+    a: "Tenemos planes adaptados al tamaño de tu clínica. El ROI medio de nuestros clientes es positivo desde el primer mes. Solicita tu auditoría gratuita y te presentamos una propuesta personalizada sin compromiso.",
+  },
+  {
+    q: "¿Los pacientes sabrán que hablan con una IA?",
+    a: "El sistema se presenta como el asistente de tu clínica, no como un robot genérico. Las respuestas están personalizadas con tu nombre, tu tono y tu información. La mayoría de pacientes no distinguen si hablan con una persona o con el asistente.",
   },
 ];
 
-const FAQItem = ({
-  faq,
-  isOpen,
-  onToggle,
-}: {
-  faq: (typeof faqs)[0];
-  isOpen: boolean;
-  onToggle: () => void;
-}) => (
-  <div className="border border-border rounded-xl overflow-hidden">
-    <button
-      onClick={onToggle}
-      className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-muted/30 transition-colors"
-    >
-      <span className="font-semibold text-foreground pr-4">{faq.question}</span>
-      <ChevronDown
-        className={`h-5 w-5 text-muted-foreground shrink-0 transition-transform duration-300 ${
-          isOpen ? "rotate-180" : ""
-        }`}
-      />
-    </button>
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="overflow-hidden"
-        >
-          <div className="px-6 pb-5 text-muted-foreground leading-relaxed border-t border-border pt-4">
-            {faq.answer}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  </div>
-);
-
-const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+const FAQItem = ({ q, a, index }: { q: string; a: string; index: number }) => {
+  const [open, setOpen] = useState(false);
 
   return (
-    <section id="faq" className="py-20 md:py-28">
-      <div className="container mx-auto px-4 max-w-3xl">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.06 }}
+      className="border border-violet-200/60 rounded-2xl overflow-hidden bg-white/80 backdrop-blur-sm hover:border-violet-300/80 transition-colors duration-200"
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-start justify-between gap-4 p-6 text-left group"
+      >
+        <span className="font-display font-semibold text-foreground text-base leading-snug group-hover:text-violet-700 transition-colors">
+          {q}
+        </span>
+        <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${open ? "bg-violet-600 rotate-180" : "bg-violet-100 group-hover:bg-violet-200"}`}>
+          <ChevronDown className={`w-4 h-4 ${open ? "text-white" : "text-violet-600"}`} />
+        </div>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6">
+              <div className="h-px bg-violet-100 mb-4" />
+              <p className="text-muted-foreground leading-relaxed text-sm">{a}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
+const FAQSection = () => (
+  <section id="faq" className="py-20 md:py-28 bg-section-gradient relative overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-0 right-0 w-80 h-80 bg-violet-500/5 rounded-full blur-3xl" />
+    </div>
+
+    <div className="container mx-auto px-4 relative z-10">
+      <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3 px-3 py-1 bg-primary/10 rounded-full">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold uppercase tracking-wider mb-6">
+            <MessageCircle className="w-3.5 h-3.5" />
             Preguntas frecuentes
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
             Todo lo que necesitas saber
           </h2>
-          <p className="text-muted-foreground">
-            Si tienes alguna duda que no está aquí, escríbenos a{" "}
-            <a href="mailto:silviagsierra@gmail.com" className="text-primary hover:underline">
-              silviagsierra@gmail.com
-            </a>
+          <p className="text-muted-foreground text-lg">
+            ¿Tienes más preguntas? Escríbenos y te respondemos en menos de 24h.
           </p>
         </motion.div>
 
         <div className="space-y-3">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-            >
-              <FAQItem
-                faq={faq}
-                isOpen={openIndex === index}
-                onToggle={() => setOpenIndex(openIndex === index ? null : index)}
-              />
-            </motion.div>
+          {faqs.map((faq, i) => (
+            <FAQItem key={i} q={faq.q} a={faq.a} index={i} />
           ))}
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default FAQSection;
