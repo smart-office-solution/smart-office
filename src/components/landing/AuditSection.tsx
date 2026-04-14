@@ -1,343 +1,172 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle, Sparkles, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle, ArrowRight, ArrowLeft, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
-const TOTAL_STEPS = 3;
-
-interface FormData {
-    email: string;
-    equipo: string;
-    oportunidades: string[];
-    oportunidadesOtro: string;
-    tareas: string;
-    urgencia: string;
-    dispuesto: string;
-    gestion: string;
-}
-
-const initialFormData: FormData = {
-    email: "",
-    equipo: "",
-    oportunidades: [],
-    oportunidadesOtro: "",
-    tareas: "",
-    urgencia: "",
-    dispuesto: "",
-    gestion: "",
-};
-
-import { Label } from "@/components/ui/label";
-
-const FieldLabel = ({ children }: { children: React.ReactNode }) => (
-    <Label className="text-sm font-medium text-foreground mb-1.5 block">{children}</Label>Label>
-  );
-
-const RadioOption = ({
-    label,
-    selected,
-    onClick,
-}: {
-    label: string;
-    selected: boolean;
-    onClick: () => void;
-}) => (
-    <button
-          type="button"
-          onClick={onClick}
-          className={`w-full text-left px-4 py-3 rounded-lg border text-sm transition-all duration-200 ${
-                  selected
-                    ? "border-primary bg-primary/5 text-foreground font-medium ring-1 ring-primary/30"
-                    : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:bg-primary/[0.02]"
-          }`}
-        >
-      {label}
-    </button>button>
-  );
-
-const CheckboxOption = ({
-    label,
-    checked,
-    onClick,
-}: {
-    label: string;
-    checked: boolean;
-    onClick: () => void;
-}) => (
-    <button
-          type="button"
-          onClick={onClick}
-          className={`w-full text-left px-4 py-3 rounded-lg border text-sm transition-all duration-200 flex items-center gap-3 ${
-                  checked
-                    ? "border-primary bg-primary/5 text-foreground font-medium ring-1 ring-primary/30"
-                    : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:bg-primary/[0.02]"
-          }`}
-        >
-        <div
-                className={`h-4 w-4 rounded border shrink-0 flex items-center justify-center transition-colors ${
-                          checked ? "bg-primary border-primary" : "bg-muted-foreground/40"
-                }`}
-              >
-          {checked && <CheckCircle className="h-3 w-3 text-white" />}
-        </div>div>
-      {label}
-    </button>button>
-  );
+const perks = [
+  "Análisis de tus canales de captación",
+  "Identificación de pérdidas de pacientes",
+  "Plan de automatización personalizado",
+  "Estimación de ROI para tu clínica",
+];
 
 const AuditSection = () => {
-    const navigate = useNavigate();
-    const [step, setStep] = useState(1);
-    const [formData, setFormData] = useState<FormData>(initialFormData);
-    const [submitted, setSubmitted] = useState(false);
-  
-    const update = (field: keyof FormData, value: string | string[]) => {
-          setFormData((prev) => ({ ...prev, [field]: value }));
-    };
-  
-    const toggleOportunidad = (value: string) => {
-          setFormData((prev) => ({
-                  ...prev,
-                  oportunidades: prev.oportunidades.includes(value)
-                            ? prev.oportunidades.filter((o) => o !== value)
-                            : [...prev.oportunidades, value],
-          }));
-    };
-  
-    const handleNext = () => {
-          if (step < TOTAL_STEPS) setStep((s) => s + 1);
-    };
-  
-    const handleBack = () => {
-          if (step > 1) setStep((s) => s - 1);
-    };
-  
-    const handleSubmit = () => {
-          setSubmitted(true);
-          setTimeout(() => navigate("/thank-you"), 1500);
-    };
-  
-    if (submitted) {
-          return (
-                  <section id="audit" className="py-20 md:py-28">
-                          <div className="container mx-auto px-4 max-w-2xl text-center">
-                                    <motion.div
-                                                  initial={{ opacity: 0, scale: 0.9 }}
-                                                  animate={{ opacity: 1, scale: 1 }}
-                                                  className="flex flex-col items-center gap-4"
-                                                >
-                                                <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
-                                                              <CheckCircle className="h-8 w-8 text-primary" />
-                                                </div>div>
-                                                <h2 className="text-2xl font-bold">¡Solicitud recibida!</h2>h2>
-                                                <p className="text-muted-foreground">
-                                                              Analizaremos tu negocio y te enviaremos tu auditoría personalizada en 24-48h.
-                                                </p>p>
-                                    </motion.div>motion.div>
-                          </div>div>
-                  </section>section>
-                );
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xpwzgekb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (response.ok) {
+        setSubmitted(true);
+        window.location.href = "/gracias";
+      } else {
+        toast({ title: "Error al enviar", description: "Inténtalo de nuevo.", variant: "destructive" });
+      }
+    } catch {
+      toast({ title: "Error de conexión", description: "Inténtalo de nuevo.", variant: "destructive" });
+    } finally {
+      setIsLoading(false);
     }
-  
-    return (
-          <section id="audit" className="py-20 md:py-28">
-                <div className="container mx-auto px-4 max-w-2xl">
-                        <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5 }}
-                                    className="text-center mb-10"
-                                  >
-                                  <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3 px-3 py-1 bg-primary/10 rounded-full">
-                                              100% Gratis — Sin compromiso
-                                  </span>span>
-                                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                                              Descubre por qué estás perdiendo clientes (aunque no lo veas)
-                                  </h2>h2>
-                                  <p className="text-muted-foreground max-w-xl mx-auto">
-                                              La mayoría de negocios ya están perdiendo oportunidades cada día sin darse cuenta. En
-                                              esta auditoría analizamos tu presencia digital y tu sistema de atención para detectar
-                                              exactamente dónde se están escapando esos clientes.
-                                  </p>p>
-                                  <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-left max-w-lg mx-auto">
-                                    {[
-                                                  "Dónde estás perdiendo clientes ahora mismo",
-                                                  "Qué está fallando en tu atención y respuesta",
-                                                  "Cómo mejorar tu captación sin trabajar más",
-                                                  "Qué puedes automatizar desde ya",
-                                                  "Oportunidades concretas de crecimiento",
-                                                ].map((item) => (
-                                                                <li key={item} className="flex items-start gap-2">
-                                                                                <CheckCircle className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                                                                                <span>{item}</span>span>
-                                                                </li>li>
-                                                              ))}
-                                  </ul>ul>
-                        </motion.div>motion.div>
-                
-                        <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: 0.1 }}
-                                    className="bg-card rounded-2xl shadow-card p-8"
-                                  >
-                                  <div className="mb-6">
-                                              <h3 className="font-semibold text-lg mb-1">Solicita tu auditoría gratuita</h3>h3>
-                                              <p className="text-sm text-muted-foreground">
-                                                            Responde estas preguntas y te enviaremos un análisis personalizado de tu clínica.
-                                              </p>p>
-                                  </div>div>
-                        
-                          {/* Progress */}
-                                  <div className="flex items-center gap-2 mb-8">
-                                    {Array.from({ length: TOTAL_STEPS }, (_, i) => (
-                                                  <div key={i} className="flex-1 flex items-center gap-2">
-                                                                  <div
-                                                                                      className={`h-2 rounded-full flex-1 transition-colors duration-300 ${
-                                                                                                            i + 1 <= step ? "bg-primary" : "bg-muted"
-                                                                                        }`}
-                                                                                    />
-                                                  </div>div>
-                                                ))}
-                                              <span className="text-xs text-muted-foreground font-medium ml-2">
-                                                {step}/{TOTAL_STEPS}
-                                              </span>span>
-                                  </div>div>
-                        
-                                  <AnimatePresence mode="wait">
-                                    {step === 1 && (
-                                                  <motion.div
-                                                                    key="step1"
-                                                                    initial={{ opacity: 0, x: 20 }}
-                                                                    animate={{ opacity: 1, x: 0 }}
-                                                                    exit={{ opacity: 0, x: -20 }}
-                                                                    className="space-y-5"
-                                                                  >
-                                                                  <div>
-                                                                                    <FieldLabel>Email</FieldLabel>FieldLabel>
-                                                                                    <Input
-                                                                                                          type="email"
-                                                                                                          placeholder="tu@email.com"
-                                                                                                          value={formData.email}
-                                                                                                          onChange={(e) => update("email", e.target.value)}
-                                                                                                          className="bg-background"
-                                                                                                        />
-                                                                                    <p className="text-xs text-muted-foreground mt-1.5">
-                                                                                                        Te enviaremos tu auditoría personalizada a este email.
-                                                                                      </p>p>
-                                                                  </div>div>
-                                                  </motion.div>motion.div>
-                                                )}
-                                  
-                                    {step === 2 && (
-                                                  <motion.div
-                                                                    key="step2"
-                                                                    initial={{ opacity: 0, x: 20 }}
-                                                                    animate={{ opacity: 1, x: 0 }}
-                                                                    exit={{ opacity: 0, x: -20 }}
-                                                                    className="space-y-6"
-                                                                  >
-                                                                  <div>
-                                                                                    <FieldLabel>¿Cuántas personas forman parte de tu equipo actualmente?</FieldLabel>FieldLabel>
-                                                                                    <Input
-                                                                                                          placeholder="Ej: 2, 5, 10…"
-                                                                                                          value={formData.equipo}
-                                                                                                          onChange={(e) => update("equipo", e.target.value)}
-                                                                                                          className="bg-background"
-                                                                                                        />
-                                                                  </div>div>
-                                                                  <div>
-                                                                                    <FieldLabel>
-                                                                                                        ¿Cuál es el mayor cuello de botella en tu negocio ahora mismo?
-                                                                                      </FieldLabel>FieldLabel>
-                                                                                    <div className="space-y-2">
-                                                                                      {[
-                                                                                          "Responder mensajes y consultas a tiempo",
-                                                                                          "Gestionar y organizar las citas",
-                                                                                          "Recuperar pacientes que no volvieron",
-                                                                                          "Conseguir nuevos pacientes",
-                                                                                          "Organización interna del equipo",
-                                                                                        ].map((op) => (
-                                                                                                                <RadioOption
-                                                                                                                                          key={op}
-                                                                                                                                          label={op}
-                                                                                                                                          selected={formData.tareas === op}
-                                                                                                                                          onClick={() => update("tareas", op)}
-                                                                                                                                        />
-                                                                                                              ))}
-                                                                                      </div>div>
-                                                                  </div>div>
-                                                  </motion.div>motion.div>
-                                                )}
-                                  
-                                    {step === 3 && (
-                                                  <motion.div
-                                                                    key="step3"
-                                                                    initial={{ opacity: 0, x: 20 }}
-                                                                    animate={{ opacity: 1, x: 0 }}
-                                                                    exit={{ opacity: 0, x: -20 }}
-                                                                    className="space-y-6"
-                                                                  >
-                                                                  <div>
-                                                                                    <FieldLabel>¿Qué es lo más importante para ti ahora mismo?</FieldLabel>FieldLabel>
-                                                                                    <div className="space-y-2">
-                                                                                      {[
-                                                                                          "Tener más pacientes nuevos",
-                                                                                          "Recuperar pacientes que ya tenía",
-                                                                                          "Ahorrar tiempo en gestión",
-                                                                                          "Mejorar la experiencia del paciente",
-                                                                                          "Automatizar para crecer sin contratar",
-                                                                                        ].map((op) => (
-                                                                                                                <RadioOption
-                                                                                                                                          key={op}
-                                                                                                                                          label={op}
-                                                                                                                                          selected={formData.urgencia === op}
-                                                                                                                                          onClick={() => update("urgencia", op)}
-                                                                                                                                        />
-                                                                                                              ))}
-                                                                                      </div>div>
-                                                                  </div>div>
-                                                                  <div>
-                                                                                    <FieldLabel>¿Algo más que quieras contarnos?</FieldLabel>FieldLabel>
-                                                                                    <Textarea
-                                                                                                          placeholder="Cuéntanos tu situación actual, dudas o cualquier detalle que nos ayude a personalizar tu auditoría..."
-                                                                                                          value={formData.gestion}
-                                                                                                          onChange={(e) => update("gestion", e.target.value)}
-                                                                                                          className="bg-background resize-none"
-                                                                                                          rows={4}
-                                                                                                        />
-                                                                  </div>div>
-                                                  </motion.div>motion.div>
-                                                )}
-                                  </AnimatePresence>AnimatePresence>
-                        
-                                  <div className="flex justify-between mt-8">
-                                    {step > 1 ? (
-                                                  <Button variant="outline" onClick={handleBack} className="gap-2">
-                                                                  <ArrowLeft className="h-4 w-4" /> Anterior
-                                                  </Button>Button>
-                                                ) : (
-                                                  <div />
-                                                )}
-                                    {step < TOTAL_STEPS ? (
-                                                  <Button onClick={handleNext} className="gap-2 ml-auto">
-                                                                  Siguiente <ArrowRight className="h-4 w-4" />
-                                                  </Button>Button>
-                                                ) : (
-                                                  <Button onClick={handleSubmit} className="gap-2 ml-auto">
-                                                                  Enviar auditoría <Send className="h-4 w-4" />
-                                                  </Button>Button>
-                                              )}
-                                  </div>div>
-                        </motion.div>motion.div>
-                </div>div>
-          </section>section>
-        );
+  };
+
+  return (
+    <section id="audit" className="py-20 md:py-28 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-amber-50/50" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Left: info */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold uppercase tracking-wider mb-6">
+                <Sparkles className="w-3.5 h-3.5" />
+                Auditoría gratuita
+              </span>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4 leading-tight">
+                Descubre cuántos pacientes estás perdiendo cada semana
+              </h2>
+              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                En 30 minutos te mostramos exactamente dónde se escapan tus oportunidades y cómo automatizarlas.
+              </p>
+              
+              <div className="space-y-3">
+                {perks.map((perk) => (
+                  <div key={perk} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-violet-100 flex items-center justify-center shrink-0">
+                      <CheckCircle className="w-3.5 h-3.5 text-violet-600" />
+                    </div>
+                    <span className="text-foreground/80 text-sm font-medium">{perk}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex items-center gap-2 text-muted-foreground text-xs">
+                <Lock className="w-3.5 h-3.5" />
+                Sin spam · Sin compromisos · 100% gratuita
+              </div>
+            </motion.div>
+
+            {/* Right: form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="bg-white rounded-3xl p-8 shadow-2xl shadow-violet-500/10 border border-violet-100">
+                {!submitted ? (
+                  <>
+                    <div className="text-center mb-8">
+                      <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-violet-500/30">
+                        <Sparkles className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-xl font-display font-bold text-foreground mb-1">
+                        Solicita tu auditoría gratuita
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        Te contactamos en menos de 24h
+                      </p>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-foreground mb-1.5">
+                          Tu email profesional
+                        </label>
+                        <Input
+                          type="email"
+                          placeholder="clinica@ejemplo.com"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                          className="h-12 border-violet-200 focus:border-violet-400 focus:ring-violet-400/20 rounded-xl"
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        disabled={isLoading}
+                        className="w-full h-12 bg-gradient-to-r from-violet-600 to-violet-700 hover:from-violet-500 hover:to-violet-600 text-white font-semibold rounded-xl shadow-lg shadow-violet-500/30 gap-2 transition-all duration-300"
+                      >
+                        {isLoading ? "Enviando..." : "Quiero mi auditoría gratuita"}
+                        {!isLoading && <ArrowRight className="w-4 h-4" />}
+                      </Button>
+                    </form>
+
+                    {/* Social proof mini */}
+                    <div className="mt-6 pt-6 border-t border-gray-100 flex items-center justify-center gap-3">
+                      <div className="flex -space-x-2">
+                        {["V", "M", "A", "C"].map((l, i) => (
+                          <div key={i} className="w-7 h-7 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold">
+                            {l}
+                          </div>
+                        ))}
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        <strong className="text-foreground">+47 clínicas</strong> ya automatizadas
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-8 h-8 text-green-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">¡Solicitud enviada!</h3>
+                    <p className="text-muted-foreground text-sm">Te contactamos en menos de 24h.</p>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default AuditSection;
-</Label>
