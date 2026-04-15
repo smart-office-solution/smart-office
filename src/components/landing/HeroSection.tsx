@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck, BarChart3, Lightbulb } from "lucide-react";
-import heroImage from "@/assets/hero-illustration.jpg";
+import heroCover from "@/assets/hero-cover.jpg";
 
 const trustItems = [
   { icon: ShieldCheck, text: "Sin compromiso" },
@@ -13,8 +13,13 @@ const HeroSection = () => {
   const scrollToAudit = () => document.getElementById("audit")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section id="hero" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-      <div className="absolute inset-0 bg-section-gradient" />
+    <section id="hero" className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-hero-dark">
+      {/* Subtle glow accents */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-amber-500/8 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-teal-500/8 rounded-full blur-3xl" />
+      </div>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -22,11 +27,11 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-white mb-6">
               Haz que tu clínica deje de perder{" "}
               <span className="text-gradient">citas, tiempo y pacientes</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
+            <p className="text-lg md:text-xl text-white/70 mb-8 max-w-lg">
               Un sistema que capta, atiende, agenda y recupera pacientes automáticamente, 24/7
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
@@ -34,13 +39,13 @@ const HeroSection = () => {
                 Solicita tu auditoría gratuita
               </Button>
             </div>
-            <p className="text-sm text-muted-foreground mb-8">
+            <p className="text-sm text-white/50 mb-8">
               Descubre dónde estás perdiendo pacientes sin darte cuenta
             </p>
             <div className="flex flex-wrap gap-6">
               {trustItems.map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Icon className="h-4 w-4 text-accent" />
+                <div key={text} className="flex items-center gap-2 text-sm text-white/60">
+                  <Icon className="h-4 w-4 text-primary" />
                   {text}
                 </div>
               ))}
@@ -54,11 +59,11 @@ const HeroSection = () => {
             className="hidden lg:block"
           >
             <img
-              src={heroImage}
-              alt="Panel de automatización Smart Office con chat y calendario para clínicas"
+              src={heroCover}
+              alt="Equipo profesional trabajando con sistema Smart Office"
               width={1024}
               height={768}
-              className="rounded-2xl shadow-card-hover animate-float"
+              className="rounded-2xl shadow-2xl shadow-black/30 animate-float"
             />
           </motion.div>
         </div>

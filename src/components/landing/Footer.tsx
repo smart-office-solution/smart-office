@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Zap, Mail, MapPin, Phone, Shield, FileText, X } from "lucide-react";
+import { Mail, MapPin, Phone, Shield, FileText, X } from "lucide-react";
+import logo from "@/assets/logo-smart-office.jpg";
 
 const PrivacyModal = ({ onClose }: { onClose: () => void }) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
@@ -21,7 +22,7 @@ const PrivacyModal = ({ onClose }: { onClose: () => void }) => (
         <h3 className="text-foreground font-semibold">Transferencias internacionales</h3>
         <p>No realizamos transferencias internacionales de datos fuera del Espacio Económico Europeo.</p>
         <h3 className="text-foreground font-semibold">Tus derechos</h3>
-        <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición y portabilidad escribiendo a <strong>silviagsierra@gmail.com</strong>.</p>
+        <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición y portabilidad escribiendo a <strong>hola@smart-office.es</strong>.</p>
       </div>
     </div>
   </div>
@@ -39,10 +40,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-violet-500 to-violet-700 rounded-lg flex items-center justify-center">
-                <Zap className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-white font-bold text-lg">Smart Office AI</span>
+              <img src={logo} alt="Smart Office" className="h-8 w-auto brightness-125" />
             </div>
             <p className="text-sm leading-relaxed">
               Automatización inteligente para clínicas y negocios de salud. Tu asistente siempre activo.
@@ -54,15 +52,15 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contacto</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-violet-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <span>Smart Office, Schuetzenstrasse 18, Marburg, Alemania</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <Phone className="w-4 h-4 text-accent shrink-0" />
                 <a href="tel:+34605588742" className="hover:text-white transition-colors">+34 605588742</a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-violet-400 shrink-0" />
+                <Mail className="w-4 h-4 text-primary shrink-0" />
                 <a href="mailto:hola@smart-office.es" className="hover:text-white transition-colors">hola@smart-office.es</a>
               </li>
             </ul>
@@ -77,12 +75,12 @@ const Footer = () => {
                   onClick={() => setShowPrivacy(true)}
                   className="flex items-center gap-2 hover:text-white transition-colors"
                 >
-                  <Shield className="w-4 h-4 text-blue-400 shrink-0" />
+                  <Shield className="w-4 h-4 text-accent shrink-0" />
                   Política de privacidad
                 </button>
               </li>
               <li className="flex items-center gap-2">
-                <FileText className="w-4 h-4 text-violet-400 shrink-0" />
+                <FileText className="w-4 h-4 text-primary shrink-0" />
                 <span>RGPD Cumplimiento</span>
               </li>
             </ul>
@@ -93,7 +91,7 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} Smart Office AI · Silvia González Sierra</p>
           <p className="flex items-center gap-1">
             Hecho con
-            <span className="text-violet-400 mx-1">♥</span>
+            <span className="text-primary mx-1">♥</span>
             para clínicas que quieren crecer
           </p>
         </div>
