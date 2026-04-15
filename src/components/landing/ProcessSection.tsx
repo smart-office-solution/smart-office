@@ -7,43 +7,39 @@ const steps = [
     step: "01",
     title: "Auditoría gratuita",
     desc: "Analizamos tu situación actual: canales, volumen de mensajes, puntos de fuga de clientes y oportunidades de mejora.",
-    color: "violet",
-    iconBg: "bg-violet-500/15",
-    iconColor: "text-violet-500",
-    stepColor: "text-violet-500/30",
-    connector: "bg-gradient-to-b from-violet-500/40 to-amber-500/40",
+    iconBg: "bg-primary/15",
+    iconColor: "text-primary",
+    stepColor: "text-primary/30",
+    connector: "bg-gradient-to-b from-primary/40 to-accent/40",
   },
   {
     icon: Settings,
     step: "02",
     title: "Configuración a medida",
     desc: "Diseñamos e implementamos tu asistente con tu identidad, tus servicios y tu forma de comunicarte. En 7 días.",
-    color: "amber",
-    iconBg: "bg-amber-500/15",
-    iconColor: "text-amber-500",
-    stepColor: "text-amber-500/30",
-    connector: "bg-gradient-to-b from-amber-500/40 to-blue-500/40",
+    iconBg: "bg-accent/15",
+    iconColor: "text-accent",
+    stepColor: "text-accent/30",
+    connector: "bg-gradient-to-b from-accent/40 to-blue-500/40",
   },
   {
     icon: Rocket,
     step: "03",
     title: "Activación y prueba",
     desc: "El sistema empieza a responder, captar y agendar. Tú ves los resultados en tiempo real desde el primer día.",
-    color: "blue",
     iconBg: "bg-blue-500/15",
-    iconColor: "text-blue-500",
-    stepColor: "text-blue-500/30",
-    connector: "bg-gradient-to-b from-blue-500/40 to-violet-500/40",
+    iconColor: "text-blue-400",
+    stepColor: "text-blue-400/30",
+    connector: "bg-gradient-to-b from-blue-500/40 to-primary/40",
   },
   {
     icon: HeartHandshake,
     step: "04",
     title: "Optimización continua",
     desc: "Analizamos el rendimiento cada mes y ajustamos para que el sistema mejore constantemente.",
-    color: "violet",
-    iconBg: "bg-violet-500/15",
-    iconColor: "text-violet-500",
-    stepColor: "text-violet-500/30",
+    iconBg: "bg-primary/15",
+    iconColor: "text-primary",
+    stepColor: "text-primary/30",
     connector: null,
   },
 ];
@@ -51,8 +47,8 @@ const steps = [
 const ProcessSection = () => (
   <section id="process" className="py-20 md:py-28 bg-dark-section relative overflow-hidden">
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      <div className="absolute top-20 left-0 w-72 h-72 bg-violet-600/8 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-0 w-80 h-80 bg-amber-500/8 rounded-full blur-3xl" />
+      <div className="absolute top-20 left-0 w-72 h-72 bg-primary/8 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-0 w-80 h-80 bg-accent/8 rounded-full blur-3xl" />
     </div>
 
     <div className="container mx-auto px-4 relative z-10">
@@ -67,7 +63,7 @@ const ProcessSection = () => (
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
           De cero a funcionando{" "}
-          <span className="text-amber-400">en 7 días</span>
+          <span className="text-primary">en 7 días</span>
         </h2>
         <p className="text-white/60 text-lg max-w-2xl mx-auto">
           Un proceso simple, sin complicaciones técnicas y con todo el soporte de nuestro equipo.
@@ -85,7 +81,6 @@ const ProcessSection = () => (
             className="relative"
           >
             <div className="flex gap-6 pb-2">
-              {/* Left: icon + connector */}
               <div className="flex flex-col items-center">
                 <div className={`${iconBg} rounded-2xl p-4 border border-white/10 shadow-lg relative z-10`}>
                   <Icon className={`h-6 w-6 ${iconColor}`} />
@@ -94,8 +89,6 @@ const ProcessSection = () => (
                   <div className={`w-0.5 flex-1 ${connector} mt-2 mb-2 min-h-[40px]`} />
                 )}
               </div>
-              
-              {/* Right: content */}
               <div className="flex-1 pb-10">
                 <div className="flex items-center gap-3 mb-2">
                   <span className={`text-4xl font-display font-black ${stepColor} leading-none`}>{step}</span>
