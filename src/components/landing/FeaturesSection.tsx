@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageSquare, Calendar, RefreshCw, BellRing, Star } from "lucide-react";
+import { MessageSquare, Calendar, BellRing, Star } from "lucide-react";
 
 const features = [
   {
