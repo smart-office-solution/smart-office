@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageSquare, Calendar, RefreshCw, BellRing, Star } from "lucide-react";
+import { MessageSquare, Calendar, BellRing, Star } from "lucide-react";
 
 const features = [
   {
@@ -25,18 +25,6 @@ const features = [
     iconColor: "text-amber-500",
     tagColor: "bg-amber-100 text-amber-700",
     featured: true,
-  },
-  {
-    icon: RefreshCw,
-    title: "Seguimiento inteligente",
-    desc: "Detecta pacientes que no completaron su tratamiento o que llevan tiempo sin visitar y los recupera automáticamente.",
-    tag: "Retención",
-    gradient: "from-blue-500/15 to-blue-600/5",
-    border: "border-blue-400/20",
-    iconBg: "bg-blue-500/15",
-    iconColor: "text-blue-500",
-    tagColor: "bg-blue-100 text-blue-700",
-    featured: false,
   },
   {
     icon: BellRing,
