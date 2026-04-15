@@ -19,10 +19,10 @@ const plans = [
     missing: ["Seguimiento avanzado", "Integración CRM", "Gestor de campañas"],
     cta: "Empezar ahora",
     popular: false,
-    gradient: "from-white to-violet-50/30",
-    border: "border-violet-200/60",
+    gradient: "from-white to-primary/5",
+    border: "border-primary/20",
     buttonVariant: "outline" as const,
-    buttonClass: "border-violet-300 text-violet-700 hover:bg-violet-50",
+    buttonClass: "border-primary/30 text-primary hover:bg-primary/5",
   },
   {
     name: "Pro",
@@ -42,10 +42,10 @@ const plans = [
     missing: ["Gestor de campañas"],
     cta: "Solicitar auditoría",
     popular: true,
-    gradient: "from-violet-600 to-violet-800",
-    border: "border-violet-500",
+    gradient: "from-primary to-primary/80",
+    border: "border-primary",
     buttonVariant: "default" as const,
-    buttonClass: "bg-amber-400 hover:bg-amber-300 text-amber-950 font-bold shadow-lg shadow-amber-400/30",
+    buttonClass: "bg-accent hover:bg-accent/90 text-accent-foreground font-bold shadow-lg shadow-accent/30",
   },
   {
     name: "Enterprise",
@@ -65,10 +65,10 @@ const plans = [
     missing: [],
     cta: "Contactar",
     popular: false,
-    gradient: "from-white to-blue-50/30",
-    border: "border-blue-200/60",
+    gradient: "from-white to-accent/5",
+    border: "border-accent/20",
     buttonVariant: "outline" as const,
-    buttonClass: "border-blue-300 text-blue-700 hover:bg-blue-50",
+    buttonClass: "border-accent/30 text-accent hover:bg-accent/5",
   },
 ];
 
@@ -80,8 +80,8 @@ const PricingSection = () => {
   return (
     <section id="pricing" className="py-20 md:py-28 bg-dark-section relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-600/8 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/8 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/8 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -91,13 +91,13 @@ const PricingSection = () => {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-sm font-semibold uppercase tracking-wider mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-sm font-semibold uppercase tracking-wider mb-6">
             <Sparkles className="w-3.5 h-3.5" />
             Planes y precios
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
             Elige el plan que{" "}
-            <span className="text-amber-400">se adapta a ti</span>
+            <span className="text-primary">se adapta a ti</span>
           </h2>
           <p className="text-white/60 text-lg max-w-2xl mx-auto">
             Todos los planes incluyen configuración completa, formación y soporte. Sin permanencia.
@@ -112,11 +112,11 @@ const PricingSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`relative rounded-3xl overflow-hidden ${plan.popular ? "scale-105 shadow-2xl shadow-violet-500/20" : ""}`}
+              className={`relative rounded-3xl overflow-hidden ${plan.popular ? "scale-105 shadow-2xl shadow-primary/20" : ""}`}
             >
               {plan.popular && (
                 <div className="absolute top-0 inset-x-0 flex justify-center">
-                  <div className="bg-amber-400 text-amber-950 text-xs font-bold px-6 py-1.5 rounded-b-xl flex items-center gap-1.5">
+                  <div className="bg-accent text-accent-foreground text-xs font-bold px-6 py-1.5 rounded-b-xl flex items-center gap-1.5">
                     <Star className="w-3 h-3" />
                     Más elegido
                   </div>
@@ -144,8 +144,8 @@ const PricingSection = () => {
                 <div className="flex-1 space-y-2.5 mb-8">
                   {plan.features.map((f) => (
                     <div key={f} className="flex items-start gap-2.5">
-                      <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.popular ? "bg-amber-400/20" : "bg-violet-100"}`}>
-                        <Check className={`w-2.5 h-2.5 ${plan.popular ? "text-amber-400" : "text-violet-600"}`} />
+                      <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.popular ? "bg-accent/20" : "bg-primary/10"}`}>
+                        <Check className={`w-2.5 h-2.5 ${plan.popular ? "text-accent" : "text-primary"}`} />
                       </div>
                       <span className={`text-sm ${plan.popular ? "text-white/80" : "text-foreground/80"}`}>{f}</span>
                     </div>

@@ -6,17 +6,17 @@ const problems = [
     icon: Clock,
     title: "Las respuestas lentas te cuestan clientes",
     desc: "Cuando respondes, muchas veces ya han elegido otra opción.\n\nHoy, quien responde primero… se queda con el cliente.",
-    color: "from-violet-500/20 to-violet-600/10",
-    iconColor: "text-violet-400",
-    iconBg: "bg-violet-500/20",
+    color: "from-primary/20 to-primary/10",
+    iconColor: "text-primary",
+    iconBg: "bg-primary/20",
   },
   {
     icon: MessageSquareX,
     title: "Mensajes por todas partes, sin control real",
     desc: "WhatsApp, Instagram, email, web…\n\nLa información se dispersa y se pierden oportunidades.",
-    color: "from-amber-500/20 to-amber-600/10",
-    iconColor: "text-amber-400",
-    iconBg: "bg-amber-500/20",
+    color: "from-accent/20 to-accent/10",
+    iconColor: "text-accent",
+    iconBg: "bg-accent/20",
   },
   {
     icon: CalendarX,
@@ -38,10 +38,9 @@ const problems = [
 
 const ProblemSection = () => (
   <section id="problem" className="py-20 md:py-28 bg-dark-section relative overflow-hidden">
-    {/* Decorative background elements */}
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute -top-40 -left-40 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
+      <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-3xl" />
     </div>
 
@@ -52,7 +51,7 @@ const ProblemSection = () => (
         viewport={{ once: true }}
         className="text-center mb-6"
       >
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/20 border border-violet-500/30 text-violet-300 text-sm font-semibold uppercase tracking-wider mb-6">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-sm font-semibold uppercase tracking-wider mb-6">
           ¿Te suena familiar?
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
