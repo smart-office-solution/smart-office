@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Zap, Mail, MapPin, Shield, FileText, X } from "lucide-react";
+import { Zap, Mail, MapPin, Phone, Shield, FileText, X } from "lucide-react";
 
 const PrivacyModal = ({ onClose }: { onClose: () => void }) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
@@ -53,15 +53,17 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contacto</h4>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-violet-400 shrink-0" />
-                <a href="mailto:silviagsierra@gmail.com" className="hover:text-white transition-colors">
-                  silviagsierra@gmail.com
-                </a>
+              <li className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-violet-400 shrink-0 mt-0.5" />
+                <span>Smart Office, Schuetzenstrasse 18, Marburg, Alemania</span>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>España</span>
+                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <a href="tel:+34605588742" className="hover:text-white transition-colors">+34 605588742</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-violet-400 shrink-0" />
+                <a href="mailto:hola@smart-office.es" className="hover:text-white transition-colors">hola@smart-office.es</a>
               </li>
             </ul>
           </div>
