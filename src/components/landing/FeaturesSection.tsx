@@ -27,18 +27,6 @@ const features = [
     featured: true,
   },
   {
-    icon: RefreshCw,
-    title: "Seguimiento inteligente",
-    desc: "Detecta pacientes que no completaron su tratamiento o que llevan tiempo sin visitar y los recupera automáticamente.",
-    tag: "Retención",
-    gradient: "from-blue-500/15 to-blue-600/5",
-    border: "border-blue-400/20",
-    iconBg: "bg-blue-500/15",
-    iconColor: "text-blue-500",
-    tagColor: "bg-blue-100 text-blue-700",
-    featured: false,
-  },
-  {
     icon: BellRing,
     title: "Recordatorios automáticos",
     desc: "Envía recordatorios de citas 24h y 1h antes, reduciendo las ausencias hasta un 40%.",

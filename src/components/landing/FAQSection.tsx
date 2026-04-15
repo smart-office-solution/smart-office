@@ -5,11 +5,11 @@ import { ChevronDown, MessageCircle } from "lucide-react";
 const faqs = [
   {
     q: "¿Cuánto tiempo lleva poner en marcha el sistema?",
-    a: "En 7 días hábiles tu asistente está activo. Nosotros nos encargamos de toda la configuración técnica: integración con WhatsApp, personalización de respuestas, conexión con tu agenda y pruebas de calidad. Tú no tienes que hacer nada técnico.",
+    a: "En 2 semanas tu asistente está activo. Nosotros nos encargamos de toda la configuración técnica: integración con WhatsApp, personalización de respuestas, conexión con tu agenda y pruebas de calidad. Tú no tienes que hacer nada técnico.",
   },
   {
     q: "¿Necesito tener conocimientos técnicos?",
-    a: "En absoluto. El sistema está diseñado para que tú te limites a gestionar tu clínica. Nosotros configuramos todo, te formamos en 30 minutos y te damos soporte continuo. Si tienes dudas, escribes y te respondemos.",
+    a: "En absoluto. El sistema está diseñado para que tú te limites a gestionar tu clínica. Nosotros configuramos todo, te formamos en 2 horas y te damos soporte continuo. Si tienes dudas, escribes y te respondemos.",
   },
   {
     q: "¿Qué pasa si el paciente hace una pregunta que el asistente no sabe responder?",
