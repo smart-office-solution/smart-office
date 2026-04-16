@@ -6,7 +6,7 @@ const plans = [
   {
     name: "Presencia que Convierte",
     tagline: "Atrae clientes incluso cuando duermes",
-    pain: "<strong>Pierdes pacientes</strong> porque tu web <strong>no transmite confianza</strong>… y <strong>nadie responde</strong> cuando te escriben.",
+    pain: "<strong>Pierdes pacientes</strong> porque tu <strong>web</strong> <strong>no transmite confianza</strong>… y <strong>nadie responde</strong> cuando te escriben.",
     solution: "<strong class='text-accent'>Optimizamos</strong> tu web para convertir visitas en citas, con un asistente que <strong>responde automáticamente</strong>.",
     transforms: [
       "De una web que no genera nada → a una web que <strong class='text-accent'>capta y responde por ti</strong>",
