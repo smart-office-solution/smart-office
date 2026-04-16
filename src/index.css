@@ -20,6 +20,8 @@
     --muted-foreground: 220 10% 45%;
     --accent: 174 55% 42%;
     --accent-foreground: 0 0% 100%;
+    --violet: 270 60% 55%;
+    --violet-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     --border: 40 15% 87%;
@@ -43,6 +45,8 @@
     --muted-foreground: 40 10% 60%;
     --accent: 174 55% 48%;
     --accent-foreground: 0 0% 100%;
+    --violet: 270 60% 60%;
+    --violet-foreground: 0 0% 100%;
     --border: 220 20% 22%;
     --input: 220 20% 22%;
     --ring: 38 75% 55%;
