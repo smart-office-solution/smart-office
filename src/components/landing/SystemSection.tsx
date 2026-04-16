@@ -56,7 +56,7 @@ const SystemSection = () => {
                 return (
                   <div key={i} className={`flex items-center gap-3 px-4 py-3 rounded-xl ${ch.bg} border ${ch.border}`}>
                     <Icon className={`w-5 h-5 ${ch.color}`} />
-                    <span className="text-foreground/80 text-sm font-medium">{ch.label}</span>
+                    <span className="text-foreground/80 text-base font-medium">{ch.label}</span>
                   </div>
                 );
               })}
@@ -119,7 +119,7 @@ const SystemSection = () => {
                 return (
                   <div key={i} className={`flex items-center gap-3 px-4 py-3 rounded-xl ${out.bg} border ${out.border}`}>
                     <Icon className={`w-5 h-5 ${out.color}`} />
-                    <span className="text-foreground/80 text-sm font-medium">{out.label}</span>
+                    <span className="text-foreground/80 text-base font-medium">{out.label}</span>
                   </div>
                 );
               })}

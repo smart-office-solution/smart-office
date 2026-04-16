@@ -139,15 +139,8 @@ const AuditSection = () => {
 
                     {/* Social proof mini */}
                     <div className="mt-6 pt-6 border-t border-gray-100 flex items-center justify-center gap-3">
-                      <div className="flex -space-x-2">
-                        {["V", "M", "A", "C"].map((l, i) => (
-                          <div key={i} className="w-7 h-7 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold">
-                            {l}
-                          </div>
-                        ))}
-                      </div>
                       <p className="text-xs text-muted-foreground">
-                        <strong className="text-foreground">+47 clínicas</strong> ya automatizadas
+                        Automatiza tu clínica con inteligencia artificial
                       </p>
                     </div>
                   </>

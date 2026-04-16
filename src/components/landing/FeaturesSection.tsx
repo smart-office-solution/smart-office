@@ -106,8 +106,8 @@ const FeaturesSection = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-3 flex-wrap">
-                      <h3 className="font-bold text-foreground text-lg">{feature.title}</h3>
-                      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${feature.tagColor}`}>
+                      <h3 className="font-bold text-foreground text-xl">{feature.title}</h3>
+                      <span className={`text-sm font-semibold px-3 py-1 rounded-full ${feature.tagColor}`}>
                         {feature.tag}
                       </span>
                     </div>
