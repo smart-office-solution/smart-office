@@ -6,8 +6,14 @@ const plans = [
   {
     name: "Presencia que Convierte",
     tagline: "Atrae clientes incluso cuando duermes",
-    pain: "<strong>Pierdes pacientes</strong> porque tu <strong>web</strong> <strong>no transmite confianza</strong>…y <strong>nadie responde</strong> cuando te escriben.",
-    solution: "<strong class='text-accent'>Optimizamos</strong> tu web para convertir visitas en citas. Creamos un asistente que <strong class='text-accent'>responde automáticamente</strong>.",
+    pains: [
+      "<strong>Pierdes pacientes</strong> porque tu <strong>web</strong> <strong>no transmite confianza</strong>.",
+      "…y <strong>nadie responde</strong> cuando te escriben.",
+    ],
+    solutions: [
+      "<strong class='text-accent'>Optimizamos</strong> tu web para convertir visitas en citas.",
+      "Creamos un asistente que <strong class='text-accent'>responde automáticamente</strong>.",
+    ],
     transforms: [
       "De una web que no genera nada → a una web que <strong class='text-accent'>capta y responde por ti</strong>",
       "De una consulta en Google → a una <strong class='text-accent'>cita agendada en minutos</strong>",
@@ -28,8 +34,13 @@ const plans = [
   {
     name: "Agenda sin Caos",
     tagline: "Menos llamadas. Más citas. Gana hasta 10h a la semana",
-    pain: "<strong>Pierdes horas</strong> respondiendo <strong>siempre lo mismo</strong>. Se te escapan pacientes <strong>fuera de horario</strong>.",
-    solution: "Un asistente que <strong class='text-primary'>responde, filtra y agenda</strong> citas automáticamente en web y WhatsApp.",
+    pains: [
+      "<strong>Pierdes horas</strong> respondiendo <strong>siempre lo mismo</strong>.",
+      "Se te escapan pacientes <strong>fuera de horario</strong>.",
+    ],
+    solutions: [
+      "Un asistente que <strong class='text-primary'>responde, filtra y agenda</strong> citas automáticamente en web y WhatsApp.",
+    ],
     transforms: [
       "De responder el 40% → a cubrir <strong class='text-primary'>prácticamente todas las consultas</strong>",
       "De perder horas atendiendo el teléfono → a <strong class='text-primary'>recuperar varias horas a la semana</strong>",
@@ -52,8 +63,13 @@ const plans = [
   {
     name: "Clínica Siempre Llena",
     tagline: "Llena los huecos de tu agenda sin depender de nuevos pacientes",
-    pain: "Tienes días con <strong>huecos vacíos</strong>… y pacientes que no vuelven porque nadie les recuerda.",
-    solution: "Sistema para <strong class='text-violet'>reactivar pacientes</strong> y rellenar tu agenda <strong class='text-violet'>automáticamente</strong>.",
+    pains: [
+      "Tienes días con <strong>huecos vacíos</strong>…",
+      "Pacientes que no vuelven porque nadie les recuerda.",
+    ],
+    solutions: [
+      "Sistema para <strong class='text-violet'>reactivar pacientes</strong> y rellenar tu agenda <strong class='text-violet'>automáticamente</strong>.",
+    ],
     transforms: [
       "Menos <strong class='text-violet'>huecos vacíos</strong>",
       "<strong class='text-violet'>Más ingresos</strong> sin conseguir nuevos pacientes",
@@ -181,16 +197,20 @@ const PricingSection = () => {
                   </p>
 
                   {/* Pain block */}
-                  <div className={`rounded-xl border p-4 mb-4 ${styles.painBg}`}>
-                    <div className="flex items-start gap-2.5">
-                      <X className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
-                      <p className="text-sm text-foreground/80" dangerouslySetInnerHTML={{ __html: plan.pain }} />
-                    </div>
+                  <div className={`rounded-xl border p-4 mb-4 ${styles.painBg} space-y-2`}>
+                    {plan.pains.map((p, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5">
+                        <X className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
+                        <p className="text-sm text-foreground/80" dangerouslySetInnerHTML={{ __html: p }} />
+                      </div>
+                    ))}
                   </div>
 
                   {/* Solution block */}
-                  <div className={`rounded-xl border p-4 mb-4 ${styles.solutionBg}`}>
-                    <p className="text-sm text-foreground/80" dangerouslySetInnerHTML={{ __html: plan.solution }} />
+                  <div className={`rounded-xl border p-4 mb-4 ${styles.solutionBg} space-y-2`}>
+                    {plan.solutions.map((s, idx) => (
+                      <p key={idx} className="text-sm text-foreground/80" dangerouslySetInnerHTML={{ __html: s }} />
+                    ))}
                   </div>
 
                   {/* Transforms */}
