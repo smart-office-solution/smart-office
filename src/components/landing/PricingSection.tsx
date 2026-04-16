@@ -6,7 +6,7 @@ const plans = [
   {
     name: "Presencia que Convierte",
     tagline: "Atrae clientes incluso cuando duermes",
-    pain: "Pierdes pacientes porque tu web <strong>no transmite confianza</strong>… y <strong>nadie responde</strong> cuando te escriben.",
+    pain: "<strong>Pierdes pacientes</strong> porque tu web <strong>no transmite confianza</strong>… y <strong>nadie responde</strong> cuando te escriben.",
     solution: "<strong class='text-accent'>Optimizamos</strong> tu web para convertir visitas en citas, con un asistente que <strong>responde automáticamente</strong>.",
     transforms: [
       "De una web que no genera nada → a una web que <strong class='text-accent'>capta y responde por ti</strong>",
@@ -28,7 +28,7 @@ const plans = [
   {
     name: "Agenda sin Caos",
     tagline: "Menos llamadas. Más citas. Gana hasta 10h a la semana",
-    pain: "Pierdes horas respondiendo <strong>siempre lo mismo</strong>. Se te escapan pacientes <strong>fuera de horario</strong>.",
+    pain: "<strong>Pierdes horas</strong> respondiendo <strong>siempre lo mismo</strong>. Se te escapan pacientes <strong>fuera de horario</strong>.",
     solution: "Un asistente que <strong class='text-primary'>responde, filtra y agenda</strong> citas automáticamente en web y WhatsApp.",
     transforms: [
       "De responder el 40% → a cubrir <strong class='text-primary'>prácticamente todas las consultas</strong>",
@@ -52,7 +52,7 @@ const plans = [
   {
     name: "Clínica Siempre Llena",
     tagline: "Llena los huecos de tu agenda sin depender de nuevos pacientes",
-    pain: "Tienes días con <strong>huecos vacíos</strong>… y pacientes que <strong>no vuelven</strong> porque nadie les recuerda.",
+    pain: "Tienes días con <strong>huecos vacíos</strong>… y pacientes que no vuelven porque nadie les recuerda.",
     solution: "Sistema para <strong class='text-violet'>reactivar pacientes</strong> y rellenar tu agenda <strong class='text-violet'>automáticamente</strong>.",
     transforms: [
       "Menos <strong class='text-violet'>huecos vacíos</strong>",
