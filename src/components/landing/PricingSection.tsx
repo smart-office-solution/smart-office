@@ -6,11 +6,11 @@ const plans = [
   {
     name: "Presencia que Convierte",
     tagline: "Atrae clientes incluso cuando duermes",
-    pain: "<strong>Pierdes pacientes</strong> porque tu <strong>web</strong> <strong>no transmite confianza</strong>… y <strong>nadie responde</strong> cuando te escriben.",
-    solution: "<strong class='text-accent'>Optimizamos</strong> tu web para convertir visitas en citas, con un asistente que <strong>responde automáticamente</strong>.",
+    pain: "<strong>Pierdes pacientes</strong> porque tu <strong>web</strong> <strong>no transmite confianza</strong>…y <strong>nadie responde</strong> cuando te escriben.",
+    solution: "<strong class='text-accent'>Optimizamos</strong> tu web para convertir visitas en citas. Creamos un asistente que <strong class='text-accent'>responde automáticamente</strong>.",
     transforms: [
       "De una web que no genera nada → a una web que <strong class='text-accent'>capta y responde por ti</strong>",
-      "De una consulta en Google a una <strong class='text-accent'>cita agendada en minutos</strong>",
+      "De una consulta en Google → a una <strong class='text-accent'>cita agendada en minutos</strong>",
     ],
     price: "349€",
     monthly: "49€/mes",
@@ -32,7 +32,7 @@ const plans = [
     solution: "Un asistente que <strong class='text-primary'>responde, filtra y agenda</strong> citas automáticamente en web y WhatsApp.",
     transforms: [
       "De responder el 40% → a cubrir <strong class='text-primary'>prácticamente todas las consultas</strong>",
-      "Recuperas <strong class='text-primary'>varias horas a la semana</strong>",
+      "De perder horas atendiendo el teléfono → a <strong class='text-primary'>recuperar varias horas a la semana</strong>",
       "Menos <strong class='text-primary'>citas perdidas</strong> gracias a recordatorios",
     ],
     price: "849€",
