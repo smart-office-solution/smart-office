@@ -7,8 +7,8 @@ const pillars = [
   {
     icon: MessageSquare,
     color: "text-primary",
-    bg: "bg-primary/15",
-    border: "border-primary/30",
+    bg: "bg-primary/8",
+    border: "border-primary/15",
     number: "01",
     title: "Captación automática",
     subtitle: "Nunca pierdas un lead por no responder",
@@ -19,8 +19,8 @@ const pillars = [
   {
     icon: Calendar,
     color: "text-accent",
-    bg: "bg-accent/15",
-    border: "border-accent/30",
+    bg: "bg-accent/8",
+    border: "border-accent/15",
     number: "02",
     title: "Gestión de agenda",
     subtitle: "Tu agenda llena, sin esfuerzo manual",
@@ -31,8 +31,8 @@ const pillars = [
   {
     icon: RefreshCw,
     color: "text-primary",
-    bg: "bg-primary/15",
-    border: "border-primary/30",
+    bg: "bg-primary/8",
+    border: "border-primary/15",
     number: "03",
     title: "Seguimiento continuo",
     subtitle: "Convierte pacientes puntuales en clientes fieles",
