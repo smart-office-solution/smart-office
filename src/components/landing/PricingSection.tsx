@@ -23,6 +23,7 @@ const plans = [
     ],
     popular: false,
     accent: "accent",
+    highlightWords: ["Convierte"],
   },
   {
     name: "Agenda sin Caos",
@@ -34,7 +35,7 @@ const plans = [
       "Recuperas varias horas a la semana",
       "Menos citas perdidas gracias a recordatorios",
     ],
-    price: "649€",
+    price: "849€",
     monthly: "69€/mes",
     includes: [
       "Todo lo del paquete 1",
@@ -46,6 +47,7 @@ const plans = [
     ],
     popular: true,
     accent: "primary",
+    highlightWords: ["sin Caos"],
   },
   {
     name: "Clínica Siempre Llena",
@@ -67,37 +69,49 @@ const plans = [
     ],
     popular: false,
     accent: "violet",
+    highlightWords: ["Siempre Llena"],
   },
 ];
 
 const accentStyles = {
   accent: {
     badge: "bg-accent/10 border-accent/20 text-accent",
-    card: "border-accent/15 hover:border-accent/30",
+    card: "border-accent/15 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1",
     painBg: "bg-destructive/5 border-destructive/10",
     solutionBg: "bg-accent/5 border-accent/10",
     checkColor: "text-accent",
     button: "border-accent/30 text-accent hover:bg-accent hover:text-accent-foreground",
     priceBg: "bg-accent/5",
+    titleColor: "text-accent",
   },
   primary: {
     badge: "bg-primary/10 border-primary/20 text-primary",
-    card: "border-primary/20 hover:border-primary/40 shadow-lg shadow-primary/5",
+    card: "border-primary/20 hover:border-primary/40 shadow-lg shadow-primary/5 hover:shadow-xl hover:shadow-primary/15 hover:-translate-y-1",
     painBg: "bg-destructive/5 border-destructive/10",
     solutionBg: "bg-primary/5 border-primary/10",
     checkColor: "text-primary",
     button: "bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-md shadow-primary/20",
     priceBg: "bg-primary/5",
+    titleColor: "text-primary",
   },
   violet: {
     badge: "bg-violet/10 border-violet/20 text-violet",
-    card: "border-violet/15 hover:border-violet/30",
+    card: "border-violet/15 hover:border-violet/30 hover:shadow-lg hover:shadow-violet/10 hover:-translate-y-1",
     painBg: "bg-destructive/5 border-destructive/10",
     solutionBg: "bg-violet/5 border-violet/10",
     checkColor: "text-violet",
     button: "border-violet/30 text-violet hover:bg-violet hover:text-violet-foreground",
     priceBg: "bg-violet/5",
+    titleColor: "text-violet",
   },
+};
+
+const highlightName = (name: string, highlights: string[], colorClass: string) => {
+  let result = name;
+  for (const word of highlights) {
+    result = result.replace(word, `<span class="${colorClass} font-extrabold">${word}</span>`);
+  }
+  return result;
 };
 
 const PricingSection = () => {
@@ -154,12 +168,15 @@ const PricingSection = () => {
                   </div>
                 )}
 
-                <div className={`bg-card border ${styles.card} rounded-3xl p-6 md:p-7 h-full flex flex-col transition-all duration-300 ${plan.popular ? "pt-10" : ""}`}>
-                  {/* Title */}
-                  <h3 className="font-display font-bold text-xl md:text-2xl text-foreground mb-1">
-                    {plan.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-5 italic">
+                <div className={`bg-card border ${styles.card} rounded-3xl p-6 md:p-7 h-full flex flex-col transition-all duration-300 cursor-default ${plan.popular ? "pt-10" : ""}`}>
+                  {/* Title — centered */}
+                  <h3
+                    className="font-display font-bold text-xl md:text-2xl text-foreground mb-1 text-center"
+                    dangerouslySetInnerHTML={{
+                      __html: highlightName(plan.name, plan.highlightWords, styles.titleColor),
+                    }}
+                  />
+                  <p className="text-sm text-muted-foreground mb-5 italic text-center">
                     "{plan.tagline}"
                   </p>
 
@@ -173,7 +190,9 @@ const PricingSection = () => {
 
                   {/* Solution block */}
                   <div className={`rounded-xl border p-4 mb-4 ${styles.solutionBg}`}>
-                    <p className="text-sm text-foreground/80">{plan.solution}</p>
+                    <p className="text-sm text-foreground/80">
+                      <span className="font-semibold">{plan.solution}</span>
+                    </p>
                   </div>
 
                   {/* Transforms */}
@@ -181,7 +200,7 @@ const PricingSection = () => {
                     {plan.transforms.map((t) => (
                       <div key={t} className="flex items-start gap-2.5">
                         <Check className={`w-4 h-4 shrink-0 mt-0.5 ${styles.checkColor}`} />
-                        <span className="text-sm text-foreground/80">{t}</span>
+                        <span className="text-sm text-foreground/80 font-medium">{t}</span>
                       </div>
                     ))}
                   </div>
@@ -198,7 +217,7 @@ const PricingSection = () => {
 
                   {/* Includes */}
                   <details className="mb-5 group">
-                    <summary className="text-sm font-semibold text-muted-foreground cursor-pointer select-none flex items-center gap-1">
+                    <summary className="text-sm font-semibold text-muted-foreground cursor-pointer select-none flex items-center justify-center gap-1">
                       <span>Qué incluye</span>
                       <ArrowRight className="w-3 h-3 transition-transform group-open:rotate-90" />
                     </summary>
