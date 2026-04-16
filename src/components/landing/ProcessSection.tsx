@@ -92,9 +92,9 @@ const ProcessSection = () => (
               <div className="flex-1 pb-10">
                 <div className="flex items-center gap-3 mb-2">
                   <span className={`text-4xl font-display font-black ${stepColor} leading-none`}>{step}</span>
-                  <h3 className="text-xl font-display font-bold text-foreground">{title}</h3>
+                  <h3 className="text-2xl font-display font-bold text-foreground">{title}</h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">{desc}</p>
+                <p className="text-muted-foreground leading-relaxed text-base">{desc}</p>
               </div>
             </div>
           </motion.div>
