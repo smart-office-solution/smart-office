@@ -184,23 +184,21 @@ const PricingSection = () => {
                   <div className={`rounded-xl border p-4 mb-4 ${styles.painBg}`}>
                     <div className="flex items-start gap-2.5">
                       <X className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
-                      <p className="text-sm text-foreground/80">{plan.pain}</p>
+                      <p className="text-sm text-foreground/80" dangerouslySetInnerHTML={{ __html: plan.pain }} />
                     </div>
                   </div>
 
                   {/* Solution block */}
                   <div className={`rounded-xl border p-4 mb-4 ${styles.solutionBg}`}>
-                    <p className="text-sm text-foreground/80">
-                      <span className="font-semibold">{plan.solution}</span>
-                    </p>
+                    <p className="text-sm text-foreground/80" dangerouslySetInnerHTML={{ __html: plan.solution }} />
                   </div>
 
                   {/* Transforms */}
                   <div className="space-y-2 mb-5">
-                    {plan.transforms.map((t) => (
-                      <div key={t} className="flex items-start gap-2.5">
+                    {plan.transforms.map((t, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5">
                         <Check className={`w-4 h-4 shrink-0 mt-0.5 ${styles.checkColor}`} />
-                        <span className="text-sm text-foreground/80 font-medium">{t}</span>
+                        <span className="text-sm text-foreground/80 font-medium" dangerouslySetInnerHTML={{ __html: t }} />
                       </div>
                     ))}
                   </div>
