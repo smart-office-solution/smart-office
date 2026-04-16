@@ -98,7 +98,7 @@ const ProblemSection = () => (
             <div className={`h-12 w-12 rounded-xl ${iconBg} flex items-center justify-center mb-5 relative`}>
               <Icon className={`h-6 w-6 ${iconColor}`} />
             </div>
-            <h3 className="font-display font-semibold text-foreground mb-3 text-lg leading-snug">{title}</h3>
+            <h3 className="font-display font-semibold text-foreground mb-3 text-xl leading-snug">{title}</h3>
             {desc.split("\n\n").map((paragraph, idx) => (
               <p key={idx} className="text-sm text-muted-foreground mb-2 last:mb-0 leading-relaxed">
                 {paragraph}

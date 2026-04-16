@@ -131,7 +131,7 @@ const PricingSection = () => {
 
               <div className={`${plan.cardBg} border ${plan.border} rounded-3xl p-7 h-full flex flex-col ${plan.popular ? "pt-10" : ""}`}>
                 <div className="mb-6">
-                  <h3 className="font-display font-bold text-xl mb-1 text-foreground">
+                  <h3 className="font-display font-bold text-2xl mb-1 text-foreground">
                     {plan.name}
                   </h3>
                   <p className="text-sm mb-4 text-muted-foreground">{plan.desc}</p>
