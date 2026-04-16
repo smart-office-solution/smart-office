@@ -19,8 +19,8 @@ const plans = [
     missing: ["Seguimiento avanzado", "Integración CRM", "Gestor de campañas"],
     cta: "Empezar ahora",
     popular: false,
-    gradient: "from-white to-primary/5",
-    border: "border-primary/20",
+    cardBg: "bg-white",
+    border: "border-border",
     buttonVariant: "outline" as const,
     buttonClass: "border-primary/30 text-primary hover:bg-primary/5",
   },
@@ -42,10 +42,10 @@ const plans = [
     missing: ["Gestor de campañas"],
     cta: "Solicitar auditoría",
     popular: true,
-    gradient: "from-primary to-primary/80",
-    border: "border-primary",
+    cardBg: "bg-gradient-to-b from-primary/8 to-accent/5",
+    border: "border-primary/25",
     buttonVariant: "default" as const,
-    buttonClass: "bg-accent hover:bg-accent/90 text-accent-foreground font-bold shadow-lg shadow-accent/30",
+    buttonClass: "bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-md shadow-primary/20",
   },
   {
     name: "Enterprise",
@@ -65,8 +65,8 @@ const plans = [
     missing: [],
     cta: "Contactar",
     popular: false,
-    gradient: "from-white to-accent/5",
-    border: "border-accent/20",
+    cardBg: "bg-white",
+    border: "border-border",
     buttonVariant: "outline" as const,
     buttonClass: "border-accent/30 text-accent hover:bg-accent/5",
   },
@@ -78,10 +78,10 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-dark-section relative overflow-hidden">
+    <section id="pricing" className="py-20 md:py-28 bg-background relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/8 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -91,15 +91,15 @@ const PricingSection = () => {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-sm font-semibold uppercase tracking-wider mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold uppercase tracking-wider mb-6">
             <Sparkles className="w-3.5 h-3.5" />
             Planes y precios
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
             Elige el plan que{" "}
             <span className="text-primary">se adapta a ti</span>
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Todos los planes incluyen configuración completa, formación y soporte. Sin permanencia.
           </p>
         </motion.div>
@@ -112,29 +112,29 @@ const PricingSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`relative rounded-3xl overflow-hidden ${plan.popular ? "scale-105 shadow-2xl shadow-primary/20" : ""}`}
+              className={`relative rounded-3xl overflow-hidden ${plan.popular ? "scale-105 shadow-lg shadow-primary/10" : ""}`}
             >
               {plan.popular && (
                 <div className="absolute top-0 inset-x-0 flex justify-center">
-                  <div className="bg-accent text-accent-foreground text-xs font-bold px-6 py-1.5 rounded-b-xl flex items-center gap-1.5">
+                  <div className="bg-primary text-primary-foreground text-xs font-bold px-6 py-1.5 rounded-b-xl flex items-center gap-1.5">
                     <Star className="w-3 h-3" />
                     Más elegido
                   </div>
                 </div>
               )}
 
-              <div className={`bg-gradient-to-b ${plan.gradient} border ${plan.border} rounded-3xl p-7 h-full flex flex-col ${plan.popular ? "pt-10" : ""}`}>
+              <div className={`${plan.cardBg} border ${plan.border} rounded-3xl p-7 h-full flex flex-col ${plan.popular ? "pt-10" : ""}`}>
                 <div className="mb-6">
-                  <h3 className={`font-display font-bold text-xl mb-1 ${plan.popular ? "text-white" : "text-foreground"}`}>
+                  <h3 className="font-display font-bold text-xl mb-1 text-foreground">
                     {plan.name}
                   </h3>
-                  <p className={`text-sm mb-4 ${plan.popular ? "text-white/60" : "text-muted-foreground"}`}>{plan.desc}</p>
+                  <p className="text-sm mb-4 text-muted-foreground">{plan.desc}</p>
                   <div className="flex items-baseline gap-1">
-                    <span className={`text-3xl font-display font-black ${plan.popular ? "text-white" : "text-foreground"}`}>
+                    <span className="text-3xl font-display font-black text-foreground">
                       {plan.price}
                     </span>
                     {plan.period && (
-                      <span className={`text-sm ${plan.popular ? "text-white/60" : "text-muted-foreground"}`}>
+                      <span className="text-sm text-muted-foreground">
                         {plan.period}
                       </span>
                     )}
@@ -144,18 +144,18 @@ const PricingSection = () => {
                 <div className="flex-1 space-y-2.5 mb-8">
                   {plan.features.map((f) => (
                     <div key={f} className="flex items-start gap-2.5">
-                      <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.popular ? "bg-accent/20" : "bg-primary/10"}`}>
-                        <Check className={`w-2.5 h-2.5 ${plan.popular ? "text-accent" : "text-primary"}`} />
+                      <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-primary/10">
+                        <Check className="w-2.5 h-2.5 text-primary" />
                       </div>
-                      <span className={`text-sm ${plan.popular ? "text-white/80" : "text-foreground/80"}`}>{f}</span>
+                      <span className="text-sm text-foreground/80">{f}</span>
                     </div>
                   ))}
                   {plan.missing.map((f) => (
                     <div key={f} className="flex items-start gap-2.5 opacity-30">
-                      <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-gray-200">
-                        <div className="w-2 h-0.5 bg-gray-400 rounded" />
+                      <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-muted">
+                        <div className="w-2 h-0.5 bg-muted-foreground rounded" />
                       </div>
-                      <span className={`text-sm ${plan.popular ? "text-white/40" : "text-muted-foreground"}`}>{f}</span>
+                      <span className="text-sm text-muted-foreground">{f}</span>
                     </div>
                   ))}
                 </div>
@@ -177,7 +177,7 @@ const PricingSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-white/30 text-sm mt-8"
+          className="text-center text-muted-foreground/50 text-sm mt-8"
         >
           ¿No sabes qué plan elegir? Solicita tu auditoría gratuita y te asesoramos sin compromiso.
         </motion.p>

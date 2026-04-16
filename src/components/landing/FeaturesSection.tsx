@@ -7,11 +7,11 @@ const features = [
     title: "Respuesta instantánea",
     desc: "Responde en segundos a cualquier mensaje de WhatsApp, Instagram o web, 24/7, sin intervención humana.",
     tag: "Core",
-    gradient: "from-primary/15 to-primary/5",
-    border: "border-primary/20",
-    iconBg: "bg-primary/15",
+    iconBg: "bg-primary/10",
     iconColor: "text-primary",
-    tagColor: "bg-primary/10 text-primary",
+    tagColor: "bg-primary/8 text-primary",
+    cardBg: "bg-primary/5",
+    border: "border-primary/15",
     featured: false,
   },
   {
@@ -19,11 +19,11 @@ const features = [
     title: "Agenda automática",
     desc: "El asistente agenda, confirma y reprograma citas directamente en tu calendario, sin fricciones.",
     tag: "Más popular",
-    gradient: "from-accent/15 to-accent/5",
-    border: "border-accent/20",
-    iconBg: "bg-accent/15",
+    iconBg: "bg-accent/10",
     iconColor: "text-accent",
-    tagColor: "bg-accent/10 text-accent",
+    tagColor: "bg-accent/8 text-accent",
+    cardBg: "bg-accent/5",
+    border: "border-accent/15",
     featured: true,
   },
   {
@@ -31,11 +31,11 @@ const features = [
     title: "Recordatorios automáticos",
     desc: "Envía recordatorios de citas 24h y 1h antes, reduciendo las ausencias hasta un 40%.",
     tag: "Fidelización",
-    gradient: "from-primary/15 to-primary/5",
-    border: "border-primary/20",
-    iconBg: "bg-primary/15",
+    iconBg: "bg-primary/10",
     iconColor: "text-primary",
-    tagColor: "bg-primary/10 text-primary",
+    tagColor: "bg-primary/8 text-primary",
+    cardBg: "bg-primary/5",
+    border: "border-primary/15",
     featured: false,
   },
   {
@@ -43,11 +43,11 @@ const features = [
     title: "Solicitud de reseñas",
     desc: "Tras cada visita, el asistente invita automáticamente al paciente a dejar una reseña en Google, mejorando tu reputación online.",
     tag: "Reputación",
-    gradient: "from-accent/15 to-accent/5",
-    border: "border-accent/20",
-    iconBg: "bg-accent/15",
+    iconBg: "bg-accent/10",
     iconColor: "text-accent",
-    tagColor: "bg-accent/10 text-accent",
+    tagColor: "bg-accent/8 text-accent",
+    cardBg: "bg-accent/5",
+    border: "border-accent/15",
     featured: false,
   },
 ];
@@ -80,7 +80,7 @@ const FeaturesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -90,24 +90,24 @@ const FeaturesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className={`relative bg-gradient-to-br ${feature.gradient} rounded-2xl p-6 border ${feature.border} hover:shadow-lg transition-all duration-300 ${feature.featured ? "ring-2 ring-accent/50" : ""}`}
+                className={`relative ${feature.cardBg} rounded-2xl p-8 border ${feature.border} hover:shadow-md transition-all duration-300 ${feature.featured ? "ring-1 ring-accent/30" : ""}`}
               >
                 {feature.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-accent to-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                    <span className="bg-gradient-to-r from-accent to-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                       ⭐ Más elegido
                     </span>
                   </div>
                 )}
 
                 <div className="flex items-start gap-4">
-                  <div className={`w-11 h-11 rounded-xl ${feature.iconBg} flex items-center justify-center shrink-0`}>
-                    <Icon className={`w-5 h-5 ${feature.iconColor}`} />
+                  <div className={`w-12 h-12 rounded-xl ${feature.iconBg} flex items-center justify-center shrink-0`}>
+                    <Icon className={`w-6 h-6 ${feature.iconColor}`} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-2 flex-wrap">
-                      <h3 className="font-bold text-foreground text-base">{feature.title}</h3>
-                      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${feature.tagColor}`}>
+                    <div className="flex items-center gap-2 mb-3 flex-wrap">
+                      <h3 className="font-bold text-foreground text-lg">{feature.title}</h3>
+                      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${feature.tagColor}`}>
                         {feature.tag}
                       </span>
                     </div>

@@ -7,48 +7,48 @@ const steps = [
     step: "01",
     title: "Auditoría gratuita",
     desc: "Analizamos tu situación actual: canales, volumen de mensajes, puntos de fuga de clientes y oportunidades de mejora.",
-    iconBg: "bg-primary/15",
+    iconBg: "bg-primary/10",
     iconColor: "text-primary",
-    stepColor: "text-primary/30",
-    connector: "bg-gradient-to-b from-primary/40 to-accent/40",
+    stepColor: "text-primary/25",
+    connector: "bg-gradient-to-b from-primary/30 to-accent/30",
   },
   {
     icon: Settings,
     step: "02",
     title: "Configuración a medida",
     desc: "Diseñamos e implementamos tu asistente con tu identidad, tus servicios y tu forma de comunicarte. En 7 días.",
-    iconBg: "bg-accent/15",
+    iconBg: "bg-accent/10",
     iconColor: "text-accent",
-    stepColor: "text-accent/30",
-    connector: "bg-gradient-to-b from-accent/40 to-blue-500/40",
+    stepColor: "text-accent/25",
+    connector: "bg-gradient-to-b from-accent/30 to-primary/30",
   },
   {
     icon: Rocket,
     step: "03",
     title: "Activación y prueba",
     desc: "El sistema empieza a responder, captar y agendar. Tú ves los resultados en tiempo real desde el primer día.",
-    iconBg: "bg-blue-500/15",
-    iconColor: "text-blue-400",
-    stepColor: "text-blue-400/30",
-    connector: "bg-gradient-to-b from-blue-500/40 to-primary/40",
+    iconBg: "bg-primary/10",
+    iconColor: "text-primary",
+    stepColor: "text-primary/25",
+    connector: "bg-gradient-to-b from-primary/30 to-accent/30",
   },
   {
     icon: HeartHandshake,
     step: "04",
     title: "Optimización continua",
     desc: "Analizamos el rendimiento cada mes y ajustamos para que el sistema mejore constantemente.",
-    iconBg: "bg-primary/15",
-    iconColor: "text-primary",
-    stepColor: "text-primary/30",
+    iconBg: "bg-accent/10",
+    iconColor: "text-accent",
+    stepColor: "text-accent/25",
     connector: null,
   },
 ];
 
 const ProcessSection = () => (
-  <section id="process" className="py-20 md:py-28 bg-dark-section relative overflow-hidden">
+  <section id="process" className="py-20 md:py-28 bg-background relative overflow-hidden">
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      <div className="absolute top-20 left-0 w-72 h-72 bg-primary/8 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-0 w-80 h-80 bg-accent/8 rounded-full blur-3xl" />
+      <div className="absolute top-20 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
     </div>
 
     <div className="container mx-auto px-4 relative z-10">
@@ -58,14 +58,14 @@ const ProcessSection = () => (
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-300 text-sm font-semibold uppercase tracking-wider mb-6">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold uppercase tracking-wider mb-6">
           El proceso
         </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
           De cero a funcionando{" "}
           <span className="text-primary">en 7 días</span>
         </h2>
-        <p className="text-white/60 text-lg max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Un proceso simple, sin complicaciones técnicas y con todo el soporte de nuestro equipo.
         </p>
       </motion.div>
@@ -82,7 +82,7 @@ const ProcessSection = () => (
           >
             <div className="flex gap-6 pb-2">
               <div className="flex flex-col items-center">
-                <div className={`${iconBg} rounded-2xl p-4 border border-white/10 shadow-lg relative z-10`}>
+                <div className={`${iconBg} rounded-2xl p-4 border border-border shadow-sm relative z-10`}>
                   <Icon className={`h-6 w-6 ${iconColor}`} />
                 </div>
                 {connector && (
@@ -92,9 +92,9 @@ const ProcessSection = () => (
               <div className="flex-1 pb-10">
                 <div className="flex items-center gap-3 mb-2">
                   <span className={`text-4xl font-display font-black ${stepColor} leading-none`}>{step}</span>
-                  <h3 className="text-xl font-display font-bold text-white">{title}</h3>
+                  <h3 className="text-xl font-display font-bold text-foreground">{title}</h3>
                 </div>
-                <p className="text-white/55 leading-relaxed">{desc}</p>
+                <p className="text-muted-foreground leading-relaxed">{desc}</p>
               </div>
             </div>
           </motion.div>
