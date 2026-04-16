@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { MessageSquare, Instagram, Globe, Brain, Calendar, BellRing, Star, ArrowRight } from "lucide-react";
 
 const channels = [
-  { icon: MessageSquare, label: "WhatsApp", color: "text-green-600", bg: "bg-green-500/8", border: "border-green-500/15" },
-  { icon: Instagram, label: "Instagram", color: "text-pink-500", bg: "bg-pink-500/8", border: "border-pink-500/15" },
+  { icon: MessageSquare, label: "WhatsApp", color: "text-accent", bg: "bg-accent/8", border: "border-accent/15" },
+  { icon: Instagram, label: "Instagram", color: "text-violet", bg: "bg-violet/8", border: "border-violet/15" },
   { icon: Globe, label: "Web", color: "text-primary", bg: "bg-primary/8", border: "border-primary/15" },
 ];
 
 const outputs = [
-  { icon: Calendar, label: "Cita agendada", color: "text-primary", bg: "bg-primary/8", border: "border-primary/15" },
-  { icon: BellRing, label: "Recordatorio enviado", color: "text-accent", bg: "bg-accent/8", border: "border-accent/15" },
-  { icon: Star, label: "Reseña solicitada", color: "text-primary", bg: "bg-primary/8", border: "border-primary/15" },
+  { icon: Calendar, label: "Cita agendada", color: "text-accent", bg: "bg-accent/8", border: "border-accent/15" },
+  { icon: BellRing, label: "Recordatorio enviado", color: "text-primary", bg: "bg-primary/8", border: "border-primary/15" },
+  { icon: Star, label: "Reseña solicitada", color: "text-violet", bg: "bg-violet/8", border: "border-violet/15" },
 ];
 
 const SystemSection = () => {
@@ -83,14 +83,14 @@ const SystemSection = () => {
               className="flex flex-col items-center"
             >
               <div className="relative w-32 h-32 md:w-40 md:h-40">
-                <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-pulse" />
-                <div className="absolute inset-3 rounded-full border border-primary/15" />
-                <div className="absolute inset-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-xl shadow-primary/20">
+                <div className="absolute inset-0 rounded-full border-2 border-accent/20 animate-pulse" />
+                <div className="absolute inset-3 rounded-full border border-violet/15" />
+                <div className="absolute inset-6 rounded-full bg-gradient-to-br from-accent via-primary to-violet flex items-center justify-center shadow-xl shadow-accent/20">
                   <Brain className="w-10 h-10 md:w-12 md:h-12 text-white" />
                 </div>
               </div>
               <p className="text-foreground font-bold mt-3 text-sm">Smart Office AI</p>
-              <p className="text-primary text-xs mt-1">Procesando en tiempo real</p>
+              <p className="text-accent text-xs mt-1">Procesando en tiempo real</p>
             </motion.div>
 
             <motion.div

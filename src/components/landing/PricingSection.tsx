@@ -19,10 +19,12 @@ const plans = [
     missing: ["Seguimiento avanzado", "Integración CRM", "Gestor de campañas"],
     cta: "Empezar ahora",
     popular: false,
-    cardBg: "bg-white",
-    border: "border-border",
+    cardBg: "bg-accent/5",
+    border: "border-accent/15",
+    checkColor: "text-accent",
+    checkBg: "bg-accent/10",
     buttonVariant: "outline" as const,
-    buttonClass: "border-primary/30 text-primary hover:bg-primary/5",
+    buttonClass: "border-accent/30 text-accent hover:bg-accent/5",
   },
   {
     name: "Pro",
@@ -42,8 +44,10 @@ const plans = [
     missing: ["Gestor de campañas"],
     cta: "Solicitar auditoría",
     popular: true,
-    cardBg: "bg-gradient-to-b from-primary/8 to-accent/5",
-    border: "border-primary/25",
+    cardBg: "bg-primary/5",
+    border: "border-primary/20",
+    checkColor: "text-primary",
+    checkBg: "bg-primary/10",
     buttonVariant: "default" as const,
     buttonClass: "bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-md shadow-primary/20",
   },
@@ -65,10 +69,12 @@ const plans = [
     missing: [],
     cta: "Contactar",
     popular: false,
-    cardBg: "bg-white",
-    border: "border-border",
+    cardBg: "bg-violet/5",
+    border: "border-violet/15",
+    checkColor: "text-violet",
+    checkBg: "bg-violet/10",
     buttonVariant: "outline" as const,
-    buttonClass: "border-accent/30 text-accent hover:bg-accent/5",
+    buttonClass: "border-violet/30 text-violet hover:bg-violet/5",
   },
 ];
 
@@ -144,8 +150,8 @@ const PricingSection = () => {
                 <div className="flex-1 space-y-2.5 mb-8">
                   {plan.features.map((f) => (
                     <div key={f} className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-primary/10">
-                        <Check className="w-2.5 h-2.5 text-primary" />
+                      <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.checkBg}`}>
+                        <Check className={`w-2.5 h-2.5 ${plan.checkColor}`} />
                       </div>
                       <span className="text-sm text-foreground/80">{f}</span>
                     </div>
