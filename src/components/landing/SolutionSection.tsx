@@ -54,69 +54,188 @@ const pillars = [
   },
 ];
 
-const WhatsAppMockup = () => {
+const LaptopPhoneMockup = () => {
   const messages = [
-    { type: "user", text: "Hola! Quería saber si tenéis hueco esta semana para una limpieza dental", time: "10:32" },
-    { type: "bot", text: "¡Hola! Claro, tenemos disponibilidad. ¿Te viene mejor por la mañana o por la tarde?", time: "10:32" },
-    { type: "user", text: "Por la tarde, después de las 17h si puede ser", time: "10:33" },
-    { type: "bot", text: "Perfecto. Tengo libre el miércoles 16 a las 17:30h y el jueves 17 a las 18:00h. ¿Cuál prefieres?", time: "10:33" },
-    { type: "user", text: "El miércoles me viene genial", time: "10:34" },
-    { type: "bot", text: "✅ ¡Reservado! Miércoles 16 a las 17:30h. Te enviaré un recordatorio el día anterior. ¿Necesitas algo más?", time: "10:34" },
+    { type: "in", text: "Hola, querría saber si tenéis hueco esta semana para una limpieza dental" },
+    { type: "out", text: "¡Hola! Claro, déjame comprobar. ¿Qué día prefieres?" },
+    { type: "in", text: "Miércoles o jueves me viene bien" },
+    { type: "out", text: "¿Por la mañana o por la tarde?" },
+    { type: "in", text: "Por la tarde me viene mejor, a partir de las 17:00" },
+    { type: "out", text: "Perfecto ✅ Te reservo el martes 22 a las 17:30h. ¿Te viene bien?" },
   ];
 
   return (
-    <div className="relative mx-auto w-[280px] sm:w-[320px]">
-      <div className="relative bg-white rounded-[2.5rem] shadow-2xl shadow-black/30 overflow-hidden border-4 border-gray-800">
-        <div className="bg-gray-800 px-6 py-2 flex justify-between items-center">
-          <span className="text-white text-xs font-medium">10:34</span>
-          <div className="flex gap-1">
-            <div className="w-4 h-2 bg-white/70 rounded-sm" />
-            <div className="w-1.5 h-1.5 bg-white/70 rounded-full mt-0.5" />
-          </div>
-        </div>
-        <div className="bg-[#075E54] px-4 py-3 flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-sm font-bold shadow">
-            SO
-          </div>
-          <div className="flex-1">
-            <p className="text-white text-sm font-semibold leading-none">Smart Office IA</p>
-            <p className="text-green-300 text-xs mt-0.5">en línea</p>
-          </div>
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-        </div>
-        <div className="bg-[#ECE5DD] px-3 py-3 space-y-2 h-72 overflow-hidden">
-          {messages.map((msg, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 5 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.3 }}
-              className={`flex ${msg.type === "user" ? "justify-end" : "justify-start"}`}
-            >
-              <div className={`max-w-[82%] rounded-2xl px-3 py-2 shadow-sm ${msg.type === "user" ? "bg-[#DCF8C6] rounded-tr-sm" : "bg-white rounded-tl-sm"}`}>
-                <p className="text-[#303030] text-[11px] leading-relaxed">{msg.text}</p>
-                <div className="flex items-center justify-end gap-1 mt-0.5">
-                  <span className="text-[#8E9194] text-[9px]">{msg.time}</span>
-                  {msg.type === "bot" && <Check className="w-2.5 h-2.5 text-blue-500" />}
+    <div className="w-full flex flex-col items-center">
+      <div
+        className="relative w-full max-w-[600px] mx-auto scale-[0.85] sm:scale-100 origin-center"
+        style={{ filter: "drop-shadow(0 20px 60px rgba(0,0,0,0.12))" }}
+      >
+        {/* Laptop */}
+        <div className="relative w-full">
+          {/* Laptop screen frame */}
+          <div
+            className="relative w-[88%] mx-auto"
+            style={{ background: "#2a2a2a", borderRadius: "14px 14px 0 0", padding: "10px 10px 0 10px" }}
+          >
+            {/* Browser bar */}
+            <div className="bg-white rounded-t-md px-3 py-2 flex items-center gap-2 border-b border-gray-200">
+              <div className="flex gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+              </div>
+              <div className="flex-1 mx-2 bg-gray-100 rounded px-2 py-0.5 text-[10px] text-gray-500 truncate">
+                🔒 clinica-ejemplo.es
+              </div>
+            </div>
+
+            {/* Website content */}
+            <div className="relative bg-white h-[260px] overflow-hidden">
+              {/* Nav */}
+              <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100">
+                <span className="text-[11px] font-bold text-gray-800">🦷 Clínica DentalMed</span>
+                <div className="flex gap-3 text-[9px] text-gray-500">
+                  <span>Inicio</span>
+                  <span>Servicios</span>
+                  <span>Contacto</span>
                 </div>
               </div>
-            </motion.div>
-          ))}
+
+              {/* Hero */}
+              <div className="grid grid-cols-2 gap-3 px-4 py-4">
+                <div className="flex flex-col justify-center">
+                  <h4 className="text-[13px] font-bold text-gray-900 leading-tight mb-1.5">
+                    Tu sonrisa en las mejores manos
+                  </h4>
+                  <p className="text-[8px] text-gray-500 leading-snug mb-2">
+                    Especialistas en odontología estética y general. Pide cita en menos de un minuto.
+                  </p>
+                  <button
+                    className="text-[9px] font-semibold text-white px-2.5 py-1 rounded w-fit"
+                    style={{ background: "#c6990c" }}
+                  >
+                    Pedir cita
+                  </button>
+                </div>
+                <div
+                  className="rounded-md h-full min-h-[100px] flex items-center justify-center text-3xl"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #e0f7f7 0%, #f4ede4 100%)",
+                  }}
+                >
+                  🦷
+                </div>
+              </div>
+
+              {/* Chat popup */}
+              <div className="absolute right-3 bottom-14 w-[150px] rounded-lg overflow-hidden shadow-lg border border-gray-200 bg-white">
+                <div className="px-2.5 py-1.5 flex items-center gap-1.5" style={{ background: "#03a8a8" }}>
+                  <div className="w-4 h-4 rounded-full bg-white/30 flex items-center justify-center text-[8px]">🦷</div>
+                  <div className="flex-1">
+                    <p className="text-white text-[8px] font-semibold leading-none">Asistente</p>
+                    <p className="text-white/80 text-[7px] mt-0.5">En línea</p>
+                  </div>
+                </div>
+                <div className="p-2 bg-gray-50">
+                  <div className="bg-white rounded-md p-1.5 text-[8px] text-gray-700 leading-snug shadow-sm">
+                    👋 ¡Hola! ¿En qué puedo ayudarte hoy?
+                  </div>
+                </div>
+                <div className="px-2 py-1.5 bg-white border-t border-gray-100 flex items-center gap-1">
+                  <div className="flex-1 text-[7px] text-gray-400">Escribe un mensaje...</div>
+                  <div className="w-3.5 h-3.5 rounded-full flex items-center justify-center" style={{ background: "#03a8a8" }}>
+                    <ArrowRight className="w-2 h-2 text-white" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Chat bubble */}
+              <div
+                className="absolute right-3 bottom-3 w-9 h-9 rounded-full flex items-center justify-center shadow-md"
+                style={{ background: "#03a8a8" }}
+              >
+                <MessageSquare className="w-4 h-4 text-white" />
+              </div>
+            </div>
+          </div>
+
+          {/* Laptop base */}
+          <div className="w-[96%] h-2 mx-auto" style={{ background: "#d0ccc4", borderRadius: "0 0 4px 4px" }} />
+          <div className="w-[40%] h-1.5 mx-auto" style={{ background: "#c4c0b8", borderRadius: "0 0 8px 8px" }} />
         </div>
-        <div className="bg-[#F0F0F0] px-3 py-2 flex items-center gap-2">
-          <div className="flex-1 bg-white rounded-full px-4 py-1.5 text-[11px] text-gray-400">Escribe un mensaje...</div>
-          <div className="w-8 h-8 rounded-full bg-[#075E54] flex items-center justify-center">
-            <ArrowRight className="w-4 h-4 text-white" />
+
+        {/* Phone overlay */}
+        <div
+          className="absolute"
+          style={{ right: "-30px", bottom: "0", zIndex: 2, width: "170px" }}
+        >
+          <div
+            className="relative"
+            style={{ background: "#1a1a1a", borderRadius: "22px", padding: "8px" }}
+          >
+            {/* Notch */}
+            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-12 h-3 bg-black rounded-full z-10" />
+            <div className="bg-white rounded-[16px] overflow-hidden">
+              {/* WhatsApp header */}
+              <div className="px-2.5 py-2 flex items-center gap-1.5" style={{ background: "#075E54", paddingTop: "16px" }}>
+                <div className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[8px]">🦷</div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white text-[8px] font-semibold leading-none truncate">Clínica DentalMed</p>
+                  <p className="text-green-200 text-[7px] mt-0.5">En línea</p>
+                </div>
+              </div>
+
+              {/* Messages */}
+              <div className="px-1.5 py-2 space-y-1" style={{ background: "#ECE5DD", height: "260px", overflow: "hidden" }}>
+                {messages.map((msg, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 4 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.12, duration: 0.3 }}
+                    className={`flex ${msg.type === "out" ? "justify-end" : "justify-start"}`}
+                  >
+                    <div
+                      className="max-w-[85%] px-1.5 py-1 shadow-sm"
+                      style={{
+                        background: msg.type === "out" ? "#DCF8C6" : "#ffffff",
+                        borderRadius: msg.type === "out" ? "8px 2px 8px 8px" : "2px 8px 8px 8px",
+                      }}
+                    >
+                      <p className="text-[7px] leading-snug text-[#303030]">{msg.text}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Input bar */}
+              <div className="px-1.5 py-1.5 bg-white flex items-center gap-1 border-t border-gray-100">
+                <div className="flex-1 bg-gray-100 rounded-full px-2 py-0.5 text-[7px] text-gray-400">Mensaje</div>
+                <div className="w-4 h-4 rounded-full flex items-center justify-center" style={{ background: "#25D366" }}>
+                  <ArrowRight className="w-2 h-2 text-white" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-accent text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-primary/40 border border-primary/30">
-        IA Activa 24/7
-      </div>
-      <div className="absolute -bottom-3 -left-3 bg-white text-gray-800 text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
-        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-        Respuesta en 30s
+
+      {/* Pills */}
+      <div className="flex gap-3 mt-8 flex-wrap justify-center">
+        <span
+          className="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-lg"
+          style={{ background: "rgba(3,168,168,0.1)", color: "#03a8a8" }}
+        >
+          🌐 Chatbot en tu web
+        </span>
+        <span
+          className="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-lg"
+          style={{ background: "rgba(37,211,102,0.1)", color: "#128C7E" }}
+        >
+          📱 Bot en WhatsApp
+        </span>
       </div>
     </div>
   );
