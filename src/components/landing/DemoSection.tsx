@@ -44,8 +44,9 @@ const DemoSection = () => {
             </div>
 
             <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
-              Demo interactiva del bot
+              Dashboard Smart Office AI para gestión automática de clínicas
             </h3>
+            <p className="sr-only">Demo interactiva del bot</p>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
               Haz preguntas reales, pide cita, simula ser un paciente. El bot reaccionará igual que en una clínica configurada con Smart Office IA.
             </p>

@@ -68,9 +68,10 @@ const BenefitsSection = () => (
           Resultados reales
         </div>
         <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
-          Lo que consiguen{" "}
-          <span className="text-gradient">nuestros clientes</span>
+          Resultados reales en clínicas que usan{" "}
+          <span className="text-gradient">Smart Office AI</span>
         </h2>
+        <p className="sr-only">Lo que consiguen nuestros clientes</p>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Métricas reales de clínicas que ya trabajan con Smart Office IA.
         </p>
@@ -82,7 +83,7 @@ const BenefitsSection = () => (
         viewport={{ once: true }}
         className="mb-14 rounded-2xl overflow-hidden shadow-lg max-w-3xl mx-auto"
       >
-        <img src={doctorImage} alt="Doctor usando tecnología Smart Office" loading="lazy" width={800} height={600} className="w-full h-56 md:h-72 object-cover" />
+        <img src={doctorImage} alt="Director de clínica ahorrando tiempo con automatización IA" loading="lazy" width={800} height={600} className="w-full h-56 md:h-72 object-cover" />
       </motion.div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

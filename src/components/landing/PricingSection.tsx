@@ -106,9 +106,9 @@ const PricingSection = () => {
             ✨ Planes y precios
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4">
-            Elige tu punto{" "}
-            <span className="text-gradient italic">de partida</span>
+            Planes y precios del chatbot para clínicas
           </h2>
+          <p className="sr-only">Elige tu punto de partida</p>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Tres niveles de automatización. Empieza donde tiene sentido para tu clínica y escala cuando quieras.
           </p>
