@@ -120,12 +120,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Gradient text utility — amber → teal */
+/* Gradient text utility — monochromatic amber */
 .text-gradient {
-  background: linear-gradient(135deg, hsl(45 88% 41%), hsl(180 96% 33%));
+  background: linear-gradient(90deg, #c6990c 0%, #8a6200 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
 
 /* Amber gradient for CTAs */
