@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageSquare, Calendar, RefreshCw, ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import clinicImage from "@/assets/clinic-interior.jpg";
 
 const pillars = [
   {
@@ -15,6 +14,10 @@ const pillars = [
     description:
       "Cada mensaje que llega — por WhatsApp, Instagram o web — recibe respuesta inmediata, 24/7. El asistente responde dudas y agenda citas sin intervención humana.",
     stats: "< 2 min de tiempo de respuesta",
+    bullets: [
+      "Respuesta instantánea en WhatsApp, Instagram y web",
+      "Sin intervención humana, 24/7",
+    ],
   },
   {
     icon: Calendar,
@@ -27,6 +30,11 @@ const pillars = [
     description:
       "Confirmaciones automáticas, recordatorios personalizados y reprogramación de citas gestionados por el asistente. Reduce los no-shows y optimiza tu calendario.",
     stats: "-40% de citas no atendidas",
+    bullets: [
+      "Agenda automática directa en tu calendario",
+      "Recordatorios 24h y 1h antes de cada cita",
+      "Gestión de cancelaciones y reprogramaciones",
+    ],
   },
   {
     icon: RefreshCw,
@@ -39,6 +47,10 @@ const pillars = [
     description:
       "El sistema envía petición de reseñas, envía recordatorios de siguientes citas y mantiene el contacto con cada paciente de forma personalizada y consistente.",
     stats: "+65% de pacientes recurrentes",
+    bullets: [
+      "Solicitud automática de reseñas en Google tras cada visita",
+      "Recordatorios de seguimiento personalizados",
+    ],
   },
 ];
 
@@ -142,16 +154,6 @@ const SolutionSection = () => {
           </p>
         </motion.div>
 
-        {/* Clinic image */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16 rounded-2xl overflow-hidden shadow-lg max-w-4xl mx-auto"
-        >
-          <img src={clinicImage} alt="Recepción de clínica moderna" loading="lazy" width={1024} height={768} className="w-full h-64 md:h-80 object-cover" />
-        </motion.div>
-
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="space-y-6">
             {pillars.map((pillar, index) => {
@@ -176,7 +178,15 @@ const SolutionSection = () => {
                       </div>
                       <p className={`text-sm font-semibold ${pillar.color} mb-2`}>{pillar.subtitle}</p>
                       <p className="text-muted-foreground text-sm leading-relaxed">{pillar.description}</p>
-                      <div className={`mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${pillar.bg} ${pillar.color} text-xs font-semibold`}>
+                      <ul className="mt-3 space-y-1.5">
+                        {pillar.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx} className="flex items-start gap-2">
+                            <Check className={`w-4 h-4 ${pillar.color} shrink-0 mt-0.5`} />
+                            <span className="text-sm text-foreground/80 leading-snug">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className={`mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${pillar.bg} ${pillar.color} text-xs font-semibold`}>
                         <Check className="w-3 h-3" />
                         {pillar.stats}
                       </div>
