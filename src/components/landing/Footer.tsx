@@ -40,7 +40,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="Smart Office" className="h-8 w-auto brightness-125" />
+              <img src={logo} alt="Smart Office" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed">
               Automatización inteligente para clínicas y negocios de salud. Tu asistente siempre activo.
