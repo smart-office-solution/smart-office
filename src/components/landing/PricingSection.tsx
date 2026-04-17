@@ -376,5 +376,3 @@ const ComparisonTable = () => {
 };
 
 export default PricingSection;
-
-export default PricingSection;
