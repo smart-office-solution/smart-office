@@ -4,7 +4,7 @@ import { MessageSquare, Calendar, BellRing, Star } from "lucide-react";
 const features = [
   {
     icon: MessageSquare,
-    title: "Respuesta instantánea",
+    title: "Respuesta automática en WhatsApp e Instagram",
     desc: "Responde en segundos a cualquier mensaje de WhatsApp, Instagram o web, 24/7, sin intervención humana.",
     tag: "Core",
     iconBg: "bg-accent/10",
@@ -16,7 +16,7 @@ const features = [
   },
   {
     icon: Calendar,
-    title: "Agenda automática",
+    title: "Agenda de citas automática sin intervención humana",
     desc: "El asistente agenda, confirma y reprograma citas directamente en tu calendario, sin fricciones.",
     tag: "Más popular",
     iconBg: "bg-primary/10",
@@ -28,7 +28,7 @@ const features = [
   },
   {
     icon: BellRing,
-    title: "Recordatorios automáticos",
+    title: "Recordatorios automáticos para reducir ausencias",
     desc: "Envía recordatorios de citas 24h y 1h antes, reduciendo las ausencias hasta un 40%.",
     tag: "Fidelización",
     iconBg: "bg-violet/10",
@@ -40,7 +40,7 @@ const features = [
   },
   {
     icon: Star,
-    title: "Solicitud de reseñas",
+    title: "Solicitud automática de reseñas en Google",
     desc: "Tras cada visita, el asistente invita automáticamente al paciente a dejar una reseña en Google, mejorando tu reputación online.",
     tag: "Reputación",
     iconBg: "bg-accent/10",
@@ -72,9 +72,9 @@ const FeaturesSection = () => {
             Funcionalidades
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
-            Todo lo que necesitas,{" "}
-            <span className="text-gradient">listo desde el día 1</span>
+            Funcionalidades del chatbot para clínicas
           </h2>
+          <p className="sr-only">Todo lo que necesitas, listo desde el día 1</p>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             Cada funcionalidad está diseñada para resolver los problemas reales de tu clínica, sin complejidad técnica.
           </p>

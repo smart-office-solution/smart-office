@@ -33,9 +33,10 @@ const SystemSection = () => {
             El Sistema
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
-            Cómo trabaja{" "}
-            <span className="text-gradient">Smart Office IA</span>
+            Resultados reales en clínicas que usan{" "}
+            <span className="text-gradient">Smart Office AI</span>
           </h2>
+          <p className="sr-only">Cómo trabaja Smart Office IA</p>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             Un flujo simple pero potente: cada mensaje entra, la IA lo procesa y genera la acción correcta.
           </p>
