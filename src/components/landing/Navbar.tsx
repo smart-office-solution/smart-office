@@ -73,7 +73,7 @@ const Navbar = () => {
             <Button
               onClick={scrollToAudit}
               size="sm"
-              className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-amber-500/25 rounded-lg gap-1.5 font-semibold"
+              className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/25 rounded-lg gap-1.5 font-semibold"
             >
               Auditoría gratis
             </Button>
