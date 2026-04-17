@@ -292,8 +292,8 @@ const comparisonRows: { feature: string; esencial: boolean; inteligente: boolean
 
 const Cell = ({ included }: { included: boolean }) =>
   included ? (
-    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-green-500/15">
-      <Check className="w-4 h-4 text-green-600" strokeWidth={3} />
+    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[hsl(142_71%_45%/0.15)]">
+      <Check className="w-4 h-4 text-[hsl(142_71%_38%)]" strokeWidth={3} />
     </span>
   ) : (
     <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-destructive/10">
