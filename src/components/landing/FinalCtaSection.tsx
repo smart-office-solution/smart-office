@@ -23,11 +23,6 @@ const FinalCtaSection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-8">
-            <Sparkles className="w-4 h-4" />
-            Oferta limitada: primeras plazas
-          </div>
-
           <h2 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
             Tu clínica trabajando{" "}
             <span className="text-gradient">mientras duermes</span>
