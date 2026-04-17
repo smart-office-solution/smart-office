@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Check, Plus, Star } from "lucide-react";
+import { ArrowUpRight, Check, Plus, Star, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const WHATSAPP_NUMBER = "34605588742";
 
