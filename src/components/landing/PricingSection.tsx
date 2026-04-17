@@ -107,7 +107,7 @@ const PricingSection = () => {
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4">
             Elige tu punto{" "}
-            <span className="text-primary italic">de partida</span>
+            <span className="text-gradient italic">de partida</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Tres niveles de automatización. Empieza donde tiene sentido para tu clínica y escala cuando quieras.

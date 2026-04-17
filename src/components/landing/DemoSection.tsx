@@ -25,7 +25,7 @@ const DemoSection = () => {
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
               Habla con nuestro{" "}
-              <span className="text-accent">asistente en vivo</span>
+              <span className="text-gradient">asistente en vivo</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Mira cómo responde, filtra y agenda citas como lo haría en tu propia clínica. Sin instalación, sin compromiso.
