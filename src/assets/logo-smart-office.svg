@@ -1,32 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 90" width="1160" height="180">
-  <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&display=swap');
-      .logo-text {
-        font-family: 'Playfair Display SC', 'Palatino Linotype', Georgia, serif;
-        font-size: 46px;
-        font-weight: 700;
-        fill: #c6990c;
-        letter-spacing: 5px;
-      }
-    </style>
-  </defs>
+  <style>
+    .logo-text {
+      font-family: Georgia, 'Palatino Linotype', 'Times New Roman', serif;
+      font-size: 46px;
+      font-weight: 700;
+      fill: #c6990c;
+      letter-spacing: 5px;
+    }
+  </style>
 
-  <!-- SMART: anchor end, just left of icon -->
+  <!-- SMART -->
   <text class="logo-text" x="258" y="62" text-anchor="end">SMART</text>
 
-  <!-- Icon: 5 bars centered at x=294, midpoint y=47 -->
-  <!-- Bar 1: purple, small h=20, center y=47 → y=37 -->
+  <!-- Icon: 5 bars -->
   <rect x="268" y="37" width="9" height="20" rx="4.5" fill="#9b4ad4"/>
-  <!-- Bar 2: teal, large h=48, center y=47 → y=23 -->
   <rect x="281" y="23" width="9" height="48" rx="4.5" fill="#03a8a8"/>
-  <!-- Bar 3: purple, medium h=32, center y=47 → y=31 -->
   <rect x="294" y="31" width="9" height="32" rx="4.5" fill="#9b4ad4"/>
-  <!-- Bar 4: amber, large h=48, center y=47 → y=23 -->
   <rect x="307" y="23" width="9" height="48" rx="4.5" fill="#c6990c"/>
-  <!-- Bar 5: teal, small h=20, center y=47 → y=37 -->
   <rect x="320" y="37" width="9" height="20" rx="4.5" fill="#03a8a8"/>
 
-  <!-- OFFICE: anchor start, just right of icon -->
+  <!-- OFFICE -->
   <text class="logo-text" x="340" y="62" text-anchor="start">OFFICE</text>
 </svg>
