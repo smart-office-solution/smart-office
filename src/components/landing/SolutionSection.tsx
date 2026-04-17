@@ -67,7 +67,7 @@ const WhatsAppMockup = () => {
             SO
           </div>
           <div className="flex-1">
-            <p className="text-white text-sm font-semibold leading-none">Smart Office AI</p>
+            <p className="text-white text-sm font-semibold leading-none">Smart Office IA</p>
             <p className="text-green-300 text-xs mt-0.5">en línea</p>
           </div>
           <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -139,7 +139,7 @@ const SolutionSection = () => {
             <span className="text-gradient">siempre disponible</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Smart Office AI combina tres pilares que trabajan juntos para que tu negocio crezca solo.
+            Smart Office IA combina tres pilares que trabajan juntos para que tu negocio crezca solo.
           </p>
         </motion.div>
 

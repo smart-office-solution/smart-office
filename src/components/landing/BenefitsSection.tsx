@@ -72,7 +72,7 @@ const BenefitsSection = () => (
           <span className="text-gradient">nuestros clientes</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Métricas reales de clínicas que ya trabajan con Smart Office AI.
+          Métricas reales de clínicas que ya trabajan con Smart Office IA.
         </p>
       </motion.div>
 
