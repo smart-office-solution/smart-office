@@ -48,7 +48,7 @@ const plans: Plan[] = [
   {
     badge: "PLAN INTELIGENTE",
     name: "Asistente que Capta y Filtra",
-    price: "€649",
+    price: "€749",
     priceNote: "instalación única",
     monthly: "69€/mes mantenimiento",
     includesPrev: "Incluye todo el plan Esencial",
@@ -64,7 +64,7 @@ const plans: Plan[] = [
     ],
     ctaLabel: "Quiero saber más",
     ctaMessage:
-      "Hola, quiero saber más sobre el plan Inteligente de €649 + 69€/mes",
+      "Hola, quiero saber más sobre el plan Inteligente de €749 + 69€/mes",
     variant: "dark",
     highlighted: true,
   },
