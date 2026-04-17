@@ -91,9 +91,8 @@ const FAQSection = () => (
             Preguntas frecuentes
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Preguntas frecuentes sobre automatización para clínicas
+            Todo lo que necesitas saber
           </h2>
-          <p className="sr-only">Todo lo que necesitas saber</p>
           <p className="text-muted-foreground text-lg">
             ¿Tienes más preguntas? Escríbenos y te respondemos en menos de 24h.
           </p>

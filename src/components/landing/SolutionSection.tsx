@@ -135,9 +135,9 @@ const SolutionSection = () => {
             Cómo funciona
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
-            Cómo funciona el asistente inteligente para clínicas
+            Tu asistente inteligente,{" "}
+            <span className="text-gradient">siempre disponible</span>
           </h2>
-          <p className="sr-only">Tu asistente inteligente, siempre disponible</p>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             Smart Office IA combina tres pilares que trabajan juntos para que tu negocio crezca solo.
           </p>
@@ -150,7 +150,7 @@ const SolutionSection = () => {
           viewport={{ once: true }}
           className="mb-16 rounded-2xl overflow-hidden shadow-lg max-w-4xl mx-auto"
         >
-          <img src={clinicImage} alt="Clínica dental automatizada con inteligencia artificial" loading="lazy" width={1024} height={768} className="w-full h-64 md:h-80 object-cover" />
+          <img src={clinicImage} alt="Recepción de clínica moderna" loading="lazy" width={1024} height={768} className="w-full h-64 md:h-80 object-cover" />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

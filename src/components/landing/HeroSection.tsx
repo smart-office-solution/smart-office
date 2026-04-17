@@ -28,10 +28,9 @@ const HeroSection = () => {
             transition={{ duration: 0.7 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground mb-6">
-              Chatbot con IA para clínicas:{" "}
-              <span className="text-gradient">automatiza citas, WhatsApp y pacientes</span>
+              Haz que tu clínica deje de perder{" "}
+              <span className="text-gradient">citas, tiempo y pacientes</span>
             </h1>
-            <p className="sr-only">Haz que tu clínica deje de perder citas, tiempo y pacientes</p>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
               Un sistema que capta, atiende, agenda y recupera pacientes automáticamente, 24/7
             </p>
@@ -61,7 +60,7 @@ const HeroSection = () => {
           >
             <img
               src={heroCover}
-              alt="Chatbot IA para clínicas gestionando citas en WhatsApp"
+              alt="Equipo profesional trabajando con sistema Smart Office"
               width={1024}
               height={768}
               className="rounded-2xl shadow-xl shadow-primary/10 animate-float"
