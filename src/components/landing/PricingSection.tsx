@@ -250,14 +250,127 @@ const PricingSection = () => {
           })}
         </div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-muted-foreground text-sm mt-10"
+          className="text-center mt-10 space-y-2"
         >
-          ¿No sabes qué plan elegir? Solicita tu auditoría gratuita y te asesoramos sin compromiso.
-        </motion.p>
+          <p className="text-muted-foreground text-sm">
+            ¿No sabes qué plan elegir? Solicita tu auditoría gratuita y te asesoramos sin compromiso.
+          </p>
+          <p className="text-foreground/80 text-sm font-medium">
+            ¿Necesitas algo distinto? También diseñamos planes a medida adaptados a tu clínica.
+          </p>
+        </motion.div>
+
+        <ComparisonTable />
+      </div>
+    </section>
+  );
+};
+
+const comparisonRows: { feature: string; esencial: boolean; inteligente: boolean; completo: boolean }[] = [
+  { feature: "Retoque de web o landing page sencilla", esencial: true, inteligente: true, completo: true },
+  { feature: "Botón de WhatsApp en tu web", esencial: true, inteligente: true, completo: true },
+  { feature: "Perfil Google Business optimizado", esencial: true, inteligente: true, completo: true },
+  { feature: "Botón de WhatsApp en Google Business", esencial: true, inteligente: true, completo: true },
+  { feature: "Formación básica para gestionar canales", esencial: true, inteligente: true, completo: true },
+  { feature: "Bot en web que responde FAQs al instante", esencial: false, inteligente: true, completo: true },
+  { feature: "Bot en WhatsApp que atiende 24/7", esencial: false, inteligente: true, completo: true },
+  { feature: "Canalización activa hacia la cita", esencial: false, inteligente: true, completo: true },
+  { feature: "Personalización con tus servicios y tono", esencial: false, inteligente: true, completo: true },
+  { feature: "Mantenimiento y actualizaciones mensuales", esencial: false, inteligente: true, completo: true },
+  { feature: "Informe mensual de conversaciones y leads", esencial: false, inteligente: true, completo: true },
+  { feature: "Agenda automática en tu calendario", esencial: false, inteligente: false, completo: true },
+  { feature: "Recordatorios de cita 24h y 1h antes", esencial: false, inteligente: false, completo: true },
+  { feature: "Gestión de cancelaciones y reprogramaciones", esencial: false, inteligente: false, completo: true },
+  { feature: "Solicitud automática de reseñas en Google", esencial: false, inteligente: false, completo: true },
+  { feature: "Reactivación de pacientes inactivos", esencial: false, inteligente: false, completo: true },
+  { feature: "Reporte mensual de ROI", esencial: false, inteligente: false, completo: true },
+];
+
+const Cell = ({ included }: { included: boolean }) =>
+  included ? (
+    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-green-500/15">
+      <Check className="w-4 h-4 text-green-600" strokeWidth={3} />
+    </span>
+  ) : (
+    <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-destructive/10">
+      <X className="w-4 h-4 text-destructive" strokeWidth={3} />
+    </span>
+  );
+
+const ComparisonTable = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="max-w-5xl mx-auto mt-12">
+      <Collapsible open={open} onOpenChange={setOpen}>
+        <CollapsibleTrigger asChild>
+          <button className="w-full flex items-center justify-between gap-4 px-6 py-5 rounded-2xl bg-card border border-border hover:border-primary/40 hover:shadow-md transition-all text-left">
+            <div>
+              <p className="font-display font-bold text-lg text-foreground">
+                Comparativa completa de los 3 planes
+              </p>
+              <p className="text-sm text-muted-foreground mt-0.5">
+                Mira en detalle qué incluye cada plan
+              </p>
+            </div>
+            <ChevronDown
+              className={`w-5 h-5 text-foreground shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+            />
+          </button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+          <div className="mt-4 rounded-2xl border border-border bg-card overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-muted/40 border-b border-border">
+                    <th className="text-left font-semibold text-foreground px-6 py-4 min-w-[260px]">
+                      Servicio
+                    </th>
+                    <th className="font-semibold text-foreground px-4 py-4 text-center min-w-[110px]">
+                      Esencial
+                    </th>
+                    <th className="font-semibold text-accent px-4 py-4 text-center min-w-[110px] bg-foreground/5">
+                      Inteligente
+                    </th>
+                    <th className="font-semibold text-foreground px-4 py-4 text-center min-w-[110px]">
+                      Completo
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map((row, idx) => (
+                    <tr
+                      key={row.feature}
+                      className={`border-b border-border/60 last:border-0 ${idx % 2 === 1 ? "bg-muted/20" : ""}`}
+                    >
+                      <td className="px-6 py-3.5 text-foreground/85">{row.feature}</td>
+                      <td className="px-4 py-3.5 text-center">
+                        <div className="flex justify-center">
+                          <Cell included={row.esencial} />
+                        </div>
+                      </td>
+                      <td className="px-4 py-3.5 text-center bg-foreground/5">
+                        <div className="flex justify-center">
+                          <Cell included={row.inteligente} />
+                        </div>
+                      </td>
+                      <td className="px-4 py-3.5 text-center">
+                        <div className="flex justify-center">
+                          <Cell included={row.completo} />
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
       </div>
     </section>
   );
