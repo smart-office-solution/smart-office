@@ -1,346 +1,413 @@
-import { motion } from "framer-motion";
-import { MessageSquare, Calendar, RefreshCw, ArrowRight, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Check, ArrowRight, Star, ChevronLeft, ChevronRight, Settings } from "lucide-react";
 
-const pillars = [
+type StepKey = "1" | "2" | "3";
+
+const steps: Record<
+  StepKey,
   {
-    icon: MessageSquare,
-    color: "text-primary",
-    bg: "bg-primary/8",
-    border: "border-primary/15",
-    number: "01",
+    number: string;
+    title: string;
+    sub: string;
+    accent: string;
+    accentBg: string;
+    accentBgSoft: string;
+    tagLabel: string;
+    panelTitle: string;
+    description: string;
+    features: string[];
+    metricNumber: string;
+    metricText: string;
+  }
+> = {
+  "1": {
+    number: "1",
     title: "Captación automática",
-    subtitle: "Nunca pierdas un lead por no responder",
+    sub: "Nunca pierdas un lead",
+    accent: "#c6990c",
+    accentBg: "rgba(198,153,12,0.1)",
+    accentBgSoft: "rgba(198,153,12,0.08)",
+    tagLabel: "01 · Captación",
+    panelTitle: "Cada mensaje recibe respuesta en segundos",
     description:
-      "Cada mensaje que llega — por WhatsApp, Instagram o web — recibe respuesta inmediata, 24/7. El asistente responde dudas y agenda citas sin intervención humana.",
-    stats: "< 2 min de tiempo de respuesta",
-    bullets: [
-      "Respuesta instantánea en WhatsApp, Instagram y web",
-      "Sin intervención humana, 24/7",
+      "WhatsApp, Instagram, web — da igual desde dónde escriba el paciente. El asistente responde al instante, resuelve dudas y lo guía hasta pedir cita. Sin que tú levantes el teléfono.",
+    features: [
+      "Respuesta en menos de 2 minutos, 24/7",
+      "WhatsApp, Instagram y chatbot en web",
+      "Sin intervención humana",
     ],
+    metricNumber: "78%",
+    metricText: "de pacientes elige al primero en responder",
   },
-  {
-    icon: Calendar,
-    color: "text-accent",
-    bg: "bg-accent/8",
-    border: "border-accent/15",
-    number: "02",
+  "2": {
+    number: "2",
     title: "Gestión de agenda",
-    subtitle: "Tu agenda llena, sin esfuerzo manual",
+    sub: "Citas sin esfuerzo manual",
+    accent: "#03a8a8",
+    accentBg: "rgba(3,168,168,0.1)",
+    accentBgSoft: "rgba(3,168,168,0.08)",
+    tagLabel: "02 · Agenda",
+    panelTitle: "Tu calendario se llena solo, sin llamadas",
     description:
-      "Confirmaciones automáticas, recordatorios personalizados y reprogramación de citas gestionados por el asistente. Reduce los no-shows y optimiza tu calendario.",
-    stats: "-40% de citas no atendidas",
-    bullets: [
-      "Agenda automática directa en tu calendario",
-      "Recordatorios 24h y 1h antes de cada cita",
-      "Gestión de cancelaciones y reprogramaciones",
+      "El asistente confirma disponibilidad, reserva la cita directamente en tu agenda y manda recordatorios automáticos. Sin idas y venidas, sin llamadas perdidas.",
+    features: [
+      "Agenda directa en tu calendario",
+      "Recordatorios 24h y 1h antes",
+      "Cancelaciones y reprogramaciones automáticas",
     ],
+    metricNumber: "−40%",
+    metricText: "de citas no atendidas con recordatorios automáticos",
   },
-  {
-    icon: RefreshCw,
-    color: "text-primary",
-    bg: "bg-primary/8",
-    border: "border-primary/15",
-    number: "03",
+  "3": {
+    number: "3",
     title: "Seguimiento continuo",
-    subtitle: "Convierte pacientes puntuales en clientes fieles",
+    sub: "Pacientes que vuelven",
+    accent: "#9b4ad4",
+    accentBg: "rgba(155,74,212,0.1)",
+    accentBgSoft: "rgba(155,74,212,0.08)",
+    tagLabel: "03 · Seguimiento",
+    panelTitle: "Cada paciente se convierte en un cliente fiel",
     description:
-      "El sistema envía petición de reseñas, envía recordatorios de siguientes citas y mantiene el contacto con cada paciente de forma personalizada y consistente.",
-    stats: "+65% de pacientes recurrentes",
-    bullets: [
-      "Solicitud automática de reseñas en Google tras cada visita",
-      "Recordatorios de seguimiento personalizados",
+      "Después de cada visita, el sistema pide una reseña en Google, manda recordatorios de próximas citas y mantiene el contacto de forma personalizada.",
+    features: [
+      "Reseñas en Google automáticas tras cada visita",
+      "Recordatorios de próximas revisiones",
+      "Reactivación de pacientes inactivos",
     ],
+    metricNumber: "+65%",
+    metricText: "de pacientes recurrentes frente a gestión manual",
   },
-];
+};
 
-const LaptopPhoneMockup = () => {
+const WhatsAppVisual = () => {
   const messages = [
-    { type: "in", text: "Hola, querría saber si tenéis hueco esta semana para una limpieza dental" },
-    { type: "out", text: "¡Hola! Claro, déjame comprobar. ¿Qué día prefieres?" },
-    { type: "in", text: "Miércoles o jueves me viene bien" },
-    { type: "out", text: "¿Por la mañana o por la tarde?" },
-    { type: "in", text: "Por la tarde me viene mejor, a partir de las 17:00" },
-    { type: "out", text: "Perfecto ✅ Te reservo el martes 22 a las 17:30h. ¿Te viene bien?" },
+    { type: "in", text: "Hola, ¿tenéis hueco esta semana para una limpieza dental?" },
+    { type: "out", text: "¡Hola! Claro 😊 Tenemos disponibilidad el martes y el jueves. ¿Prefieres mañana o tarde?" },
+    { type: "in", text: "Por la tarde mejor, después de las 17h" },
+    { type: "out", text: "Perfecto ✅ Te anoto el martes 22 a las 17:30h. Recibirás confirmación ahora mismo." },
   ];
-
   return (
-    <div className="w-full flex flex-col items-center">
-      <div
-        className="relative w-full max-w-[600px] mx-auto scale-[0.85] sm:scale-100 origin-center"
-        style={{ filter: "drop-shadow(0 20px 60px rgba(0,0,0,0.12))" }}
-      >
-        {/* Laptop */}
-        <div className="relative w-full">
-          {/* Laptop screen frame */}
-          <div
-            className="relative w-[88%] mx-auto"
-            style={{ background: "#2a2a2a", borderRadius: "14px 14px 0 0", padding: "10px 10px 0 10px" }}
-          >
-            {/* Browser bar */}
-            <div className="bg-white rounded-t-md px-3 py-2 flex items-center gap-2 border-b border-gray-200">
-              <div className="flex gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-                <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-                <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-              </div>
-              <div className="flex-1 mx-2 bg-gray-100 rounded px-2 py-0.5 text-[10px] text-gray-500 truncate">
-                🔒 clinica-ejemplo.es
-              </div>
+    <div className="mx-auto" style={{ width: 280 }}>
+      <div style={{ background: "#111", borderRadius: 32, padding: "10px 8px" }}>
+        <div className="bg-white overflow-hidden" style={{ borderRadius: 24 }}>
+          <div className="flex items-center gap-2 px-3 py-2.5" style={{ background: "#075E54" }}>
+            <div className="w-8 h-8 rounded-full bg-green-400 flex items-center justify-center text-white text-sm font-bold">C</div>
+            <div className="flex-1">
+              <p className="text-white text-[12px] font-semibold leading-none">Clínica Ejemplo</p>
+              <p className="text-green-200 text-[10px] mt-0.5">● IA activa 24/7</p>
             </div>
-
-            {/* Website content */}
-            <div className="relative bg-white h-[260px] overflow-hidden">
-              {/* Nav */}
-              <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100">
-                <span className="text-[11px] font-bold text-gray-800">🦷 Clínica DentalMed</span>
-                <div className="flex gap-3 text-[9px] text-gray-500">
-                  <span>Inicio</span>
-                  <span>Servicios</span>
-                  <span>Contacto</span>
-                </div>
-              </div>
-
-              {/* Hero */}
-              <div className="grid grid-cols-2 gap-3 px-4 py-4">
-                <div className="flex flex-col justify-center">
-                  <h4 className="text-[13px] font-bold text-gray-900 leading-tight mb-1.5">
-                    Tu sonrisa en las mejores manos
-                  </h4>
-                  <p className="text-[8px] text-gray-500 leading-snug mb-2">
-                    Especialistas en odontología estética y general. Pide cita en menos de un minuto.
-                  </p>
-                  <button
-                    className="text-[9px] font-semibold text-white px-2.5 py-1 rounded w-fit"
-                    style={{ background: "#c6990c" }}
-                  >
-                    Pedir cita
-                  </button>
-                </div>
+          </div>
+          <div className="px-2 py-2.5 space-y-1.5" style={{ background: "#ECE5DD", minHeight: 280 }}>
+            {messages.map((m, i) => (
+              <div key={i} className={`flex ${m.type === "out" ? "justify-end" : "justify-start"}`}>
                 <div
-                  className="rounded-md h-full min-h-[100px] flex items-center justify-center text-3xl"
+                  className="max-w-[85%] px-2 py-1.5 shadow-sm"
                   style={{
-                    background:
-                      "linear-gradient(135deg, #e0f7f7 0%, #f4ede4 100%)",
+                    background: m.type === "out" ? "#DCF8C6" : "#ffffff",
+                    borderRadius: m.type === "out" ? "8px 2px 8px 8px" : "2px 8px 8px 8px",
                   }}
                 >
-                  🦷
+                  <p className="text-[10px] leading-snug text-[#303030]">{m.text}</p>
                 </div>
               </div>
-
-              {/* Chat popup */}
-              <div className="absolute right-3 bottom-14 w-[150px] rounded-lg overflow-hidden shadow-lg border border-gray-200 bg-white">
-                <div className="px-2.5 py-1.5 flex items-center gap-1.5" style={{ background: "#03a8a8" }}>
-                  <div className="w-4 h-4 rounded-full bg-white/30 flex items-center justify-center text-[8px]">🦷</div>
-                  <div className="flex-1">
-                    <p className="text-white text-[8px] font-semibold leading-none">Asistente</p>
-                    <p className="text-white/80 text-[7px] mt-0.5">En línea</p>
-                  </div>
-                </div>
-                <div className="p-2 bg-gray-50">
-                  <div className="bg-white rounded-md p-1.5 text-[8px] text-gray-700 leading-snug shadow-sm">
-                    👋 ¡Hola! ¿En qué puedo ayudarte hoy?
-                  </div>
-                </div>
-                <div className="px-2 py-1.5 bg-white border-t border-gray-100 flex items-center gap-1">
-                  <div className="flex-1 text-[7px] text-gray-400">Escribe un mensaje...</div>
-                  <div className="w-3.5 h-3.5 rounded-full flex items-center justify-center" style={{ background: "#03a8a8" }}>
-                    <ArrowRight className="w-2 h-2 text-white" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Chat bubble */}
-              <div
-                className="absolute right-3 bottom-3 w-9 h-9 rounded-full flex items-center justify-center shadow-md"
-                style={{ background: "#03a8a8" }}
+            ))}
+            <div className="pt-1.5">
+              <span
+                className="inline-flex items-center text-[9px] font-medium px-2 py-1 rounded-md"
+                style={{ background: "rgba(3,168,168,0.1)", color: "#03a8a8" }}
               >
-                <MessageSquare className="w-4 h-4 text-white" />
-              </div>
+                ⚡ Respondido en 8 segundos · Sin intervención humana
+              </span>
             </div>
           </div>
-
-          {/* Laptop base */}
-          <div className="w-[96%] h-2 mx-auto" style={{ background: "#d0ccc4", borderRadius: "0 0 4px 4px" }} />
-          <div className="w-[40%] h-1.5 mx-auto" style={{ background: "#c4c0b8", borderRadius: "0 0 8px 8px" }} />
-        </div>
-
-        {/* Phone overlay */}
-        <div
-          className="absolute"
-          style={{ right: "-30px", bottom: "0", zIndex: 2, width: "170px" }}
-        >
-          <div
-            className="relative"
-            style={{ background: "#1a1a1a", borderRadius: "22px", padding: "8px" }}
-          >
-            {/* Notch */}
-            <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-12 h-3 bg-black rounded-full z-10" />
-            <div className="bg-white rounded-[16px] overflow-hidden">
-              {/* WhatsApp header */}
-              <div className="px-2.5 py-2 flex items-center gap-1.5" style={{ background: "#075E54", paddingTop: "16px" }}>
-                <div className="w-5 h-5 rounded-full bg-white/30 flex items-center justify-center text-[8px]">🦷</div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-white text-[8px] font-semibold leading-none truncate">Clínica DentalMed</p>
-                  <p className="text-green-200 text-[7px] mt-0.5">En línea</p>
-                </div>
-              </div>
-
-              {/* Messages */}
-              <div className="px-1.5 py-2 space-y-1" style={{ background: "#ECE5DD", height: "260px", overflow: "hidden" }}>
-                {messages.map((msg, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 4 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.12, duration: 0.3 }}
-                    className={`flex ${msg.type === "out" ? "justify-end" : "justify-start"}`}
-                  >
-                    <div
-                      className="max-w-[85%] px-1.5 py-1 shadow-sm"
-                      style={{
-                        background: msg.type === "out" ? "#DCF8C6" : "#ffffff",
-                        borderRadius: msg.type === "out" ? "8px 2px 8px 8px" : "2px 8px 8px 8px",
-                      }}
-                    >
-                      <p className="text-[7px] leading-snug text-[#303030]">{msg.text}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Input bar */}
-              <div className="px-1.5 py-1.5 bg-white flex items-center gap-1 border-t border-gray-100">
-                <div className="flex-1 bg-gray-100 rounded-full px-2 py-0.5 text-[7px] text-gray-400">Mensaje</div>
-                <div className="w-4 h-4 rounded-full flex items-center justify-center" style={{ background: "#25D366" }}>
-                  <ArrowRight className="w-2 h-2 text-white" />
-                </div>
-              </div>
+          <div className="flex items-center gap-1.5 px-2 py-1.5" style={{ background: "#f0f0f0" }}>
+            <div className="flex-1 bg-white rounded-full px-3 py-1 text-[10px] text-gray-400">Escribe un mensaje...</div>
+            <div className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "#25D366" }}>
+              <ArrowRight className="w-3 h-3 text-white" />
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Pills */}
-      <div className="flex gap-3 mt-8 flex-wrap justify-center">
-        <span
-          className="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-lg"
-          style={{ background: "rgba(3,168,168,0.1)", color: "#03a8a8" }}
-        >
-          🌐 Chatbot en tu web
-        </span>
-        <span
-          className="inline-flex items-center text-xs font-medium px-3 py-1.5 rounded-lg"
-          style={{ background: "rgba(37,211,102,0.1)", color: "#128C7E" }}
-        >
-          📱 Bot en WhatsApp
-        </span>
       </div>
     </div>
   );
 };
 
+const CalendarVisual = () => {
+  const days = Array.from({ length: 31 }, (_, i) => i + 1);
+  const today = 8;
+  const withAppt = [3, 10, 15, 17, 22, 24];
+  const newAppt = [11, 18];
+  return (
+    <div
+      className="mx-auto bg-white"
+      style={{ width: 280, borderRadius: 20, boxShadow: "0 20px 56px rgba(0,0,0,0.12)", overflow: "hidden" }}
+    >
+      <div className="px-4 py-3 flex items-center justify-between" style={{ background: "#1a1a1a" }}>
+        <div>
+          <p className="text-white text-[13px] font-semibold leading-tight">Agenda · Julio 2025</p>
+          <p className="text-white/60 text-[10px] mt-0.5">8 citas nuevas esta semana</p>
+        </div>
+        <div className="flex gap-1">
+          <button className="w-6 h-6 rounded-md bg-white/10 text-white flex items-center justify-center">
+            <ChevronLeft className="w-3 h-3" />
+          </button>
+          <button className="w-6 h-6 rounded-md bg-white/10 text-white flex items-center justify-center">
+            <ChevronRight className="w-3 h-3" />
+          </button>
+        </div>
+      </div>
+      <div className="p-3.5">
+        <div className="grid grid-cols-7 gap-1 mb-1.5">
+          {["L", "M", "X", "J", "V", "S", "D"].map((d) => (
+            <div key={d} className="text-center text-[9px] font-semibold text-gray-400">{d}</div>
+          ))}
+        </div>
+        <div className="grid grid-cols-7 gap-1">
+          {days.map((d) => {
+            const isToday = d === today;
+            const isNew = newAppt.includes(d);
+            const hasAppt = withAppt.includes(d);
+            let style: React.CSSProperties = {};
+            let cls = "text-gray-700";
+            if (isToday) { style = { background: "#1a1a1a", color: "#fff" }; cls = ""; }
+            else if (isNew) { style = { background: "#c6990c", color: "#fff" }; cls = ""; }
+            else if (hasAppt) { style = { background: "rgba(198,153,12,0.15)", color: "#c6990c" }; cls = "font-semibold"; }
+            return (
+              <div
+                key={d}
+                className={`aspect-square rounded-md flex items-center justify-center text-[10px] ${cls}`}
+                style={style}
+              >
+                {d}
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-3 space-y-2">
+          <div className="flex items-center gap-2 p-2 rounded-lg" style={{ background: "rgba(3,168,168,0.06)" }}>
+            <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#03a8a8" }} />
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] font-semibold text-gray-900 truncate">María López · Limpieza dental</p>
+              <p className="text-[9px] text-gray-500">Hoy · 17:30h</p>
+            </div>
+            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded" style={{ background: "#03a8a8", color: "#fff" }}>Nueva</span>
+          </div>
+          <div className="flex items-center gap-2 p-2 rounded-lg" style={{ background: "rgba(198,153,12,0.06)" }}>
+            <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#c6990c" }} />
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] font-semibold text-gray-900 truncate">Carlos Ruiz · Revisión</p>
+              <p className="text-[9px] text-gray-500">Mañana · 10:00h</p>
+            </div>
+            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded bg-green-500 text-white">Confirmada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ReviewVisual = () => (
+  <div className="mx-auto flex flex-col items-center gap-4" style={{ width: 280 }}>
+    <div style={{ background: "#111", borderRadius: 28, padding: "10px 8px", width: "100%" }}>
+      <div className="bg-white overflow-hidden" style={{ borderRadius: 22 }}>
+        <div className="flex items-center gap-2 px-3 py-2.5" style={{ background: "#075E54" }}>
+          <div className="w-7 h-7 rounded-full bg-green-400 flex items-center justify-center text-white text-xs font-bold">C</div>
+          <div className="flex-1">
+            <p className="text-white text-[11px] font-semibold leading-none">Clínica Ejemplo</p>
+            <p className="text-green-200 text-[9px] mt-0.5">● Mensaje automático</p>
+          </div>
+        </div>
+        <div className="px-2.5 py-3" style={{ background: "#ECE5DD" }}>
+          <div className="bg-white shadow-sm p-2.5" style={{ borderRadius: "2px 8px 8px 8px" }}>
+            <p className="text-[10px] leading-snug text-[#303030] mb-1.5">
+              ¡Hola María! 😊 Esperamos que tu visita de hoy haya ido genial.
+            </p>
+            <p className="text-[10px] leading-snug text-[#303030] mb-2">
+              ¿Podrías dejarnos una reseña en Google? Solo te lleva 1 minuto y nos ayuda muchísimo 🙏
+            </p>
+            <div className="text-center text-[14px] mb-2">⭐⭐⭐⭐⭐</div>
+            <button
+              className="w-full text-white text-[10px] font-semibold py-1.5 rounded-md flex items-center justify-center gap-1"
+              style={{ background: "#03a8a8" }}
+            >
+              Dejar reseña en Google <ArrowRight className="w-3 h-3" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="bg-white flex items-center gap-3"
+      style={{ borderRadius: 12, boxShadow: "0 8px 24px rgba(0,0,0,0.08)", padding: "10px 14px" }}
+    >
+      <Star className="w-6 h-6 fill-current" style={{ color: "#c6990c" }} />
+      <div>
+        <p className="font-display font-bold text-xl leading-none text-gray-900">4.9</p>
+        <p className="text-[10px] text-gray-500 mt-0.5">+31 reseñas en 2 meses</p>
+      </div>
+    </div>
+  </div>
+);
+
 const SolutionSection = () => {
-  const scrollToAudit = () => {
-    document.getElementById("audit")?.scrollIntoView({ behavior: "smooth" });
+  const [active, setActive] = useState<StepKey>("1");
+  const step = steps[active];
+
+  const renderVisual = () => {
+    if (active === "1") return <WhatsAppVisual />;
+    if (active === "2") return <CalendarVisual />;
+    return <ReviewVisual />;
   };
 
   return (
-    <section className="py-24 md:py-32 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="relative overflow-hidden" style={{ background: "#f4ede4", padding: "64px 16px" }}>
+      <div className="mx-auto" style={{ maxWidth: 940 }}>
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 md:mb-20"
+          className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20">
-            <MessageSquare className="w-4 h-4" />
+            <Settings className="w-4 h-4" />
             Cómo funciona
           </div>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
-            Así trabaja <span className="text-gradient">Smart Office IA</span> para ti
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
+            Tres pasos.{" "}
+            <span
+              className="italic"
+              style={{
+                background: "linear-gradient(90deg, #c6990c 0%, #8a6200 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Una clínica que trabaja sola.
+            </span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            Smart Office IA combina tres pilares que trabajan juntos para que tu negocio crezca solo.
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Sin complejidad técnica. Sin cambiar tu forma de trabajar. Activo en 7 días.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="space-y-6">
-            {pillars.map((pillar, index) => {
-              const Icon = pillar.icon;
+        {/* Tabs */}
+        <div
+          className="bg-white mb-8"
+          style={{ border: "1px solid rgba(26,26,26,0.1)", borderRadius: 16, padding: 6 }}
+        >
+          <div className="flex gap-1 overflow-x-auto scrollbar-none">
+            {(Object.keys(steps) as StepKey[]).map((key) => {
+              const s = steps[key];
+              const isActive = key === active;
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.15 }}
-                  className={`group relative p-6 rounded-2xl border ${pillar.border} bg-white hover:shadow-lg transition-all duration-300 cursor-default`}
+                <button
+                  key={key}
+                  onClick={() => setActive(key)}
+                  className="flex items-center gap-2.5 flex-1 min-w-[200px] text-left transition-all duration-200"
+                  style={{
+                    padding: "12px 16px",
+                    borderRadius: 12,
+                    background: isActive ? "#1a1a1a" : "transparent",
+                    boxShadow: isActive ? "0 4px 16px rgba(0,0,0,0.15)" : "none",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) e.currentTarget.style.background = "rgba(198,153,12,0.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) e.currentTarget.style.background = "transparent";
+                  }}
                 >
-                  <div className="flex gap-4">
-                    <div className={`flex-shrink-0 w-12 h-12 rounded-xl ${pillar.bg} border ${pillar.border} flex items-center justify-center`}>
-                      <Icon className={`w-6 h-6 ${pillar.color}`} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className={`text-xs font-bold ${pillar.color} font-mono`}>{pillar.number}</span>
-                        <h3 className="font-bold text-foreground text-base">{pillar.title}</h3>
-                      </div>
-                      <p className={`text-sm font-semibold ${pillar.color} mb-2`}>{pillar.subtitle}</p>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{pillar.description}</p>
-                      <ul className="mt-3 space-y-1.5">
-                        {pillar.bullets.map((bullet, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-2">
-                            <Check className={`w-4 h-4 ${pillar.color} shrink-0 mt-0.5`} />
-                            <span className="text-sm text-foreground/80 leading-snug">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className={`mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full ${pillar.bg} ${pillar.color} text-xs font-semibold`}>
-                        <Check className="w-3 h-3" />
-                        {pillar.stats}
-                      </div>
-                    </div>
+                  <div
+                    className="flex items-center justify-center font-semibold text-xs shrink-0"
+                    style={{
+                      width: 28,
+                      height: 28,
+                      borderRadius: "50%",
+                      background: isActive ? "#c6990c" : "#f4ede4",
+                      color: isActive ? "#fff" : "#8a8580",
+                    }}
+                  >
+                    {s.number}
                   </div>
-                </motion.div>
+                  <div className="min-w-0">
+                    <p
+                      className="font-medium leading-tight"
+                      style={{ fontSize: 13, color: isActive ? "#fff" : "#1a1a1a" }}
+                    >
+                      {s.title}
+                    </p>
+                    <p
+                      className="leading-tight mt-0.5"
+                      style={{ fontSize: 11, color: isActive ? "rgba(255,255,255,0.55)" : "#5a5750" }}
+                    >
+                      {s.sub}
+                    </p>
+                  </div>
+                </button>
               );
             })}
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <Button
-                onClick={scrollToAudit}
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 gap-2 font-semibold rounded-xl"
-              >
-                Ver mi caso concreto
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </motion.div>
           </div>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
-          >
-            <LaptopPhoneMockup />
-          </motion.div>
+        {/* Content */}
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`text-${active}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+            >
+              <span
+                className="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-full mb-4"
+                style={{ background: step.accentBg, color: step.accent }}
+              >
+                {step.tagLabel}
+              </span>
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-4 leading-tight">
+                {step.panelTitle}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-5">{step.description}</p>
+              <ul className="space-y-2.5 mb-6">
+                {step.features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <Check className="w-5 h-5 shrink-0 mt-0.5" style={{ color: step.accent }} />
+                    <span className="text-sm text-foreground/85 leading-snug">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <div
+                className="flex items-center gap-4 p-4 rounded-xl"
+                style={{ background: step.accentBgSoft }}
+              >
+                <p
+                  className="font-display font-bold text-3xl md:text-4xl leading-none"
+                  style={{ color: step.accent }}
+                >
+                  {step.metricNumber}
+                </p>
+                <p className="text-sm text-foreground/75 leading-snug flex-1">{step.metricText}</p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`visual-${active}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              className="flex justify-center"
+            >
+              {renderVisual()}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
