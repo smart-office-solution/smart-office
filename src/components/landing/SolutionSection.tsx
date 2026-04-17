@@ -339,7 +339,7 @@ const SolutionSection = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex justify-center lg:justify-end"
           >
-            <WhatsAppMockup />
+            <LaptopPhoneMockup />
           </motion.div>
         </div>
       </div>
