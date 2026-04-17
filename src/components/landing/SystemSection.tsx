@@ -85,7 +85,7 @@ const SystemSection = () => {
               <div className="relative w-32 h-32 md:w-40 md:h-40">
                 <div className="absolute inset-0 rounded-full border-2 border-accent/20 animate-pulse" />
                 <div className="absolute inset-3 rounded-full border border-violet/15" />
-                <div className="absolute inset-6 rounded-full flex items-center justify-center shadow-xl" style={{ background: "linear-gradient(135deg, #9b4ad4 0%, #03a8a8 100%)" }}>
+                <div className="absolute inset-6 rounded-full flex items-center justify-center shadow-xl" style={{ backgroundColor: "#9b4ad4" }}>
                   <Brain className="w-10 h-10 md:w-12 md:h-12 text-white" />
                 </div>
               </div>
