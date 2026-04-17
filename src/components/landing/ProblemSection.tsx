@@ -58,7 +58,7 @@ const ProblemSection = () => (
           ¿Te suena familiar?
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-          Trabajas más que nunca… y aun así se siguen escapando clientes
+          Por qué tu clínica <span className="text-gradient">pierde pacientes</span> sin darse cuenta
         </h2>
       </motion.div>
 
