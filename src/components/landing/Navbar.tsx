@@ -73,7 +73,7 @@ const Navbar = () => {
             <Button
               onClick={scrollToAudit}
               size="sm"
-              className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-amber-500/25 rounded-lg gap-1.5 font-semibold"
+              className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/25 rounded-lg gap-1.5 font-semibold"
             >
               Auditoría gratis
             </Button>
@@ -95,14 +95,14 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-16 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-b border-amber-100 shadow-xl shadow-amber-500/10 p-4"
+            className="fixed top-16 inset-x-0 z-40 bg-card/95 backdrop-blur-md border-b border-border shadow-xl shadow-primary/10 p-4"
           >
             <div className="flex flex-col gap-1 mb-4">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="text-left px-4 py-3 text-sm font-medium text-foreground/80 hover:text-amber-700 hover:bg-amber-50 rounded-xl transition-colors"
+                  className="text-left px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-xl transition-colors"
                 >
                   {link.label}
                 </button>
