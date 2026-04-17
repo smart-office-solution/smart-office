@@ -10,6 +10,8 @@ import ProcessSection from "@/components/landing/ProcessSection";
 import PricingSection from "@/components/landing/PricingSection";
 import FAQSection from "@/components/landing/FAQSection";
 import FinalCtaSection from "@/components/landing/FinalCtaSection";
+import TestimonialSection from "@/components/landing/TestimonialSection";
+import DemoSection from "@/components/landing/DemoSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => (
