@@ -280,7 +280,7 @@ const comparisonRows: { feature: string; esencial: boolean; inteligente: boolean
   { feature: "Bot en WhatsApp que atiende 24/7", esencial: false, inteligente: true, completo: true },
   { feature: "Canalización activa hacia la cita", esencial: false, inteligente: true, completo: true },
   { feature: "Personalización con tus servicios y tono", esencial: false, inteligente: true, completo: true },
-  { feature: "Mantenimiento y actualizaciones mensuales", esencial: false, inteligente: true, completo: true },
+  { feature: "Mantenimiento y actualizaciones mensuales", esencial: true, inteligente: true, completo: true },
   { feature: "Informe mensual de conversaciones y leads", esencial: false, inteligente: true, completo: true },
   { feature: "Agenda automática en tu calendario", esencial: false, inteligente: false, completo: true },
   { feature: "Recordatorios de cita 24h y 1h antes", esencial: false, inteligente: false, completo: true },
