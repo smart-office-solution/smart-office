@@ -34,7 +34,7 @@ const SystemSection = () => {
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
             Cómo trabaja{" "}
-            <span className="text-gradient">Smart Office AI</span>
+            <span className="text-gradient">Smart Office IA</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             Un flujo simple pero potente: cada mensaje entra, la IA lo procesa y genera la acción correcta.
@@ -89,7 +89,7 @@ const SystemSection = () => {
                   <Brain className="w-10 h-10 md:w-12 md:h-12 text-white" />
                 </div>
               </div>
-              <p className="text-foreground font-bold mt-3 text-sm">Smart Office AI</p>
+              <p className="text-foreground font-bold mt-3 text-sm">Smart Office IA</p>
               <p className="text-accent text-xs mt-1">Procesando en tiempo real</p>
             </motion.div>
 

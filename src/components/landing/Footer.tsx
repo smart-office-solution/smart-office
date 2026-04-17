@@ -88,7 +88,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p>© {new Date().getFullYear()} Smart Office AI · Silvia González Sierra</p>
+          <p>© {new Date().getFullYear()} Smart Office IA · Silvia González Sierra</p>
           <p className="flex items-center gap-1">
             Hecho con
             <span className="text-primary mx-1">♥</span>
