@@ -97,15 +97,15 @@
 }
 
 .bg-section-gradient {
-  background: linear-gradient(135deg, hsl(38 75% 50% / 0.04) 0%, hsl(174 55% 42% / 0.04) 100%);
+  background: linear-gradient(135deg, hsl(45 88% 41% / 0.04) 0%, hsl(180 96% 33% / 0.04) 100%);
 }
 
 .bg-dark-section {
-  background: linear-gradient(135deg, hsl(220 30% 14%) 0%, hsl(220 25% 10%) 50%, hsl(220 35% 8%) 100%);
+  background: hsl(0 0% 10%);
 }
 
 .bg-hero-dark {
-  background: linear-gradient(135deg, hsl(220 30% 12%) 0%, hsl(220 25% 16%) 50%, hsl(210 30% 14%) 100%);
+  background: hsl(0 0% 10%);
 }
 
 .shadow-card {
@@ -120,34 +120,25 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Gradient text utility */
+/* Gradient text utility — amber → teal */
 .text-gradient {
-  background: linear-gradient(135deg, hsl(38 75% 50%), hsl(174 55% 42%));
+  background: linear-gradient(135deg, hsl(45 88% 41%), hsl(180 96% 33%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Gold gradient for CTAs */
+/* Amber gradient for CTAs */
 .bg-hero-gradient {
-  background: linear-gradient(135deg, hsl(38 80% 50%) 0%, hsl(38 85% 45%) 100%);
+  background: linear-gradient(135deg, hsl(45 88% 41%) 0%, hsl(45 88% 36%) 100%);
 }
 
 .btn-gradient {
-  background: linear-gradient(135deg, hsl(38 75% 50%) 0%, hsl(38 80% 45%) 100%);
+  background: linear-gradient(135deg, hsl(45 88% 41%) 0%, hsl(45 88% 36%) 100%);
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: hsl(40 15% 95%);
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(38 75% 50% / 0.4);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(38 75% 50% / 0.7);
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(33 38% 93%); }
+::-webkit-scrollbar-thumb { background: hsl(45 88% 41% / 0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(45 88% 41% / 0.7); }
