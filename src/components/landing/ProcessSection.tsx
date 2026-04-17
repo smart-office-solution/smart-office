@@ -63,7 +63,7 @@ const ProcessSection = () => (
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
           De cero a funcionando{" "}
-          <span className="text-primary">en 7 días</span>
+          <span className="text-gradient">en 7 días</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
           Un proceso simple, sin complicaciones técnicas y con todo el soporte de nuestro equipo.

@@ -22,7 +22,7 @@ const TestimonialSection = () => {
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
             Clínicas que ya{" "}
-            <span className="text-primary">trabajan en automático</span>
+            <span className="text-gradient">trabajan en automático</span>
           </h2>
         </motion.div>
 
