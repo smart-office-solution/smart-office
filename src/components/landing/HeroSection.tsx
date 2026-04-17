@@ -28,7 +28,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground mb-6">
-              <span className="text-gradient">Resultados reales</span>
+              Deja de perder <span className="text-gradient">pacientes, tiempo y citas</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
               Un sistema que capta, atiende, agenda y recupera pacientes automáticamente, 24/7
