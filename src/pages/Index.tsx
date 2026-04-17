@@ -13,15 +13,16 @@ import FinalCtaSection from "@/components/landing/FinalCtaSection";
 import TestimonialSection from "@/components/landing/TestimonialSection";
 import DemoSection from "@/components/landing/DemoSection";
 import DemoTeaserSection from "@/components/landing/DemoTeaserSection";
+import FloatingDemoButton from "@/components/landing/FloatingDemoButton";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
     <Navbar />
     <HeroSection />
-    <DemoTeaserSection />
     <ProblemSection />
     <SolutionSection />
+    <DemoTeaserSection />
     <FeaturesSection />
     <SystemSection />
     <BenefitsSection />
@@ -33,6 +34,7 @@ const Index = () => (
     <FAQSection />
     <FinalCtaSection />
     <Footer />
+    <FloatingDemoButton />
   </div>
 );
 
