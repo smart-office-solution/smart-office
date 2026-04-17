@@ -135,8 +135,7 @@ const SolutionSection = () => {
             Cómo funciona
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
-            Tu asistente inteligente,{" "}
-            <span className="text-gradient">siempre disponible</span>
+            Así trabaja <span className="text-gradient">Smart Office IA</span> para ti
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             Smart Office IA combina tres pilares que trabajan juntos para que tu negocio crezca solo.
