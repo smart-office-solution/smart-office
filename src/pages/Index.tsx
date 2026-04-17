@@ -12,12 +12,14 @@ import FAQSection from "@/components/landing/FAQSection";
 import FinalCtaSection from "@/components/landing/FinalCtaSection";
 import TestimonialSection from "@/components/landing/TestimonialSection";
 import DemoSection from "@/components/landing/DemoSection";
+import DemoTeaserSection from "@/components/landing/DemoTeaserSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
     <Navbar />
     <HeroSection />
+    <DemoTeaserSection />
     <ProblemSection />
     <SolutionSection />
     <FeaturesSection />
