@@ -6,37 +6,37 @@ const problems = [
     icon: Clock,
     title: "Las respuestas lentas te cuestan clientes",
     desc: "Cuando respondes, muchas veces ya han elegido otra opción.\n\nHoy, quien responde primero… se queda con el cliente.",
-    iconColor: "text-accent",
-    iconBg: "bg-accent/10",
-    border: "border-accent/15",
-    cardBg: "bg-accent/5",
+    accent: "#c6990c",
+    iconBg: "rgba(198,153,12,0.1)",
+    badgeBg: "rgba(198,153,12,0.1)",
+    stat: "El 78% elige al primero en responder",
   },
   {
     icon: MessageSquareX,
     title: "Mensajes por todas partes, sin control real",
     desc: "WhatsApp, Instagram, email, web…\n\nLa información se dispersa y se pierden oportunidades.",
-    iconColor: "text-primary",
-    iconBg: "bg-primary/10",
-    border: "border-primary/15",
-    cardBg: "bg-primary/5",
+    accent: "#03a8a8",
+    iconBg: "rgba(3,168,168,0.1)",
+    badgeBg: "rgba(3,168,168,0.1)",
+    stat: "Hasta 4 canales sin unificar",
   },
   {
     icon: CalendarX,
     title: "Gestionar citas se convierte en un cuello de botella",
     desc: "Entre atender, coordinar y organizar agendas…\n\ntu equipo pierde horas en tareas que podrían estar automatizadas.",
-    iconColor: "text-violet",
-    iconBg: "bg-violet/10",
-    border: "border-violet/15",
-    cardBg: "bg-violet/5",
+    accent: "#9b4ad4",
+    iconBg: "rgba(155,74,212,0.1)",
+    badgeBg: "rgba(155,74,212,0.1)",
+    stat: "+3h/día en gestión manual",
   },
   {
     icon: UserX,
     title: "Tu negocio depende demasiado de estar disponible",
     desc: "Ya sea tú o tu equipo, si no hay respuesta rápida… el cliente se va.\n\nY eso limita tu crecimiento.",
-    iconColor: "text-accent",
-    iconBg: "bg-accent/10",
-    border: "border-accent/15",
-    cardBg: "bg-accent/5",
+    accent: "#1a1a1a",
+    iconBg: "rgba(26,26,26,0.06)",
+    badgeBg: "rgba(26,26,26,0.08)",
+    stat: "Sin sistema = sin escala",
   },
 ];
 
@@ -58,7 +58,18 @@ const ProblemSection = () => (
           ¿Te suena familiar?
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-          Por qué tu clínica <span className="text-gradient">pierde pacientes</span> sin darse cuenta
+          Por qué tu clínica{" "}
+          <span
+            style={{
+              background: "linear-gradient(90deg, #c6990c 0%, #8a6200 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            pierde pacientes
+          </span>{" "}
+          sin darse cuenta
         </h2>
       </motion.div>
 
@@ -75,35 +86,75 @@ const ProblemSection = () => (
         </p>
       </motion.div>
 
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.15 }}
-        className="text-center text-xl font-display font-semibold text-foreground/80 mb-10"
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 mx-auto"
+        style={{ maxWidth: "860px", gap: "16px" }}
       >
-        Lo que está pasando:
-      </motion.p>
-
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {problems.map(({ icon: Icon, title, desc, iconColor, iconBg, border, cardBg }, i) => (
+        {problems.map(({ icon: Icon, title, desc, accent, iconBg, badgeBg, stat }, i) => (
           <motion.div
             key={title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className={`relative overflow-hidden rounded-2xl p-6 ${cardBg} border ${border} hover:shadow-md transition-all duration-300 group`}
+            whileHover={{ y: -3, boxShadow: "0 12px 36px rgba(0,0,0,0.07)" }}
+            className="relative bg-white transition-all duration-300"
+            style={{
+              border: "1px solid rgba(26,26,26,0.1)",
+              borderRadius: "20px",
+              padding: "28px 26px",
+            }}
           >
-            <div className={`h-12 w-12 rounded-xl ${iconBg} flex items-center justify-center mb-5 relative`}>
-              <Icon className={`h-6 w-6 ${iconColor}`} />
+            {/* Vertical accent bar */}
+            <span
+              aria-hidden
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 24,
+                bottom: 24,
+                width: "3px",
+                borderRadius: "0 2px 2px 0",
+                background: accent,
+              }}
+            />
+
+            <div
+              className="flex items-center justify-center mb-5"
+              style={{
+                width: "38px",
+                height: "38px",
+                borderRadius: "10px",
+                background: iconBg,
+              }}
+            >
+              <Icon className="h-5 w-5" style={{ color: accent }} />
             </div>
-            <h3 className="font-display font-semibold text-foreground mb-3 text-xl leading-snug">{title}</h3>
+
+            <h3 className="font-display font-semibold text-foreground mb-3 text-xl leading-snug">
+              {title}
+            </h3>
+
             {desc.split("\n\n").map((paragraph, idx) => (
               <p key={idx} className="text-sm text-muted-foreground mb-2 last:mb-0 leading-relaxed">
                 {paragraph}
               </p>
             ))}
+
+            <span
+              className="inline-flex"
+              style={{
+                fontSize: "12px",
+                fontWeight: 500,
+                padding: "4px 10px",
+                borderRadius: "8px",
+                marginTop: "14px",
+                background: badgeBg,
+                color: accent,
+              }}
+            >
+              {stat}
+            </span>
           </motion.div>
         ))}
       </div>
