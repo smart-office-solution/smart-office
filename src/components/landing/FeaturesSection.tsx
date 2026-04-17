@@ -94,7 +94,7 @@ const FeaturesSection = () => {
               >
                 {feature.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-primary to-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                    <span className="bg-[#9b4ad4] text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                       ⭐ Más elegido
                     </span>
                   </div>
