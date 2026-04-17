@@ -1,26 +1,23 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Sparkles, Lock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Sparkles, CheckCircle, Lock, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
 
 const perks = [
-  "Análisis de tus canales de captación",
-  "Identificación de pérdidas de pacientes",
-  "Plan de automatización personalizado",
-  "Estimación de ROI para tu clínica",
+  "Análisis personalizado de tu clínica",
+  "Detección de fugas de pacientes",
+  "Plan de acción concreto en 30 min",
+  "Sin compromiso ni venta dura",
 ];
 
 const AuditSection = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!email.trim()) return;
     setIsLoading(true);
 
     try {
@@ -32,23 +29,21 @@ const AuditSection = () => {
       if (response.ok) {
         setSubmitted(true);
         window.location.href = "/gracias";
-      } else {
-        toast({ title: "Error al enviar", description: "Inténtalo de nuevo.", variant: "destructive" });
       }
     } catch {
-      toast({ title: "Error de conexión", description: "Inténtalo de nuevo.", variant: "destructive" });
+      // noop
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <section id="audit" className="py-20 md:py-28 relative overflow-hidden">
+    <section id="audit" className="py-20 md:py-28 relative overflow-hidden bg-background">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-white to-amber-50/50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-violet/5 via-background to-primary/5" />
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -62,7 +57,7 @@ const AuditSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold uppercase tracking-wider mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet/10 border border-violet/20 text-violet text-sm font-semibold uppercase tracking-wider mb-6">
                 <Sparkles className="w-3.5 h-3.5" />
                 Auditoría gratuita
               </span>
@@ -76,8 +71,8 @@ const AuditSection = () => {
               <div className="space-y-3">
                 {perks.map((perk) => (
                   <div key={perk} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-violet-100 flex items-center justify-center shrink-0">
-                      <CheckCircle className="w-3.5 h-3.5 text-violet-600" />
+                    <div className="w-5 h-5 rounded-full bg-violet/10 flex items-center justify-center shrink-0">
+                      <CheckCircle className="w-3.5 h-3.5 text-violet" />
                     </div>
                     <span className="text-foreground/80 text-sm font-medium">{perk}</span>
                   </div>
@@ -97,12 +92,12 @@ const AuditSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <div className="bg-white rounded-3xl p-8 shadow-2xl shadow-violet-500/10 border border-violet-100">
+              <div className="bg-card rounded-3xl p-8 shadow-2xl shadow-violet/10 border border-violet/15">
                 {!submitted ? (
                   <>
                     <div className="text-center mb-8">
-                      <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-700 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-violet-500/30">
-                        <Sparkles className="w-8 h-8 text-white" />
+                      <div className="w-16 h-16 bg-gradient-to-br from-violet to-violet/80 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-violet/30">
+                        <Sparkles className="w-8 h-8 text-violet-foreground" />
                       </div>
                       <h3 className="text-xl font-display font-bold text-foreground mb-1">
                         Solicita tu auditoría gratuita
@@ -123,14 +118,14 @@ const AuditSection = () => {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required
-                          className="h-12 border-violet-200 focus:border-violet-400 focus:ring-violet-400/20 rounded-xl"
+                          className="h-12 border-violet/20 focus:border-violet/60 focus:ring-violet/20 rounded-xl"
                         />
                       </div>
 
                       <Button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full h-12 bg-gradient-to-r from-violet-600 to-violet-700 hover:from-violet-500 hover:to-violet-600 text-white font-semibold rounded-xl shadow-lg shadow-violet-500/30 gap-2 transition-all duration-300"
+                        className="w-full h-12 bg-gradient-to-r from-violet to-violet/80 hover:from-violet/90 hover:to-violet/70 text-violet-foreground font-semibold rounded-xl shadow-lg shadow-violet/30 gap-2 transition-all duration-300"
                       >
                         {isLoading ? "Enviando..." : "Quiero mi auditoría gratuita"}
                         {!isLoading && <ArrowRight className="w-4 h-4" />}
@@ -138,7 +133,7 @@ const AuditSection = () => {
                     </form>
 
                     {/* Social proof mini */}
-                    <div className="mt-6 pt-6 border-t border-gray-100 flex items-center justify-center gap-3">
+                    <div className="mt-6 pt-6 border-t border-border flex items-center justify-center gap-3">
                       <p className="text-xs text-muted-foreground">
                         Automatiza tu clínica con inteligencia artificial
                       </p>
@@ -146,8 +141,8 @@ const AuditSection = () => {
                   </>
                 ) : (
                   <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-green-600" />
+                    <div className="w-16 h-16 bg-accent/15 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-8 h-8 text-accent" />
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-2">¡Solicitud enviada!</h3>
                     <p className="text-muted-foreground text-sm">Te contactamos en menos de 24h.</p>
