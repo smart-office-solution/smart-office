@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Mail, MapPin, Phone, Shield, FileText, X } from "lucide-react";
-import logo from "@/assets/logo-smart-office.jpg";
+import logo from "@/assets/logo-smart-office.svg";
 
 const PrivacyModal = ({ onClose }: { onClose: () => void }) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
