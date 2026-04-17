@@ -6,30 +6,38 @@
 
 @layer base {
   :root {
-    --background: 40 20% 97%;
-    --foreground: 220 25% 14%;
+    /* Strict palette:
+       #f4ede4 cream bg  -> 33 38% 93%
+       #1a1a1a near-black-> 0 0% 10%
+       #c6990c amber CTA -> 45 88% 41%
+       #03a8a8 teal      -> 180 96% 33%
+       #9b4ad4 violet    -> 274 62% 56%
+       #ffffff white card-> 0 0% 100%
+    */
+    --background: 33 38% 93%;
+    --foreground: 0 0% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 14%;
+    --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 14%;
-    --primary: 38 75% 50%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 45 88% 41%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 40 15% 93%;
-    --secondary-foreground: 220 25% 14%;
-    --muted: 40 10% 92%;
-    --muted-foreground: 220 10% 45%;
-    --accent: 174 55% 42%;
+    --secondary: 33 38% 93%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 33 38% 93%;
+    --muted-foreground: 0 0% 10%;
+    --accent: 180 96% 33%;
     --accent-foreground: 0 0% 100%;
-    --violet: 270 60% 55%;
+    --violet: 274 62% 56%;
     --violet-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 40 15% 87%;
-    --input: 40 15% 87%;
-    --ring: 38 75% 50%;
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 45 88% 41%;
     --radius: 0.875rem;
-    --card-shadow: 0 4px 20px -4px hsl(38 75% 50% / .10);
-    --card-shadow-hover: 0 8px 32px -4px hsl(38 75% 50% / .18);
+    --card-shadow: 0 4px 20px -4px hsl(0 0% 10% / .08);
+    --card-shadow-hover: 0 8px 32px -4px hsl(0 0% 10% / .14);
   }
 
   .dark {
@@ -66,7 +74,7 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    color: #0F1117;
+    color: #1a1a1a;
   }
   h1 {
     font-size: clamp(3.5rem, 5vw, 4.5rem);
@@ -78,16 +86,26 @@
   }
 }
 
+/* Force muted text to render as #1a1a1a at 50% opacity */
+.text-muted-foreground {
+  color: hsl(0 0% 10% / 0.5) !important;
+}
+
+/* Force borders to render at 12% opacity of #1a1a1a */
+.border, [class*="border-border"], .border-border {
+  border-color: hsl(0 0% 10% / 0.12) !important;
+}
+
 .bg-section-gradient {
-  background: linear-gradient(135deg, hsl(38 75% 50% / 0.04) 0%, hsl(174 55% 42% / 0.04) 100%);
+  background: linear-gradient(135deg, hsl(45 88% 41% / 0.04) 0%, hsl(180 96% 33% / 0.04) 100%);
 }
 
 .bg-dark-section {
-  background: linear-gradient(135deg, hsl(220 30% 14%) 0%, hsl(220 25% 10%) 50%, hsl(220 35% 8%) 100%);
+  background: hsl(0 0% 10%);
 }
 
 .bg-hero-dark {
-  background: linear-gradient(135deg, hsl(220 30% 12%) 0%, hsl(220 25% 16%) 50%, hsl(210 30% 14%) 100%);
+  background: hsl(0 0% 10%);
 }
 
 .shadow-card {
@@ -102,34 +120,25 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Gradient text utility */
+/* Gradient text utility — amber → teal */
 .text-gradient {
-  background: linear-gradient(135deg, hsl(38 75% 50%), hsl(174 55% 42%));
+  background: linear-gradient(135deg, hsl(45 88% 41%), hsl(180 96% 33%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Gold gradient for CTAs */
+/* Amber gradient for CTAs */
 .bg-hero-gradient {
-  background: linear-gradient(135deg, hsl(38 80% 50%) 0%, hsl(38 85% 45%) 100%);
+  background: linear-gradient(135deg, hsl(45 88% 41%) 0%, hsl(45 88% 36%) 100%);
 }
 
 .btn-gradient {
-  background: linear-gradient(135deg, hsl(38 75% 50%) 0%, hsl(38 80% 45%) 100%);
+  background: linear-gradient(135deg, hsl(45 88% 41%) 0%, hsl(45 88% 36%) 100%);
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: hsl(40 15% 95%);
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(38 75% 50% / 0.4);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(38 75% 50% / 0.7);
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(33 38% 93%); }
+::-webkit-scrollbar-thumb { background: hsl(45 88% 41% / 0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(45 88% 41% / 0.7); }
