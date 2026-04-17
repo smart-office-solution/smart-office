@@ -150,7 +150,7 @@ const PricingSection = () => {
                   </p>
 
                   {/* Name */}
-                  <h3 className="font-display font-bold text-2xl md:text-[1.65rem] leading-tight mb-6">
+                  <h3 className={`font-display font-bold text-2xl md:text-[1.65rem] leading-tight mb-6 ${isDark ? "text-accent" : ""}`}>
                     {plan.name}
                   </h3>
 
