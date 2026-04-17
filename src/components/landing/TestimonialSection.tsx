@@ -43,7 +43,7 @@ const TestimonialSection = () => {
             </div>
 
             <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed text-center mb-8 italic">
-              "[Testimonio del cliente — pega aquí el texto real del testimonio. Describe brevemente cómo era la situación antes, qué cambió con S.O.S y qué resultados concretos ha obtenido (más citas, menos llamadas, horas recuperadas…)]"
+              "[Testimonio del cliente — pega aquí el texto real del testimonio. Describe brevemente cómo era la situación antes, qué cambió con Smart Office AI y qué resultados concretos ha obtenido (más citas, menos llamadas, horas recuperadas…)]"
             </blockquote>
 
             <div className="flex items-center justify-center gap-4">
