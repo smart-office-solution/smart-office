@@ -74,7 +74,7 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    color: #0F1117;
+    color: #1a1a1a;
   }
   h1 {
     font-size: clamp(3.5rem, 5vw, 4.5rem);
@@ -84,6 +84,16 @@
     font-size: clamp(2.25rem, 3.5vw, 2.75rem);
     font-weight: 600;
   }
+}
+
+/* Force muted text to render as #1a1a1a at 50% opacity */
+.text-muted-foreground {
+  color: hsl(0 0% 10% / 0.5) !important;
+}
+
+/* Force borders to render at 12% opacity of #1a1a1a */
+.border, [class*="border-border"], .border-border {
+  border-color: hsl(0 0% 10% / 0.12) !important;
 }
 
 .bg-section-gradient {
