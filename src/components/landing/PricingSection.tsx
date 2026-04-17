@@ -371,9 +371,10 @@ const ComparisonTable = () => {
           </div>
         </CollapsibleContent>
       </Collapsible>
-      </div>
-    </section>
+    </div>
   );
 };
+
+export default PricingSection;
 
 export default PricingSection;
