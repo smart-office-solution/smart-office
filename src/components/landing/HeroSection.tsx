@@ -5,8 +5,8 @@ import heroCover from "@/assets/hero-cover.jpg";
 
 const trustItems = [
   { icon: ShieldCheck, text: "Sin compromiso" },
-  { icon: BarChart3, text: "Análisis personalizado" },
-  { icon: Lightbulb, text: "Consejos accionables" },
+  { icon: BarChart3, text: "Diagnóstico claro de tu web" },
+  { icon: Lightbulb, text: "Mejoras concretas y fáciles" },
 ];
 
 const HeroSection = () => {
@@ -28,10 +28,10 @@ const HeroSection = () => {
             transition={{ duration: 0.7 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground mb-6">
-              Haz que tu clínica deje de perder <span className="text-gradient">citas, tiempo y pacientes</span>
+              Tu web puede traerte <span className="text-gradient">más clientes</span> sin que tengas que complicarte
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
-              Un sistema que capta, atiende, agenda y recupera pacientes automáticamente, 24/7
+              Te ayudo a convertir tu web en una herramienta que capta, responde y reserva — con soluciones simples y sin tecnología compleja.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Button variant="hero" size="lg" className="px-8 py-6" onClick={scrollToAudit}>
@@ -39,7 +39,7 @@ const HeroSection = () => {
               </Button>
             </div>
             <p className="text-sm text-muted-foreground/70 mb-8">
-              Descubre dónde estás perdiendo pacientes sin darte cuenta
+              En 30 minutos te digo por qué tu web no convierte y qué hacer para arreglarlo.
             </p>
             <div className="flex flex-wrap gap-6">
               {trustItems.map(({ icon: Icon, text }) => (

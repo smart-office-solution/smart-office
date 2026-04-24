@@ -4,39 +4,39 @@ import { Clock, MessageSquareX, CalendarX, UserX } from "lucide-react";
 const problems = [
   {
     icon: Clock,
-    title: "Las respuestas lentas te cuestan clientes",
-    desc: "Cuando respondes, muchas veces ya han elegido otra opción.\n\nHoy, quien responde primero… se queda con el cliente.",
+    title: "Tu web recibe visitas, pero no contactos",
+    desc: "La gente entra, mira… y se va sin escribir.\n\nNo hay un camino claro que les diga qué hacer.",
     accent: "#c6990c",
     iconBg: "rgba(198,153,12,0.1)",
     badgeBg: "rgba(198,153,12,0.1)",
-    stat: "El 78% elige al primero en responder",
+    stat: "Hasta 9 de cada 10 visitas se pierden",
   },
   {
     icon: MessageSquareX,
-    title: "Mensajes por todas partes, sin control real",
-    desc: "WhatsApp, Instagram, email, web…\n\nLa información se dispersa y se pierden oportunidades.",
+    title: "Cuando responden a un mensaje, ya es tarde",
+    desc: "WhatsApp, Instagram, email, formulario…\n\nMientras contestas, el cliente ya ha elegido a otro.",
     accent: "#03a8a8",
     iconBg: "rgba(3,168,168,0.1)",
     badgeBg: "rgba(3,168,168,0.1)",
-    stat: "Hasta 4 canales sin unificar",
+    stat: "El 78% elige al primero en responder",
   },
   {
     icon: CalendarX,
-    title: "Gestionar citas se convierte en un cuello de botella",
-    desc: "Entre atender, coordinar y organizar agendas…\n\ntu equipo pierde horas en tareas que podrían estar automatizadas.",
+    title: "Pierdes horas gestionando lo de siempre",
+    desc: "Atender mensajes, cuadrar citas, hacer seguimiento…\n\nTodo manual, todos los días, sin avanzar.",
     accent: "#9b4ad4",
     iconBg: "rgba(155,74,212,0.1)",
     badgeBg: "rgba(155,74,212,0.1)",
-    stat: "+3h/día en gestión manual",
+    stat: "+3h al día en tareas repetitivas",
   },
   {
     icon: UserX,
-    title: "Tu negocio depende demasiado de estar disponible",
-    desc: "Ya sea tú o tu equipo, si no hay respuesta rápida… el cliente se va.\n\nY eso limita tu crecimiento.",
+    title: "Tu negocio depende de que tú estés disponible",
+    desc: "Si no contestas tú o tu equipo al momento, el cliente se va.\n\nAsí es imposible crecer con tranquilidad.",
     accent: "#1a1a1a",
     iconBg: "rgba(26,26,26,0.06)",
     badgeBg: "rgba(26,26,26,0.08)",
-    stat: "Sin sistema = sin escala",
+    stat: "Sin sistema, no hay crecimiento",
   },
 ];
 
@@ -58,7 +58,7 @@ const ProblemSection = () => (
           ¿Te suena familiar?
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-          Por qué tu clínica{" "}
+          Por qué tu web{" "}
           <span
             style={{
               background: "linear-gradient(90deg, #c6990c 0%, #8a6200 100%)",
@@ -67,9 +67,9 @@ const ProblemSection = () => (
               backgroundClip: "text",
             }}
           >
-            pierde pacientes
+            no te trae clientes
           </span>{" "}
-          sin darse cuenta
+          (y cómo arreglarlo)
         </h2>
       </motion.div>
 
@@ -80,9 +80,9 @@ const ProblemSection = () => (
         transition={{ delay: 0.1 }}
         className="text-center mb-14 max-w-2xl mx-auto"
       >
-        <p className="text-muted-foreground text-lg mb-1">No es falta de esfuerzo.</p>
+        <p className="text-muted-foreground text-lg mb-1">No es por falta de trabajo.</p>
         <p className="text-muted-foreground text-lg">
-          Es lo que no estás viendo lo que está frenando tu negocio.
+          Es porque tu web y tus canales no están preparados para convertir.
         </p>
       </motion.div>
 
