@@ -23,60 +23,60 @@ const steps: Record<
 > = {
   "1": {
     number: "1",
-    title: "Captación automática",
-    sub: "Nunca pierdas un lead",
+    title: "Captación clara",
+    sub: "Que nadie se vaya sin contactar",
     accent: "#c6990c",
     accentBg: "rgba(198,153,12,0.1)",
     accentBgSoft: "rgba(198,153,12,0.08)",
     tagLabel: "01 · Captación",
-    panelTitle: "Cada mensaje recibe respuesta en segundos",
+    panelTitle: "Que tu web diga claro qué hacer y por dónde contactar",
     description:
-      "WhatsApp, Instagram, web — da igual desde dónde escriba el paciente. El asistente responde al instante, resuelve dudas y lo guía hasta pedir cita. Sin que tú levantes el teléfono.",
+      "Botones a WhatsApp, formularios sencillos y un mensaje claro. Para que cualquiera que entre en tu web sepa al momento cómo pedir cita o información — sin pensárselo.",
     features: [
-      "Respuesta en menos de 2 minutos, 24/7",
-      "WhatsApp, Instagram y chatbot en web",
-      "Sin intervención humana",
+      "Botón directo a WhatsApp, sin API ni complicaciones",
+      "Llamadas a la acción visibles en cada página",
+      "Formularios cortos y fáciles de rellenar",
     ],
-    metricNumber: "78%",
-    metricText: "de pacientes elige al primero en responder",
+    metricNumber: "+30%",
+    metricText: "más contactos solo con mejorar el recorrido de tu web",
   },
   "2": {
     number: "2",
-    title: "Gestión de agenda",
-    sub: "Citas sin esfuerzo manual",
+    title: "Respuesta rápida",
+    sub: "Sin perder clientes por tardar",
     accent: "#03a8a8",
     accentBg: "rgba(3,168,168,0.1)",
     accentBgSoft: "rgba(3,168,168,0.08)",
-    tagLabel: "02 · Agenda",
-    panelTitle: "Tu calendario se llena solo, sin llamadas",
+    tagLabel: "02 · Atención",
+    panelTitle: "Un chatbot básico que responde lo de siempre por ti",
     description:
-      "El asistente confirma disponibilidad, reserva la cita directamente en tu agenda y manda recordatorios automáticos. Sin idas y venidas, sin llamadas perdidas.",
+      "Respuestas a las preguntas que tus clientes repiten cada día (precios, horarios, disponibilidad…). Sin que tengas que estar pendiente del móvil ni dejar a nadie esperando.",
     features: [
-      "Agenda directa en tu calendario",
-      "Recordatorios 24h y 1h antes",
-      "Cancelaciones y reprogramaciones automáticas",
+      "Atiende mensajes 24/7, también fuera de tu horario",
+      "Resuelve dudas frecuentes y deriva a ti cuando hace falta",
+      "Funciona en tu web y en WhatsApp, sin tecnología compleja",
     ],
-    metricNumber: "−40%",
-    metricText: "de citas no atendidas con recordatorios automáticos",
+    metricNumber: "<2 min",
+    metricText: "de respuesta media, frente a horas o días tardando",
   },
   "3": {
     number: "3",
-    title: "Seguimiento continuo",
-    sub: "Pacientes que vuelven",
+    title: "Más reservas",
+    sub: "Clientes que vuelven a comprar",
     accent: "#9b4ad4",
     accentBg: "rgba(155,74,212,0.1)",
     accentBgSoft: "rgba(155,74,212,0.08)",
     tagLabel: "03 · Seguimiento",
-    panelTitle: "Cada paciente se convierte en un cliente fiel",
+    panelTitle: "Recordatorios y mensajes simples para que vuelvan",
     description:
-      "Después de cada visita, el sistema pide una reseña en Google, manda recordatorios de próximas citas y mantiene el contacto de forma personalizada.",
+      "Después de cada cita o compra, un mensaje automático para pedir reseña en Google, recordar la próxima visita o reactivar a clientes que hace tiempo no aparecen. Simple, pero muy efectivo.",
     features: [
-      "Reseñas en Google automáticas tras cada visita",
-      "Recordatorios de próximas revisiones",
-      "Reactivación de pacientes inactivos",
+      "Reseñas en Google sin tener que pedirlas a mano",
+      "Recordatorios automáticos antes de cada cita",
+      "Mensajes para recuperar clientes que ya no vuelven",
     ],
-    metricNumber: "+65%",
-    metricText: "de pacientes recurrentes frente a gestión manual",
+    metricNumber: "+40%",
+    metricText: "más clientes recurrentes con un sistema de seguimiento básico",
   },
 };
 
@@ -286,11 +286,11 @@ const SolutionSection = () => {
                 backgroundClip: "text",
               }}
             >
-              Una clínica que trabaja sola.
+              Más clientes sin complicarte.
             </span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Sin complejidad técnica. Sin cambiar tu forma de trabajar. Activo en 7 días.
+            Sin tecnología complicada. Sin cambiar tu forma de trabajar. Listo en pocos días.
           </p>
         </motion.div>
 
