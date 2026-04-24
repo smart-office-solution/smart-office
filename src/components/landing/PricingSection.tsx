@@ -106,11 +106,11 @@ const PricingSection = () => {
             ✨ Planes y precios
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4">
-            Elige tu punto{" "}
-            <span className="text-gradient italic">de partida</span>
+            Elige por dónde{" "}
+            <span className="text-gradient italic">empezar</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Tres niveles de automatización. Empieza donde tiene sentido para tu clínica y escala cuando quieras.
+            Tres niveles, sin tecnicismos. Empieza por lo que más te urge y suma cuando notes los resultados.
           </p>
         </motion.div>
 
@@ -257,10 +257,10 @@ const PricingSection = () => {
           className="text-center mt-10 space-y-2"
         >
           <p className="text-muted-foreground text-sm">
-            ¿No sabes qué plan elegir? Solicita tu auditoría gratuita y te asesoramos sin compromiso.
+            ¿No sabes qué plan te encaja? Solicita tu auditoría gratuita y te lo digo claro, sin compromiso.
           </p>
           <p className="text-foreground/80 text-sm font-medium">
-            ¿Necesitas algo distinto? También diseñamos planes a medida adaptados a tu clínica.
+            ¿Necesitas algo distinto? También trabajo con propuestas a medida según tu negocio.
           </p>
         </motion.div>
 

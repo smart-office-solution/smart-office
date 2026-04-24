@@ -75,7 +75,7 @@ const Navbar = () => {
               size="sm"
               className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/25 rounded-lg gap-1.5 font-semibold"
             >
-              Auditoría gratis
+              Auditoría gratuita
             </Button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}

@@ -6,7 +6,7 @@ const steps = [
     icon: Search,
     step: "01",
     title: "Auditoría gratuita",
-    desc: "Analizamos tu situación actual: canales, volumen de mensajes, puntos de fuga de clientes y oportunidades de mejora.",
+    desc: "Reviso tu web y tus canales, te digo por qué no están convirtiendo y qué se puede mejorar. En 30 minutos y sin compromiso.",
     iconBg: "bg-accent/10",
     iconColor: "text-accent",
     stepColor: "text-accent/25",
@@ -15,8 +15,8 @@ const steps = [
   {
     icon: Settings,
     step: "02",
-    title: "Configuración a medida",
-    desc: "Diseñamos e implementamos tu asistente con tu identidad, tus servicios y tu forma de comunicarte. En 7 días.",
+    title: "Plan a tu medida",
+    desc: "Te propongo mejoras concretas para tu web, tus formularios y tus canales. Sin tecnicismos: tú decides qué aplicar.",
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
     stepColor: "text-primary/25",
@@ -25,8 +25,8 @@ const steps = [
   {
     icon: Rocket,
     step: "03",
-    title: "Activación y prueba",
-    desc: "El sistema empieza a responder, captar y agendar. Tú ves los resultados en tiempo real desde el primer día.",
+    title: "Lo dejamos funcionando",
+    desc: "Implemento las mejoras: landing, botón de WhatsApp, formularios o chatbot básico. En pocos días, tu web empieza a captar.",
     iconBg: "bg-violet/10",
     iconColor: "text-violet",
     stepColor: "text-violet/25",
@@ -35,8 +35,8 @@ const steps = [
   {
     icon: HeartHandshake,
     step: "04",
-    title: "Optimización continua",
-    desc: "Analizamos el rendimiento cada mes y ajustamos para que el sistema mejore constantemente.",
+    title: "Acompañamiento mensual",
+    desc: "Reviso resultados cada mes y vamos ajustando para que cada vez te entren más clientes desde tu web.",
     iconBg: "bg-accent/10",
     iconColor: "text-accent",
     stepColor: "text-accent/25",
@@ -62,11 +62,11 @@ const ProcessSection = () => (
           El proceso
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-          De cero a funcionando{" "}
-          <span className="text-gradient">en 7 días</span>
+          De web que no convierte a{" "}
+          <span className="text-gradient">web que te trae clientes</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Un proceso simple, sin complicaciones técnicas y con todo el soporte de nuestro equipo.
+          Un proceso sencillo, sin tecnicismos y con acompañamiento real en cada paso.
         </p>
       </motion.div>
 

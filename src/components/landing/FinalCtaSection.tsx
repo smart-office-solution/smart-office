@@ -24,18 +24,18 @@ const FinalCtaSection = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-4xl md:text-6xl font-display font-bold text-foreground mb-6 leading-tight">
-            Tu clínica trabajando{" "}
-            <span className="text-gradient">mientras duermes</span>
+            Convierte tu web en una{" "}
+            <span className="text-gradient">máquina de captar clientes</span>
           </h2>
 
           <p className="text-muted-foreground text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-            Únete a las clínicas que ya han automatizado su captación, agenda y seguimiento. Sin esfuerzo. Sin perder el trato humano.
+            Pequeñas mejoras, resultados grandes. Sin tecnología complicada y sin perder el trato cercano con tus clientes.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6 mb-12">
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <Clock className="w-4 h-4 text-primary" />
-              Activo en 7 días
+              Listo en pocos días
             </div>
             <div className="w-1 h-1 rounded-full bg-border hidden sm:block" />
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
@@ -45,7 +45,7 @@ const FinalCtaSection = () => {
             <div className="w-1 h-1 rounded-full bg-border hidden sm:block" />
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <Sparkles className="w-4 h-4 text-violet" />
-              Configuración incluida
+              Soluciones simples
             </div>
           </div>
 
@@ -55,7 +55,7 @@ const FinalCtaSection = () => {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 gap-2 font-semibold px-8 py-6 text-base rounded-xl"
             >
-              Solicitar mi auditoría gratuita
+              Solicita tu auditoría gratuita
               <ArrowRight className="h-5 w-5" />
             </Button>
             <Button
@@ -64,12 +64,12 @@ const FinalCtaSection = () => {
               size="lg"
               className="text-muted-foreground hover:text-foreground hover:bg-muted/50 gap-2 font-medium px-6 py-6 text-sm rounded-xl border border-border hover:border-primary/30"
             >
-              Ver cómo funciona primero
+              Antes quiero ver cómo funciona
             </Button>
           </div>
 
           <p className="text-muted-foreground/50 text-xs mt-8">
-            Sin compromisos · Respuesta en menos de 24h · 100% gratuita
+            Sin compromiso · Respuesta en menos de 24h · 100% gratuita
           </p>
         </motion.div>
       </div>

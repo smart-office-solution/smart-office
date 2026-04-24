@@ -6,8 +6,8 @@ const benefits = [
   {
     icon: Clock,
     metric: "+3h",
-    label: "recuperadas al día",
-    desc: "Tu equipo deja de gestionar manualmente cada consulta, recordatorio y seguimiento.",
+    label: "menos al día gestionando",
+    desc: "Dejas de responder lo mismo una y otra vez. El sistema atiende, recuerda y reserva por ti.",
     bg: "bg-primary/8",
     border: "border-primary/20",
     iconBg: "bg-primary/15",
@@ -17,8 +17,8 @@ const benefits = [
   {
     icon: TrendingUp,
     metric: "+40%",
-    label: "más citas reservadas",
-    desc: "Cada lead que llega fuera de horario ahora tiene respuesta inmediata y se convierte.",
+    label: "más reservas y contactos",
+    desc: "Captas también a quien escribe por la noche, el fin de semana o cuando no puedes atender.",
     bg: "bg-accent/8",
     border: "border-accent/20",
     iconBg: "bg-accent/15",
@@ -27,9 +27,9 @@ const benefits = [
   },
   {
     icon: Zap,
-    metric: "< 2min",
-    label: "tiempo de respuesta",
-    desc: "24 horas al día, 7 días a la semana. Nunca más pierdes un paciente por tardar.",
+    metric: "< 2 min",
+    label: "en responder a cada cliente",
+    desc: "Quien escribe a tu negocio recibe respuesta al momento. Así nadie se va con la competencia.",
     bg: "bg-violet/8",
     border: "border-violet/20",
     iconBg: "bg-violet/15",
@@ -39,8 +39,8 @@ const benefits = [
   {
     icon: Star,
     metric: "5★",
-    label: "experiencia del paciente",
-    desc: "Respuestas personalizadas, recordatorios puntuales y seguimiento profesional.",
+    label: "imagen más profesional",
+    desc: "Web clara, respuestas rápidas y seguimiento cuidado. Tus clientes notan la diferencia.",
     bg: "bg-primary/8",
     border: "border-primary/20",
     iconBg: "bg-primary/15",
@@ -65,14 +65,14 @@ const BenefitsSection = () => (
         className="text-center mb-14"
       >
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-6 border border-accent/20">
-          Resultados reales
+          Lo que vas a notar
         </div>
         <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
-          Lo que consiguen{" "}
-          <span className="text-gradient">nuestros clientes</span>
+          Más clientes, menos tiempo perdido,{" "}
+          <span className="text-gradient">menos quebraderos de cabeza</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Métricas reales de clínicas que ya trabajan con Smart Office IA.
+          Mejoras simples en tu web y tus canales que se traducen en resultados reales para tu negocio.
         </p>
       </motion.div>
 

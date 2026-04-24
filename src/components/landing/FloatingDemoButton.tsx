@@ -62,7 +62,7 @@ const FloatingDemoButton = () => {
                 <MessageCircle className="w-4 h-4" />
                 <span className="absolute inset-0 rounded-full bg-accent/60 animate-ping" />
               </span>
-              Probar el bot ahora
+              Prueba el bot gratis
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>
