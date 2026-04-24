@@ -6,8 +6,8 @@ const benefits = [
   {
     icon: Clock,
     metric: "+3h",
-    label: "menos al día gestionando mensajes",
-    desc: "Tu equipo deja de perder tiempo respondiendo lo mismo una y otra vez.",
+    label: "recuperadas al día",
+    desc: "Tu equipo deja de gestionar manualmente cada consulta, recordatorio y seguimiento.",
     bg: "bg-primary/8",
     border: "border-primary/20",
     iconBg: "bg-primary/15",
@@ -17,8 +17,8 @@ const benefits = [
   {
     icon: TrendingUp,
     metric: "+40%",
-    label: "más contactos desde tu web",
-    desc: "Quien entra en tu web ahora encuentra un camino claro para escribirte o reservar.",
+    label: "más citas reservadas",
+    desc: "Cada lead que llega fuera de horario ahora tiene respuesta inmediata y se convierte.",
     bg: "bg-accent/8",
     border: "border-accent/20",
     iconBg: "bg-accent/15",
@@ -28,8 +28,8 @@ const benefits = [
   {
     icon: Zap,
     metric: "< 2min",
-    label: "en responder cada mensaje",
-    desc: "Día y noche. Nunca más pierdes un cliente por contestar tarde.",
+    label: "tiempo de respuesta",
+    desc: "24 horas al día, 7 días a la semana. Nunca más pierdes un paciente por tardar.",
     bg: "bg-violet/8",
     border: "border-violet/20",
     iconBg: "bg-violet/15",
@@ -39,8 +39,8 @@ const benefits = [
   {
     icon: Star,
     metric: "5★",
-    label: "más reseñas en Google",
-    desc: "Cada cliente recibe la invitación para dejarte reseña justo cuando toca.",
+    label: "experiencia del paciente",
+    desc: "Respuestas personalizadas, recordatorios puntuales y seguimiento profesional.",
     bg: "bg-primary/8",
     border: "border-primary/20",
     iconBg: "bg-primary/15",
@@ -68,11 +68,11 @@ const BenefitsSection = () => (
           Resultados reales
         </div>
         <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
-          Lo que vas a notar{" "}
-          <span className="text-gradient">en tu negocio</span>
+          Lo que consiguen{" "}
+          <span className="text-gradient">nuestros clientes</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Más contactos, más reservas y menos tiempo perdido. Eso es lo que cambia desde el primer mes.
+          Métricas reales de clínicas que ya trabajan con Smart Office IA.
         </p>
       </motion.div>
 

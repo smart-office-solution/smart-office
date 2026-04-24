@@ -43,7 +43,7 @@ const Footer = () => {
               <img src={logo} alt="Smart Office" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed">
-              Ayudamos a pequeños negocios a convertir su web en una fuente real de clientes. Sin tecnicismos.
+              Automatización inteligente para clínicas y negocios de salud. Tu asistente siempre activo.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ const Footer = () => {
           <p className="flex items-center gap-1">
             Hecho con
             <span className="text-primary mx-1">♥</span>
-            para pequeños negocios que quieren crecer
+            para clínicas que quieren crecer
           </p>
         </div>
       </div>

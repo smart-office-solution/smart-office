@@ -23,10 +23,10 @@ const ThankYou = () => {
             🎯 ¡Solicitud enviada!
           </h1>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto">
-            Hemos recibido tu solicitud de Auditoría Gratuita.
+            Hemos recibido tu auditoría correctamente.
           </p>
           <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto mt-3">
-            Ya estás un paso por delante de la mayoría de negocios, que siguen perdiendo clientes sin saberlo.
+            Ahora mismo ya estás un paso por delante de la mayoría de negocios, que siguen perdiendo clientes sin saberlo.
           </p>
         </div>
 

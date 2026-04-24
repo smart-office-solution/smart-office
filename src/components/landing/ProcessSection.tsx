@@ -5,8 +5,8 @@ const steps = [
   {
     icon: Search,
     step: "01",
-    title: "Auditoría Gratuita",
-    desc: "Miramos tu web, tus canales y dónde se te están escapando clientes. Te lo contamos en cristiano, sin tecnicismos.",
+    title: "Auditoría gratuita",
+    desc: "Analizamos tu situación actual: canales, volumen de mensajes, puntos de fuga de clientes y oportunidades de mejora.",
     iconBg: "bg-accent/10",
     iconColor: "text-accent",
     stepColor: "text-accent/25",
@@ -15,8 +15,8 @@ const steps = [
   {
     icon: Settings,
     step: "02",
-    title: "Lo dejamos listo en 7 días",
-    desc: "Mejoramos tu web, ponemos botón de WhatsApp, formularios claros y un chatbot básico. Todo con tus datos y tu estilo.",
+    title: "Configuración a medida",
+    desc: "Diseñamos e implementamos tu asistente con tu identidad, tus servicios y tu forma de comunicarte. En 7 días.",
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
     stepColor: "text-primary/25",
@@ -25,8 +25,8 @@ const steps = [
   {
     icon: Rocket,
     step: "03",
-    title: "Empiezan a llegar contactos",
-    desc: "Desde el primer día tu web trabaja para ti. Ves los mensajes, las reservas y las visitas que antes se perdían.",
+    title: "Activación y prueba",
+    desc: "El sistema empieza a responder, captar y agendar. Tú ves los resultados en tiempo real desde el primer día.",
     iconBg: "bg-violet/10",
     iconColor: "text-violet",
     stepColor: "text-violet/25",
@@ -35,8 +35,8 @@ const steps = [
   {
     icon: HeartHandshake,
     step: "04",
-    title: "Lo mejoramos cada mes",
-    desc: "Revisamos qué funciona y qué no, y ajustamos para que cada mes te lleguen más clientes que el anterior.",
+    title: "Optimización continua",
+    desc: "Analizamos el rendimiento cada mes y ajustamos para que el sistema mejore constantemente.",
     iconBg: "bg-accent/10",
     iconColor: "text-accent",
     stepColor: "text-accent/25",
@@ -62,11 +62,11 @@ const ProcessSection = () => (
           El proceso
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-          De web parada a recibir contactos{" "}
+          De cero a funcionando{" "}
           <span className="text-gradient">en 7 días</span>
         </h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Tú no tienes que tocar nada. Nosotros nos encargamos de todo y tú empiezas a recibir clientes.
+          Un proceso simple, sin complicaciones técnicas y con todo el soporte de nuestro equipo.
         </p>
       </motion.div>
 

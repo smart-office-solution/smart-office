@@ -4,8 +4,8 @@ import { Clock, MessageSquareX, CalendarX, UserX } from "lucide-react";
 const problems = [
   {
     icon: Clock,
-    title: "Tardas en responder y los clientes se van",
-    desc: "Cuando contestas, muchos ya han llamado a otro.\n\nGana el primero que responde. Punto.",
+    title: "Las respuestas lentas te cuestan clientes",
+    desc: "Cuando respondes, muchas veces ya han elegido otra opción.\n\nHoy, quien responde primero… se queda con el cliente.",
     accent: "#c6990c",
     iconBg: "rgba(198,153,12,0.1)",
     badgeBg: "rgba(198,153,12,0.1)",
@@ -13,8 +13,8 @@ const problems = [
   },
   {
     icon: MessageSquareX,
-    title: "Mensajes por todos lados y se te escapan",
-    desc: "WhatsApp, Instagram, email, formulario de la web…\n\nAl final algo se pierde y con ello, un cliente.",
+    title: "Mensajes por todas partes, sin control real",
+    desc: "WhatsApp, Instagram, email, web…\n\nLa información se dispersa y se pierden oportunidades.",
     accent: "#03a8a8",
     iconBg: "rgba(3,168,168,0.1)",
     badgeBg: "rgba(3,168,168,0.1)",
@@ -22,8 +22,8 @@ const problems = [
   },
   {
     icon: CalendarX,
-    title: "Pierdes horas reservando citas a mano",
-    desc: "Llamadas, mensajes y cuadrar huecos en la agenda.\n\nTiempo que tú o tu equipo no estáis dedicando a vuestros clientes.",
+    title: "Gestionar citas se convierte en un cuello de botella",
+    desc: "Entre atender, coordinar y organizar agendas…\n\ntu equipo pierde horas en tareas que podrían estar automatizadas.",
     accent: "#9b4ad4",
     iconBg: "rgba(155,74,212,0.1)",
     badgeBg: "rgba(155,74,212,0.1)",
@@ -31,8 +31,8 @@ const problems = [
   },
   {
     icon: UserX,
-    title: "Si no estás tú, no entra ningún cliente",
-    desc: "Tu negocio depende de que alguien esté pendiente del móvil todo el día.\n\nAsí no se puede crecer.",
+    title: "Tu negocio depende demasiado de estar disponible",
+    desc: "Ya sea tú o tu equipo, si no hay respuesta rápida… el cliente se va.\n\nY eso limita tu crecimiento.",
     accent: "#1a1a1a",
     iconBg: "rgba(26,26,26,0.06)",
     badgeBg: "rgba(26,26,26,0.08)",
@@ -58,7 +58,7 @@ const ProblemSection = () => (
           ¿Te suena familiar?
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-          Por qué tu negocio{" "}
+          Por qué tu clínica{" "}
           <span
             style={{
               background: "linear-gradient(90deg, #c6990c 0%, #8a6200 100%)",
@@ -67,7 +67,7 @@ const ProblemSection = () => (
               backgroundClip: "text",
             }}
           >
-            pierde clientes
+            pierde pacientes
           </span>{" "}
           sin darse cuenta
         </h2>
@@ -80,9 +80,9 @@ const ProblemSection = () => (
         transition={{ delay: 0.1 }}
         className="text-center mb-14 max-w-2xl mx-auto"
       >
-        <p className="text-muted-foreground text-lg mb-1">No es que no trabajes lo suficiente.</p>
+        <p className="text-muted-foreground text-lg mb-1">No es falta de esfuerzo.</p>
         <p className="text-muted-foreground text-lg">
-          Es que tu web y tus canales tienen fugas. En la auditoría te las enseñamos.
+          Es lo que no estás viendo lo que está frenando tu negocio.
         </p>
       </motion.div>
 

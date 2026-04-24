@@ -4,28 +4,28 @@ import { ChevronDown, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    q: "¿En cuánto tiempo lo tengo funcionando?",
-    a: "En 7 días tu web empieza a captar contactos. Nosotros nos ocupamos de todo: botón de WhatsApp, formularios, chatbot básico y conexión con tu agenda. Tú no tocas nada técnico.",
+    q: "¿Cuánto tiempo lleva poner en marcha el sistema?",
+    a: "En 2 semanas tu asistente está activo. Nosotros nos encargamos de toda la configuración técnica: integración con WhatsApp, personalización de respuestas, conexión con tu agenda y pruebas de calidad. Tú no tienes que hacer nada técnico.",
   },
   {
-    q: "¿Tengo que saber de tecnología?",
-    a: "Nada. Lo dejamos todo listo y te enseñamos a manejarlo en menos de 1 hora. Si tienes una duda, nos escribes y te ayudamos.",
+    q: "¿Necesito tener conocimientos técnicos?",
+    a: "En absoluto. El sistema está diseñado para que tú te limites a gestionar tu clínica. Nosotros configuramos todo, te formamos en 2 horas y te damos soporte continuo. Si tienes dudas, escribes y te respondemos.",
   },
   {
-    q: "¿Y si el cliente pregunta algo que el chatbot no sabe?",
-    a: "El chatbot solo responde lo básico (horarios, precios, ubicación). Cuando hay una pregunta más compleja, te avisa para que entres tú. Lo mejor de los dos mundos: rapidez y trato humano.",
+    q: "¿Qué pasa si el paciente hace una pregunta que el asistente no sabe responder?",
+    a: "El sistema está entrenado para saber cuándo escalar una conversación a un humano. En esos casos, te notifica y puedes tomar el control de la conversación en cualquier momento. Lo mejor de dos mundos: automatización + toque humano cuando se necesita.",
   },
   {
-    q: "¿Funciona con mi web actual?",
-    a: "En la mayoría de casos sí. En la Auditoría Gratuita revisamos tu web y te confirmamos qué se puede mejorar sin tener que rehacerla.",
+    q: "¿Se puede integrar con mi software de gestión actual?",
+    a: "Sí. Trabajamos con los sistemas de gestión más habituales del sector dental y médico. Durante la auditoría gratuita analizamos tu caso concreto y te confirmamos la compatibilidad antes de empezar.",
   },
   {
     q: "¿Cuánto cuesta?",
-    a: "Hay planes para distintos tamaños de negocio, desde 390€. La mayoría de clientes recupera la inversión el primer mes con los nuevos contactos. Pide tu Auditoría Gratuita y te decimos qué plan encaja mejor.",
+    a: "Tenemos planes adaptados al tamaño de tu clínica. El ROI medio de nuestros clientes es positivo desde el primer mes. Solicita tu auditoría gratuita y te presentamos una propuesta personalizada sin compromiso.",
   },
   {
-    q: "¿Mis clientes sabrán que es un chatbot?",
-    a: "El chatbot se presenta como el asistente de tu negocio, con tu nombre y tu tono. Resuelve dudas básicas y, cuando hace falta, te pasa la conversación a ti. Sin frialdad ni respuestas raras.",
+    q: "¿Los pacientes sabrán que hablan con una IA?",
+    a: "El sistema se presenta como el asistente de tu clínica, no como un robot genérico. Las respuestas están personalizadas con tu nombre, tu tono y tu información. La mayoría de pacientes no distinguen si hablan con una persona o con el asistente.",
   },
 ];
 
@@ -91,10 +91,10 @@ const FAQSection = () => (
             Preguntas frecuentes
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Resolvemos tus dudas antes de empezar
+            Todo lo que necesitas saber
           </h2>
           <p className="text-muted-foreground text-lg">
-            ¿Te queda alguna duda? Pide tu Auditoría Gratuita y te la resolvemos sin compromiso.
+            ¿Tienes más preguntas? Escríbenos y te respondemos en menos de 24h.
           </p>
         </motion.div>
 

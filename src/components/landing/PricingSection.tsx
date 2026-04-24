@@ -25,44 +25,44 @@ type Plan = {
 const plans: Plan[] = [
   {
     badge: "PLAN ESENCIAL",
-    name: "Tu web empieza a traer clientes",
+    name: "Presencia que Convierte",
     price: "€390",
     priceNote: "instalación única",
     monthly: "29€/mes mantenimiento",
     idealSi:
-      "Tu web está parada y no te llega ningún contacto. Quieres dar el primer paso sin grandes cambios.",
+      "Para clínicas invisibles que están perdiendo pacientes cada día.",
     features: [
-      { text: "Mejora de tu web o landing sencilla" },
-      { text: "Botón de WhatsApp visible en tu web" },
-      { text: "Tu ficha de Google a punto para captar" },
-      { text: "Botón de WhatsApp directo en Google" },
-      { text: "Te enseñamos a gestionarlo en 1 hora", bonus: true },
+      { text: "Retoque de web o creación de landing page sencilla" },
+      { text: "Botón de WhatsApp en tu web" },
+      { text: "Creación u optimización de perfil Google Business" },
+      { text: "Botón de WhatsApp directo en Google Business" },
+      { text: "Formación básica para gestionar tus canales", bonus: true },
     ],
     result:
-      "Empiezas a recibir mensajes de clientes sin hacer nada extra.",
-    ctaLabel: "Solicita tu Auditoría Gratuita",
+      "Empiezas a recibir mensajes de pacientes sin hacer nada extra.",
+    ctaLabel: "Quiero saber más",
     ctaMessage:
       "Hola, quiero saber más sobre el plan Esencial de €390 + 29€/mes",
     variant: "light",
   },
   {
     badge: "PLAN INTELIGENTE",
-    name: "Atiende a tus clientes 24/7",
+    name: "Asistente que Capta y Filtra",
     price: "€749",
     priceNote: "instalación única",
     monthly: "69€/mes mantenimiento",
     includesPrev: "Incluye todo el plan Esencial",
     idealSi:
-      "Quieres que cada cliente reciba respuesta al instante, a cualquier hora, sin que tengas que estar pendiente del móvil.",
+      "Quieres que tus pacientes reciban respuesta inmediata a cualquier hora y lleguen listos para pedir cita — sin que tú levantes el teléfono. Que ningún mensaje se pierda y captar pacientes fuera de tu horario.",
     features: [
-      { text: "Chatbot en tu web que responde dudas básicas" },
-      { text: "Bot en WhatsApp activo 24/7" },
-      { text: "Lleva al cliente hasta pedir cita o reserva" },
-      { text: "Personalizado con tus servicios y tu tono" },
-      { text: "Mantenimiento y mejoras todos los meses" },
-      { text: "Informe mensual de mensajes y contactos", bonus: true },
+      { text: "Bot en web que responde FAQs al instante" },
+      { text: "Bot en WhatsApp que atiende 24/7" },
+      { text: "Canalización activa hacia la cita (no solo informar)" },
+      { text: "Personalizado con tus servicios, precios y tono" },
+      { text: "Mantenimiento y actualizaciones mensuales" },
+      { text: "Informe mensual de conversaciones y leads", bonus: true },
     ],
-    ctaLabel: "Solicita tu Auditoría Gratuita",
+    ctaLabel: "Quiero saber más",
     ctaMessage:
       "Hola, quiero saber más sobre el plan Inteligente de €749 + 69€/mes",
     variant: "dark",
@@ -70,22 +70,22 @@ const plans: Plan[] = [
   },
   {
     badge: "PLAN COMPLETO",
-    name: "Tu negocio en piloto automático",
+    name: "Clínica en Piloto Automático",
     price: "€1149",
     priceNote: "instalación única",
     monthly: "109€/mes mantenimiento",
     includesPrev: "Incluye todo el plan Inteligente",
     idealSi:
-      "Quieres que las reservas, recordatorios y reseñas se gestionen solos, sin que tú o tu equipo perdáis tiempo.",
+      "Quieres que el sistema gestione citas, mande recordatorios y consiga reseñas automáticamente — sin que tu equipo toque nada.",
     features: [
-      { text: "Reservas directas en tu calendario" },
-      { text: "Recordatorios de cita el día antes y 1h antes" },
-      { text: "Cancelaciones y cambios sin que muevas un dedo" },
-      { text: "Pide reseñas en Google después de cada visita" },
-      { text: "Recupera clientes que llevan tiempo sin venir" },
-      { text: "Informe mensual con resultados claros", bonus: true },
+      { text: "Agenda automática en tu calendario sin fricciones" },
+      { text: "Recordatorios de cita 24h y 1h antes" },
+      { text: "Gestión de cancelaciones y reprogramaciones" },
+      { text: "Solicitud automática de reseñas en Google post-visita" },
+      { text: "Reactivación de pacientes inactivos" },
+      { text: "Reporte mensual de ROI", bonus: true },
     ],
-    ctaLabel: "Solicita tu Auditoría Gratuita",
+    ctaLabel: "Quiero este plan",
     ctaMessage:
       "Hola, quiero saber más sobre el plan Completo de €1149 + 109€/mes",
     variant: "light",
@@ -106,11 +106,11 @@ const PricingSection = () => {
             ✨ Planes y precios
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-4">
-            Empieza por donde{" "}
+            Elige tu punto{" "}
             <span className="text-gradient italic">de partida</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Tres planes claros, sin sorpresas. Empieza por el que encaje hoy y crece cuando quieras.
+            Tres niveles de automatización. Empieza donde tiene sentido para tu clínica y escala cuando quieras.
           </p>
         </motion.div>
 
@@ -257,10 +257,10 @@ const PricingSection = () => {
           className="text-center mt-10 space-y-2"
         >
           <p className="text-muted-foreground text-sm">
-            ¿No sabes qué plan elegir? Pide tu Auditoría Gratuita y te decimos cuál encaja con tu negocio.
+            ¿No sabes qué plan elegir? Solicita tu auditoría gratuita y te asesoramos sin compromiso.
           </p>
           <p className="text-foreground/80 text-sm font-medium">
-            ¿Necesitas algo distinto? También hacemos planes a medida para tu negocio.
+            ¿Necesitas algo distinto? También diseñamos planes a medida adaptados a tu clínica.
           </p>
         </motion.div>
 
