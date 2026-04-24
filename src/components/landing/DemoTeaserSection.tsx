@@ -28,9 +28,9 @@ const DemoTeaserSection = () => {
                   Demo en vivo
                 </p>
                 <h3 className="font-display font-semibold text-foreground text-sm md:text-base leading-snug">
-                  ¿Quieres ver cómo responde el bot{" "}
+                  ¿Quieres ver cómo respondería en tu negocio{" "}
                   <span className="italic text-accent font-normal">
-                    antes de seguir leyendo?
+                    antes de seguir?
                   </span>
                 </h3>
               </div>

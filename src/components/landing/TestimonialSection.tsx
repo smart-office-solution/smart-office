@@ -21,7 +21,7 @@ const TestimonialSection = () => {
             Lo que dicen de nosotros
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-            Clientes satisfechos con <span className="text-gradient">Smart Office IA</span>
+            Negocios que ya están <span className="text-gradient">recibiendo más clientes</span>
           </h2>
         </motion.div>
 

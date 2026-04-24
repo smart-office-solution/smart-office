@@ -23,60 +23,60 @@ const steps: Record<
 > = {
   "1": {
     number: "1",
-    title: "Captación automática",
-    sub: "Nunca pierdas un lead",
+    title: "Más contactos desde tu web",
+    sub: "Que ningún mensaje se pierda",
     accent: "#c6990c",
     accentBg: "rgba(198,153,12,0.1)",
     accentBgSoft: "rgba(198,153,12,0.08)",
     tagLabel: "01 · Captación",
-    panelTitle: "Cada mensaje recibe respuesta en segundos",
+    panelTitle: "Convierte visitas en contactos reales",
     description:
-      "WhatsApp, Instagram, web — da igual desde dónde escriba el paciente. El asistente responde al instante, resuelve dudas y lo guía hasta pedir cita. Sin que tú levantes el teléfono.",
+      "Botón de WhatsApp visible, formularios sencillos y un chatbot que responde lo básico al instante. Tu web deja de ser un escaparate y empieza a generarte clientes.",
     features: [
-      "Respuesta en menos de 2 minutos, 24/7",
-      "WhatsApp, Instagram y chatbot en web",
-      "Sin intervención humana",
+      "Botón de WhatsApp directo en tu web",
+      "Formularios claros y fáciles de rellenar",
+      "Chatbot básico que responde 24/7",
     ],
     metricNumber: "78%",
-    metricText: "de pacientes elige al primero en responder",
+    metricText: "de las personas eligen al primero que les responde",
   },
   "2": {
     number: "2",
-    title: "Gestión de agenda",
-    sub: "Citas sin esfuerzo manual",
+    title: "Reservas sin complicaciones",
+    sub: "Citas sin idas y venidas",
     accent: "#03a8a8",
     accentBg: "rgba(3,168,168,0.1)",
     accentBgSoft: "rgba(3,168,168,0.08)",
-    tagLabel: "02 · Agenda",
-    panelTitle: "Tu calendario se llena solo, sin llamadas",
+    tagLabel: "02 · Reservas",
+    panelTitle: "Tu agenda se llena sin llamadas eternas",
     description:
-      "El asistente confirma disponibilidad, reserva la cita directamente en tu agenda y manda recordatorios automáticos. Sin idas y venidas, sin llamadas perdidas.",
+      "El cliente reserva su hueco directamente desde tu web o WhatsApp. Tú solo recibes la cita confirmada en tu calendario. Sin perseguir a nadie.",
     features: [
-      "Agenda directa en tu calendario",
-      "Recordatorios 24h y 1h antes",
-      "Cancelaciones y reprogramaciones automáticas",
+      "Reserva directa desde la web",
+      "Recordatorio automático antes de la cita",
+      "Menos huecos vacíos en tu agenda",
     ],
     metricNumber: "−40%",
-    metricText: "de citas no atendidas con recordatorios automáticos",
+    metricText: "menos citas perdidas con un simple recordatorio",
   },
   "3": {
     number: "3",
-    title: "Seguimiento continuo",
-    sub: "Pacientes que vuelven",
+    title: "Clientes que vuelven",
+    sub: "Sin tener que perseguirlos",
     accent: "#9b4ad4",
     accentBg: "rgba(155,74,212,0.1)",
     accentBgSoft: "rgba(155,74,212,0.08)",
     tagLabel: "03 · Seguimiento",
-    panelTitle: "Cada paciente se convierte en un cliente fiel",
+    panelTitle: "Más reseñas y más clientes que repiten",
     description:
-      "Después de cada visita, el sistema pide una reseña en Google, manda recordatorios de próximas citas y mantiene el contacto de forma personalizada.",
+      "Después de cada visita, tu cliente recibe un mensaje pidiéndole una reseña en Google y recordándole su próxima cita. Sencillo, automático y sin esfuerzo para ti.",
     features: [
-      "Reseñas en Google automáticas tras cada visita",
-      "Recordatorios de próximas revisiones",
-      "Reactivación de pacientes inactivos",
+      "Pide reseñas en Google de forma automática",
+      "Recordatorios para que vuelvan a tu negocio",
+      "Recupera clientes que llevan tiempo sin venir",
     ],
     metricNumber: "+65%",
-    metricText: "de pacientes recurrentes frente a gestión manual",
+    metricText: "más clientes recurrentes que haciéndolo a mano",
   },
 };
 
@@ -276,7 +276,7 @@ const SolutionSection = () => {
             Cómo funciona
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
-            Tres pasos.{" "}
+            Tres pasos para que tu web{" "}
             <span
               className="italic"
               style={{
@@ -286,11 +286,11 @@ const SolutionSection = () => {
                 backgroundClip: "text",
               }}
             >
-              Una clínica que trabaja sola.
+              te traiga clientes
             </span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Sin complejidad técnica. Sin cambiar tu forma de trabajar. Activo en 7 días.
+            Sin complicaciones, sin cambiar cómo trabajas y listo en 7 días.
           </p>
         </motion.div>
 
