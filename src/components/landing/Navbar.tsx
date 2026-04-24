@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-smart-office.svg";
 
 const navLinks = [
-  { label: "Solución", href: "#solution" },
-  { label: "Funcionalidades", href: "#features" },
+  { label: "Cómo funciona", href: "#solution" },
+  { label: "Beneficios", href: "#features" },
   { label: "Precios", href: "#pricing" },
   { label: "Proceso", href: "#process" },
   { label: "FAQ", href: "#faq" },
@@ -75,7 +75,7 @@ const Navbar = () => {
               size="sm"
               className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/25 rounded-lg gap-1.5 font-semibold"
             >
-              Auditoría gratis
+              Auditoría Gratuita
             </Button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -112,7 +112,7 @@ const Navbar = () => {
               onClick={scrollToAudit}
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl gap-2"
             >
-              Solicita tu auditoría gratuita
+              Solicita tu Auditoría Gratuita
             </Button>
           </motion.div>
         )}

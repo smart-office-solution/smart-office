@@ -5,8 +5,8 @@ import heroCover from "@/assets/hero-cover.jpg";
 
 const trustItems = [
   { icon: ShieldCheck, text: "Sin compromiso" },
-  { icon: BarChart3, text: "Análisis personalizado" },
-  { icon: Lightbulb, text: "Consejos accionables" },
+  { icon: BarChart3, text: "Diagnóstico claro de tu web" },
+  { icon: Lightbulb, text: "Mejoras listas para aplicar" },
 ];
 
 const HeroSection = () => {
@@ -28,18 +28,18 @@ const HeroSection = () => {
             transition={{ duration: 0.7 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-foreground mb-6">
-              Haz que tu clínica deje de perder <span className="text-gradient">citas, tiempo y pacientes</span>
+              Tienes una web, pero <span className="text-gradient">no te llegan clientes</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
-              Un sistema que capta, atiende, agenda y recupera pacientes automáticamente, 24/7
+              Te decimos exactamente por qué y cómo arreglarlo. Gratis, en menos de 24h y sin tecnicismos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Button variant="hero" size="lg" className="px-8 py-6" onClick={scrollToAudit}>
-                Solicita tu auditoría gratuita
+                Solicita tu Auditoría Gratuita
               </Button>
             </div>
             <p className="text-sm text-muted-foreground/70 mb-8">
-              Descubre dónde estás perdiendo pacientes sin darte cuenta
+              Descubre dónde estás perdiendo clientes cada día sin saberlo
             </p>
             <div className="flex flex-wrap gap-6">
               {trustItems.map(({ icon: Icon, text }) => (

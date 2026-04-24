@@ -5,10 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 const perks = [
-  "Análisis personalizado de tu clínica",
-  "Detección de fugas de pacientes",
-  "Plan de acción concreto en 30 min",
-  "Sin compromiso ni venta dura",
+  "Revisión personalizada de tu web",
+  "Te decimos dónde estás perdiendo clientes",
+  "Plan de mejoras claro y aplicable ya",
+  "Sin compromiso y sin venta dura",
 ];
 
 const AuditSection = () => {
@@ -59,13 +59,13 @@ const AuditSection = () => {
             >
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet/10 border border-violet/20 text-violet text-sm font-semibold uppercase tracking-wider mb-6">
                 <Sparkles className="w-3.5 h-3.5" />
-                Auditoría gratuita
+                Auditoría Gratuita
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4 leading-tight">
-                Descubre cuántos pacientes estás perdiendo cada semana
+                Descubre cuántos clientes estás perdiendo cada semana
               </h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                En 30 minutos te mostramos exactamente dónde se escapan tus oportunidades y cómo automatizarlas.
+                Revisamos tu web y te decimos, en plata, qué cambiar para que empiece a traerte contactos y reservas.
               </p>
               
               <div className="space-y-3">
@@ -100,10 +100,10 @@ const AuditSection = () => {
                         <Sparkles className="w-8 h-8 text-violet-foreground" />
                       </div>
                       <h3 className="text-xl font-display font-bold text-foreground mb-1">
-                        Solicita tu auditoría gratuita
+                        Solicita tu Auditoría Gratuita
                       </h3>
                       <p className="text-muted-foreground text-sm">
-                        Te contactamos en menos de 24h
+                        Te respondemos en menos de 24h
                       </p>
                     </div>
 
@@ -114,7 +114,7 @@ const AuditSection = () => {
                         </label>
                         <Input
                           type="email"
-                          placeholder="clinica@ejemplo.com"
+                          placeholder="tunegocio@ejemplo.com"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required
@@ -127,7 +127,7 @@ const AuditSection = () => {
                         disabled={isLoading}
                         className="w-full h-12 bg-gradient-to-r from-violet to-violet/80 hover:from-violet/90 hover:to-violet/70 text-violet-foreground font-semibold rounded-xl shadow-lg shadow-violet/30 gap-2 transition-all duration-300"
                       >
-                        {isLoading ? "Enviando..." : "Quiero mi auditoría gratuita"}
+                        {isLoading ? "Enviando..." : "Quiero mi Auditoría Gratuita"}
                         {!isLoading && <ArrowRight className="w-4 h-4" />}
                       </Button>
                     </form>
@@ -135,7 +135,7 @@ const AuditSection = () => {
                     {/* Social proof mini */}
                     <div className="mt-6 pt-6 border-t border-border flex items-center justify-center gap-3">
                       <p className="text-xs text-muted-foreground">
-                        Automatiza tu clínica con inteligencia artificial
+                        Sin compromiso · Sin venta dura · 100% gratuita
                       </p>
                     </div>
                   </>
