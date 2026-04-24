@@ -24,11 +24,11 @@ const DemoSection = () => {
               Pruébalo tú mismo
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-              Habla con nuestro{" "}
-              <span className="text-gradient">asistente en vivo</span>
+              Prueba en vivo cómo{" "}
+              <span className="text-gradient">responde el bot</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Mira cómo responde, filtra y agenda citas como lo haría en tu propia clínica. Sin instalación, sin compromiso.
+              Habla con él como si fueras un cliente: pregunta precios, pide cita, pon una excusa. Verás justo lo que recibirían los tuyos.
             </p>
           </motion.div>
 
@@ -44,10 +44,10 @@ const DemoSection = () => {
             </div>
 
             <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
-              Demo interactiva del bot
+              Demo interactiva del chatbot
             </h3>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-              Haz preguntas reales, pide cita, simula ser un paciente. El bot reaccionará igual que en una clínica configurada con Smart Office IA.
+              Sin instalar nada y sin compromiso. Pruébalo 2 minutos y juzga tú mismo si encaja con tu negocio.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

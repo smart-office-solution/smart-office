@@ -4,28 +4,28 @@ import { ChevronDown, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    q: "¿Cuánto tiempo lleva poner en marcha el sistema?",
-    a: "En 2 semanas tu asistente está activo. Nosotros nos encargamos de toda la configuración técnica: integración con WhatsApp, personalización de respuestas, conexión con tu agenda y pruebas de calidad. Tú no tienes que hacer nada técnico.",
+    q: "¿Cuánto tiempo lleva ponerlo en marcha?",
+    a: "Depende del alcance, pero la mayoría de mejoras (landing, botón de WhatsApp, formularios, chatbot básico) están listas en pocos días. Yo me encargo de toda la parte técnica, tú solo das el visto bueno.",
   },
   {
     q: "¿Necesito tener conocimientos técnicos?",
-    a: "En absoluto. El sistema está diseñado para que tú te limites a gestionar tu clínica. Nosotros configuramos todo, te formamos en 2 horas y te damos soporte continuo. Si tienes dudas, escribes y te respondemos.",
+    a: "Para nada. Está pensado justo para lo contrario: que tú no tengas que pelearte con tecnología. Yo lo configuro todo, te explico lo básico y te doy soporte cuando lo necesites.",
   },
   {
-    q: "¿Qué pasa si el paciente hace una pregunta que el asistente no sabe responder?",
-    a: "El sistema está entrenado para saber cuándo escalar una conversación a un humano. En esos casos, te notifica y puedes tomar el control de la conversación en cualquier momento. Lo mejor de dos mundos: automatización + toque humano cuando se necesita.",
+    q: "¿Qué pasa si el bot no sabe responder algo?",
+    a: "El chatbot está pensado para resolver lo habitual (precios, horarios, disponibilidad…). Cuando una consulta se sale de ahí, te avisa y tú continúas la conversación. Lo justo de automatización + tu toque humano cuando hace falta.",
   },
   {
-    q: "¿Se puede integrar con mi software de gestión actual?",
-    a: "Sí. Trabajamos con los sistemas de gestión más habituales del sector dental y médico. Durante la auditoría gratuita analizamos tu caso concreto y te confirmamos la compatibilidad antes de empezar.",
+    q: "¿Funciona con mi web actual?",
+    a: "En la mayoría de casos sí, sin tocar todo. Si tu web tiene algún problema serio, te lo digo en la auditoría y te propongo la mejor opción (mejora puntual o landing nueva sencilla).",
   },
   {
     q: "¿Cuánto cuesta?",
-    a: "Tenemos planes adaptados al tamaño de tu clínica. El ROI medio de nuestros clientes es positivo desde el primer mes. Solicita tu auditoría gratuita y te presentamos una propuesta personalizada sin compromiso.",
+    a: "Hay planes para distintos tamaños de negocio y también propuestas a medida. En la auditoría gratuita te digo qué necesitas realmente — sin venderte nada que no te haga falta.",
   },
   {
-    q: "¿Los pacientes sabrán que hablan con una IA?",
-    a: "El sistema se presenta como el asistente de tu clínica, no como un robot genérico. Las respuestas están personalizadas con tu nombre, tu tono y tu información. La mayoría de pacientes no distinguen si hablan con una persona o con el asistente.",
+    q: "¿Para qué tipo de negocios es esto?",
+    a: "Para pymes con web que no convierte: clínicas dentales, fisios, estética, cervecerías artesanales, tiendas, negocios con citas o productos… Si tienes web pero los clientes no llegan, te puedo ayudar.",
   },
 ];
 
@@ -91,10 +91,10 @@ const FAQSection = () => (
             Preguntas frecuentes
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Todo lo que necesitas saber
+            Lo que sueles preguntarme antes de empezar
           </h2>
           <p className="text-muted-foreground text-lg">
-            ¿Tienes más preguntas? Escríbenos y te respondemos en menos de 24h.
+            ¿Te queda alguna duda? Escríbeme y te respondo en menos de 24h.
           </p>
         </motion.div>
 

@@ -5,10 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 const perks = [
-  "Análisis personalizado de tu clínica",
-  "Detección de fugas de pacientes",
-  "Plan de acción concreto en 30 min",
-  "Sin compromiso ni venta dura",
+  "Reviso tu web y tus canales de captación",
+  "Te digo dónde estás perdiendo clientes",
+  "Plan de mejoras concretas en 30 min",
+  "Sin compromiso ni venta agresiva",
 ];
 
 const AuditSection = () => {
@@ -62,10 +62,10 @@ const AuditSection = () => {
                 Auditoría gratuita
               </span>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4 leading-tight">
-                Descubre cuántos pacientes estás perdiendo cada semana
+                Te digo qué mejorar en tu web para conseguir más clientes
               </h2>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                En 30 minutos te mostramos exactamente dónde se escapan tus oportunidades y cómo automatizarlas.
+                En 30 minutos miramos juntos tu web, tus formularios y tus canales — y te llevas un plan claro y aplicable, aunque no trabajemos juntos.
               </p>
               
               <div className="space-y-3">
@@ -81,7 +81,7 @@ const AuditSection = () => {
 
               <div className="mt-8 flex items-center gap-2 text-muted-foreground text-xs">
                 <Lock className="w-3.5 h-3.5" />
-                Sin spam · Sin compromisos · 100% gratuita
+                Sin spam · Sin compromiso · 100% gratuita
               </div>
             </motion.div>
 
@@ -103,18 +103,18 @@ const AuditSection = () => {
                         Solicita tu auditoría gratuita
                       </h3>
                       <p className="text-muted-foreground text-sm">
-                        Te contactamos en menos de 24h
+                        Te respondo en menos de 24h, sin compromiso
                       </p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
                         <label className="block text-sm font-medium text-foreground mb-1.5">
-                          Tu email profesional
+                          Tu email
                         </label>
                         <Input
                           type="email"
-                          placeholder="clinica@ejemplo.com"
+                          placeholder="tunegocio@ejemplo.com"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required
@@ -135,7 +135,7 @@ const AuditSection = () => {
                     {/* Social proof mini */}
                     <div className="mt-6 pt-6 border-t border-border flex items-center justify-center gap-3">
                       <p className="text-xs text-muted-foreground">
-                        Automatiza tu clínica con inteligencia artificial
+                        Más clientes desde tu web, sin complicarte con tecnología
                       </p>
                     </div>
                   </>
@@ -145,7 +145,7 @@ const AuditSection = () => {
                       <CheckCircle className="w-8 h-8 text-accent" />
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-2">¡Solicitud enviada!</h3>
-                    <p className="text-muted-foreground text-sm">Te contactamos en menos de 24h.</p>
+                    <p className="text-muted-foreground text-sm">Te respondo en menos de 24h.</p>
                   </div>
                 )}
               </div>
